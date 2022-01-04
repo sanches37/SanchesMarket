@@ -16,7 +16,20 @@
 		4D4C5F1A27844AE10037496E /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* ItemData.swift */; };
 		4D4C5F1C27844C6E0037496E /* ItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1B27844C6E0037496E /* ItemsData.swift */; };
 		4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1E278452860037496E /* ParsingManager.swift */; };
+		4D4C5F27278456720037496E /* SanchesMarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F26278456720037496E /* SanchesMarketTests.swift */; };
+		4D4C5F332784587F0037496E /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F322784587F0037496E /* Item.json */; };
+		4D4C5F35278458BB0037496E /* Items.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F34278458BB0037496E /* Items.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D4C5F28278456720037496E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4C5EF3278439540037496E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D4C5EFA278439540037496E;
+			remoteInfo = SanchesMarket;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4D4C5EFB278439540037496E /* SanchesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +43,21 @@
 		4D4C5F1927844AE10037496E /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		4D4C5F1B27844C6E0037496E /* ItemsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsData.swift; sourceTree = "<group>"; };
 		4D4C5F1E278452860037496E /* ParsingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingManager.swift; sourceTree = "<group>"; };
+		4D4C5F24278456720037496E /* SanchesMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SanchesMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D4C5F26278456720037496E /* SanchesMarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesMarketTests.swift; sourceTree = "<group>"; };
+		4D4C5F322784587F0037496E /* Item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
+		4D4C5F34278458BB0037496E /* Items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Items.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D4C5EF8278439540037496E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D4C5F21278456720037496E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4C5EFD278439540037496E /* SanchesMarket */,
+				4D4C5F25278456720037496E /* SanchesMarketTests */,
 				4D4C5EFC278439540037496E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4C5EFB278439540037496E /* SanchesMarket.app */,
+				4D4C5F24278456720037496E /* SanchesMarketTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +134,24 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		4D4C5F25278456720037496E /* SanchesMarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C5F2D278456A50037496E /* Mock */,
+				4D4C5F26278456720037496E /* SanchesMarketTests.swift */,
+			);
+			path = SanchesMarketTests;
+			sourceTree = "<group>";
+		};
+		4D4C5F2D278456A50037496E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C5F322784587F0037496E /* Item.json */,
+				4D4C5F34278458BB0037496E /* Items.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +172,24 @@
 			productReference = 4D4C5EFB278439540037496E /* SanchesMarket.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4D4C5F23278456720037496E /* SanchesMarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D4C5F2A278456720037496E /* Build configuration list for PBXNativeTarget "SanchesMarketTests" */;
+			buildPhases = (
+				4D4C5F20278456720037496E /* Sources */,
+				4D4C5F21278456720037496E /* Frameworks */,
+				4D4C5F22278456720037496E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D4C5F29278456720037496E /* PBXTargetDependency */,
+			);
+			name = SanchesMarketTests;
+			productName = SanchesMarketTests;
+			productReference = 4D4C5F24278456720037496E /* SanchesMarketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -140,6 +202,10 @@
 				TargetAttributes = {
 					4D4C5EFA278439540037496E = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					4D4C5F23278456720037496E = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 4D4C5EFA278439540037496E;
 					};
 				};
 			};
@@ -157,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				4D4C5EFA278439540037496E /* SanchesMarket */,
+				4D4C5F23278456720037496E /* SanchesMarketTests */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +236,15 @@
 				4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */,
 				4D4C5F08278439550037496E /* Assets.xcassets in Resources */,
 				4D4C5F06278439540037496E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D4C5F22278456720037496E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D4C5F35278458BB0037496E /* Items.json in Resources */,
+				4D4C5F332784587F0037496E /* Item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +264,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4D4C5F20278456720037496E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D4C5F27278456720037496E /* SanchesMarketTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D4C5F29278456720037496E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D4C5EFA278439540037496E /* SanchesMarket */;
+			targetProxy = 4D4C5F28278456720037496E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4D4C5F04278439540037496E /* Main.storyboard */ = {
@@ -384,6 +476,52 @@
 			};
 			name = Release;
 		};
+		4D4C5F2B278456720037496E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 626VJ36K6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SanchesMarketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SanchesMarket.app/SanchesMarket";
+			};
+			name = Debug;
+		};
+		4D4C5F2C278456720037496E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 626VJ36K6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SanchesMarketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SanchesMarket.app/SanchesMarket";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -401,6 +539,15 @@
 			buildConfigurations = (
 				4D4C5F10278439550037496E /* Debug */,
 				4D4C5F11278439550037496E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D4C5F2A278456720037496E /* Build configuration list for PBXNativeTarget "SanchesMarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D4C5F2B278456720037496E /* Debug */,
+				4D4C5F2C278456720037496E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
