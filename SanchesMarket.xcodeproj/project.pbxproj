@@ -13,6 +13,8 @@
 		4D4C5F06278439540037496E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F04278439540037496E /* Main.storyboard */; };
 		4D4C5F08278439550037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 		4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F09278439550037496E /* LaunchScreen.storyboard */; };
+		4D4C5F1A27844AE10037496E /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* ItemData.swift */; };
+		4D4C5F1C27844C6E0037496E /* ItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1B27844C6E0037496E /* ItemsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4D4C5F07278439550037496E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4C5F0A278439550037496E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D4C5F0C278439550037496E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D4C5F1927844AE10037496E /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		4D4C5F1B27844C6E0037496E /* ItemsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		4D4C5EFD278439540037496E /* SanchesMarket */ = {
 			isa = PBXGroup;
 			children = (
+				4D4C5F1627844AA70037496E /* Model */,
+				4D4C5F1727844AB40037496E /* View */,
+				4D4C5F1827844ABA0037496E /* Controller */,
 				4D4C5EFE278439540037496E /* AppDelegate.swift */,
 				4D4C5F00278439540037496E /* SceneDelegate.swift */,
-				4D4C5F02278439540037496E /* ViewController.swift */,
 				4D4C5F04278439540037496E /* Main.storyboard */,
 				4D4C5F07278439550037496E /* Assets.xcassets */,
 				4D4C5F09278439550037496E /* LaunchScreen.storyboard */,
 				4D4C5F0C278439550037496E /* Info.plist */,
 			);
 			path = SanchesMarket;
+			sourceTree = "<group>";
+		};
+		4D4C5F1627844AA70037496E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C5F1927844AE10037496E /* ItemData.swift */,
+				4D4C5F1B27844C6E0037496E /* ItemsData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D4C5F1727844AB40037496E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D4C5F1827844ABA0037496E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C5F02278439540037496E /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4C5F1C27844C6E0037496E /* ItemsData.swift in Sources */,
 				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
+				4D4C5F1A27844AE10037496E /* ItemData.swift in Sources */,
 				4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
