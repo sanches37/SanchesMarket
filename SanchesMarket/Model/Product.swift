@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ItemData: Codable {
-    let id: String
+struct Product: Codable {
+    let id: Int
     let title: String
     let descriptions: String?
     let price: Int
@@ -17,7 +17,7 @@ struct ItemData: Codable {
     let discountedPrice: Int?
     let thumbnails: [String]
     let images: [String]?
-    let registrationDate: String
+    let registrationDate: Double
     
     enum Codingkeys: String, CodingKey {
         case id, title, descriptions, price, currency, stock, thumbnails, images

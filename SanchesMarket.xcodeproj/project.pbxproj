@@ -13,8 +13,8 @@
 		4D4C5F06278439540037496E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F04278439540037496E /* Main.storyboard */; };
 		4D4C5F08278439550037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 		4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F09278439550037496E /* LaunchScreen.storyboard */; };
-		4D4C5F1A27844AE10037496E /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* ItemData.swift */; };
-		4D4C5F1C27844C6E0037496E /* ItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1B27844C6E0037496E /* ItemsData.swift */; };
+		4D4C5F1A27844AE10037496E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* Product.swift */; };
+		4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1B27844C6E0037496E /* ProductCollection.swift */; };
 		4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1E278452860037496E /* ParsingManager.swift */; };
 		4D4C5F27278456720037496E /* SanchesMarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F26278456720037496E /* SanchesMarketTests.swift */; };
 		4D4C5F332784587F0037496E /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F322784587F0037496E /* Item.json */; };
@@ -40,8 +40,8 @@
 		4D4C5F07278439550037496E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4C5F0A278439550037496E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D4C5F0C278439550037496E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D4C5F1927844AE10037496E /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
-		4D4C5F1B27844C6E0037496E /* ItemsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsData.swift; sourceTree = "<group>"; };
+		4D4C5F1927844AE10037496E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		4D4C5F1B27844C6E0037496E /* ProductCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollection.swift; sourceTree = "<group>"; };
 		4D4C5F1E278452860037496E /* ParsingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingManager.swift; sourceTree = "<group>"; };
 		4D4C5F24278456720037496E /* SanchesMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SanchesMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4C5F26278456720037496E /* SanchesMarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesMarketTests.swift; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		4D4C5F1627844AA70037496E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D4C5F1927844AE10037496E /* ItemData.swift */,
-				4D4C5F1B27844C6E0037496E /* ItemsData.swift */,
+				4D4C5F1B27844C6E0037496E /* ProductCollection.swift */,
+				4D4C5F1927844AE10037496E /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,10 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */,
-				4D4C5F1C27844C6E0037496E /* ItemsData.swift in Sources */,
+				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
 				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
-				4D4C5F1A27844AE10037496E /* ItemData.swift in Sources */,
+				4D4C5F1A27844AE10037496E /* Product.swift in Sources */,
 				4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemsDate: Codable {
+struct ProductCollection: Codable {
     let page: Int
-    let items: [ItemsDate]
+    let items: [Product]
 }
