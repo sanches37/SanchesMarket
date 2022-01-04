@@ -11,7 +11,6 @@
 		4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F00278439540037496E /* SceneDelegate.swift */; };
 		4D4C5F03278439540037496E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F02278439540037496E /* ViewController.swift */; };
 		4D4C5F06278439540037496E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F04278439540037496E /* Main.storyboard */; };
-		4D4C5F08278439550037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 		4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F09278439550037496E /* LaunchScreen.storyboard */; };
 		4D4C5F1A27844AE10037496E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* Product.swift */; };
 		4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1B27844C6E0037496E /* ProductCollection.swift */; };
@@ -19,6 +18,7 @@
 		4D4C5F27278456720037496E /* SanchesMarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F26278456720037496E /* SanchesMarketTests.swift */; };
 		4D4C5F332784587F0037496E /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F322784587F0037496E /* Item.json */; };
 		4D4C5F35278458BB0037496E /* Items.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F34278458BB0037496E /* Items.json */; };
+		4D4C5F7B2784853C0037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */,
-				4D4C5F08278439550037496E /* Assets.xcassets in Resources */,
+				4D4C5F7B2784853C0037496E /* Assets.xcassets in Resources */,
 				4D4C5F06278439540037496E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

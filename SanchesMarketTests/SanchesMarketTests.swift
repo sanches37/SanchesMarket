@@ -6,27 +6,41 @@
 //
 
 import XCTest
+@testable import SanchesMarket
 
 class SanchesMarketTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var parsingManager: ParsingManager?
+    
+    override func setUp() {
+        super.setUp()
+        parsingManager = ParsingManager()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_Items_에셋파일을_ProductCollection_타입으로_디코딩에_성공하면_title은_MacBookPro다() {
+        // given
+        let expectInputValue = "Items"
+        // when
+        guard let jsonData = try? parsingManager?.loadedDataAsset(assetName: expectInputValue),
+              let decodedData = try? parsingManager?.decodedJsonData(type: ProductCollection.self, data: jsonData.data) else {
+                  return XCTFail()
+              }
+        let expectResult = "MacBook Pro"
+        let result = decodedData.items.first?.title
+        // then
+        XCTAssertEqual(expectResult, result)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_Item_에셋파일을_Product_타입으로_디코딩에_성공하면_price는_1690000이다() {
+        // given
+        let expectInputValue = "Item"
+        // when
+        guard let jsonData = try? parsingManager?.loadedDataAsset(assetName: expectInputValue),
+              let decodedData = try? parsingManager?.decodedJsonData(type: Product.self, data: jsonData.data) else {
+                  return XCTFail()
+              }
+        let expectResult = 1690000
+        let result = decodedData.price
+        // then
+        XCTAssertEqual(expectResult, result)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
