@@ -19,6 +19,7 @@
 		4D4C5F332784587F0037496E /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F322784587F0037496E /* Item.json */; };
 		4D4C5F35278458BB0037496E /* Items.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F34278458BB0037496E /* Items.json */; };
 		4D4C5F7B2784853C0037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
+		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4D4C5F26278456720037496E /* SanchesMarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanchesMarketTests.swift; sourceTree = "<group>"; };
 		4D4C5F322784587F0037496E /* Item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
 		4D4C5F34278458BB0037496E /* Items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Items.json; sourceTree = "<group>"; };
+		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				4D4C5F1727844AB40037496E /* View */,
 				4D4C5F1827844ABA0037496E /* Controller */,
 				4D4C5F1D278452690037496E /* Manager */,
+				4DD88A7727851E9300EAED1D /* Enumeration */,
 				4D4C5EFE278439540037496E /* AppDelegate.swift */,
 				4D4C5F00278439540037496E /* SceneDelegate.swift */,
 				4D4C5F07278439550037496E /* Assets.xcassets */,
@@ -150,6 +153,14 @@
 				4D4C5F34278458BB0037496E /* Items.json */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		4DD88A7727851E9300EAED1D /* Enumeration */ = {
+			isa = PBXGroup;
+			children = (
+				4DD88A7827851EC600EAED1D /* RequestEnum.swift */,
+			);
+			path = Enumeration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
 				4D4C5F1A27844AE10037496E /* Product.swift in Sources */,
 				4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */,
+				4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
