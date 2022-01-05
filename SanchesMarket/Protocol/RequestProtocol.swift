@@ -12,3 +12,8 @@ protocol Requestable {
     var httpMethod: APIHTTPMethod { get }
     var contentType: ContentType { get }
 }
+
+protocol RequestableWithMultipartForm: Requestable {
+    var parameter: [String: Any] { get }
+    var image: [Media]? { get }
+}
