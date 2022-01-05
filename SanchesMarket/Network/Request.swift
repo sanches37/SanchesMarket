@@ -8,7 +8,7 @@
 import Foundation
 
 struct Request {
-    private func createRequest(api: Requestable) throws -> URLRequest {
+    func createRequest(api: Requestable) throws -> URLRequest {
         guard let url = URL(string: api.url.path) else {
             throw NetworkError.invalidURL
         }
@@ -22,7 +22,41 @@ struct Request {
                 throw ParsingError.encodingFailed
             }
             request.httpBody = body
+        } else if let api = api as? RequestableWithMultipartForm {
+            let body = createBody(parameters: api.parameter, image: api.image)
+            request.httpBody = body
         }
         return request
+    }
+    
+    private func createBody(parameters: [String: Any]?, image: [Media]?) -> Data {
+        var body = Data()
+        
+        let lineBreak = "\r\n"
+        let doubleLineBreak = "\r\n\r\n"
+        
+        if let parameters = parameters {
+            for (key, value) in parameters {
+                body.append("--\(Boundary.uuid)\(lineBreak)")
+                body.append(
+                    "Content-Disposition: form-data; name=\"\(key)\"\(doubleLineBreak)")
+                body.append("\(value)\(lineBreak)")
+            }
+        }
+        
+        if let image = image {
+            for photo in image {
+                body.append("--\(Boundary.uuid)\(lineBreak)")
+                body.append(
+                    "Content-Disposition: form-data; name=\"\(photo.key)\"; filename=\"\(photo.filename)\"\(lineBreak)")
+                body.append("Content-type: \(photo.mimeType)\(doubleLineBreak)")
+                body.append(photo.data)
+                body.append(lineBreak)
+            }
+        }
+        
+        body.append("--\(Boundary.uuid)--\(lineBreak)")
+        
+        return body
     }
 }
