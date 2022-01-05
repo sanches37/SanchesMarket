@@ -21,6 +21,7 @@
 		4D4C5F7B2784853C0037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
+		4DD88A7E278535BD00EAED1D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7D278535BD00EAED1D /* Media.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4D4C5F34278458BB0037496E /* Items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Items.json; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		4DD88A7D278535BD00EAED1D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				4D4C5F1B27844C6E0037496E /* ProductCollection.swift */,
 				4D4C5F1927844AE10037496E /* Product.swift */,
+				4DD88A7D278535BD00EAED1D /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
 				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
+				4DD88A7E278535BD00EAED1D /* Media.swift in Sources */,
 				4D4C5F1A27844AE10037496E /* Product.swift in Sources */,
 				4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */,
 				4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */,
