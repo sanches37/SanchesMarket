@@ -20,6 +20,7 @@
 		4D4C5F35278458BB0037496E /* Items.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F34278458BB0037496E /* Items.json */; };
 		4D4C5F7B2784853C0037496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F07278439550037496E /* Assets.xcassets */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
+		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4D4C5F322784587F0037496E /* Item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
 		4D4C5F34278458BB0037496E /* Items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Items.json; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
+		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				4D4C5F1827844ABA0037496E /* Controller */,
 				4D4C5F1D278452690037496E /* Manager */,
 				4DD88A7727851E9300EAED1D /* Enumeration */,
+				4DD88A7A2785323000EAED1D /* Protocol */,
 				4D4C5EFE278439540037496E /* AppDelegate.swift */,
 				4D4C5F00278439540037496E /* SceneDelegate.swift */,
 				4D4C5F07278439550037496E /* Assets.xcassets */,
@@ -161,6 +164,14 @@
 				4DD88A7827851EC600EAED1D /* RequestEnum.swift */,
 			);
 			path = Enumeration;
+			sourceTree = "<group>";
+		};
+		4DD88A7A2785323000EAED1D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4DD88A7B2785325600EAED1D /* RequestProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */,
+				4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */,
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
 				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
