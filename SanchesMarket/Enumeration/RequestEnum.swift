@@ -15,13 +15,13 @@ enum APIHTTPMethod {
     
     var value: String {
         switch self {
-        case .delete:
-            return "GET"
         case .get:
+            return "GET"
+        case .post:
             return "POST"
         case .patch:
             return "PATCH"
-        case .post:
+        case .delete:
             return "DELETE"
         }
     }

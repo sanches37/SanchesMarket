@@ -23,6 +23,10 @@
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
 		4DD88A7E278535BD00EAED1D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7D278535BD00EAED1D /* Media.swift */; };
 		4DD88A802785384A00EAED1D /* parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7F2785384A00EAED1D /* parameter.swift */; };
+		4DD88A86278574E800EAED1D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A85278574E800EAED1D /* Request.swift */; };
+		4DD88A892785763D00EAED1D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A882785763D00EAED1D /* NetworkError.swift */; };
+		4DD88A8B27857B0100EAED1D /* RequestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A8A27857B0100EAED1D /* RequestApi.swift */; };
+		4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A8C278584EC00EAED1D /* ParsingError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		4DD88A7D278535BD00EAED1D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		4DD88A7F2785384A00EAED1D /* parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parameter.swift; sourceTree = "<group>"; };
+		4DD88A85278574E800EAED1D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		4DD88A882785763D00EAED1D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4DD88A8A27857B0100EAED1D /* RequestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApi.swift; sourceTree = "<group>"; };
+		4DD88A8C278584EC00EAED1D /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +108,10 @@
 				4D4C5F1727844AB40037496E /* View */,
 				4D4C5F1827844ABA0037496E /* Controller */,
 				4D4C5F1D278452690037496E /* Manager */,
+				4DD88A84278574C600EAED1D /* Network */,
 				4DD88A7727851E9300EAED1D /* Enumeration */,
 				4DD88A7A2785323000EAED1D /* Protocol */,
+				4DD88A872785761500EAED1D /* Error */,
 				4D4C5EFE278439540037496E /* AppDelegate.swift */,
 				4D4C5F00278439540037496E /* SceneDelegate.swift */,
 				4D4C5F07278439550037496E /* Assets.xcassets */,
@@ -178,6 +188,24 @@
 				4DD88A7B2785325600EAED1D /* RequestProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4DD88A84278574C600EAED1D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4DD88A85278574E800EAED1D /* Request.swift */,
+				4DD88A8A27857B0100EAED1D /* RequestApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4DD88A872785761500EAED1D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				4DD88A882785763D00EAED1D /* NetworkError.swift */,
+				4DD88A8C278584EC00EAED1D /* ParsingError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,11 +314,15 @@
 				4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */,
 				4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */,
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
+				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
+				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
 				4DD88A802785384A00EAED1D /* parameter.swift in Sources */,
+				4DD88A8B27857B0100EAED1D /* RequestApi.swift in Sources */,
 				4DD88A7E278535BD00EAED1D /* Media.swift in Sources */,
 				4D4C5F1A27844AE10037496E /* Product.swift in Sources */,
+				4DD88A892785763D00EAED1D /* NetworkError.swift in Sources */,
 				4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */,
 				4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */,
 			);

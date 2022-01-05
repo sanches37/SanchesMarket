@@ -7,20 +7,6 @@
 
 import UIKit
 
-enum ParsingError: Error, LocalizedError {
-    case loadAssetFailed
-    case decodingFailed
-    
-    var errorDescription: String {
-        switch self {
-        case .loadAssetFailed:
-            return "에셋 데이터를 불러오는데 실패했습니다."
-        case .decodingFailed:
-            return "디코딩에 실패했습니다."
-        }
-    }
-}
-
 struct ParsingManager {
     private let jsonDecoder = JSONDecoder()
     

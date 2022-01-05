@@ -17,3 +17,4 @@ protocol RequestableWithMultipartForm: Requestable {
     var parameter: [String: Any] { get }
     var image: [Media]? { get }
 }
+
