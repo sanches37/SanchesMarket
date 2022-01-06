@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIHTTPMethod {
+enum APIHTTPMethod: CaseIterable {
     case get
     case post
     case patch
