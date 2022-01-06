@@ -28,10 +28,10 @@ struct GetItemsApi: Requestable {
 }
 
 struct PostAPI: RequestableWithMultipartForm {
-    var url: APIURL = .post
+    let url: APIURL = .post
     let httpMethod: APIHTTPMethod = .post
     let contentType: ContentType = .multipart
-    var parameter: [String : Any]
+    let parameter: [String : Any]
     var image: [Media]?
     
     init(parameter: [String: Any], image:[Media]) {
@@ -44,7 +44,7 @@ struct PatchAPI: RequestableWithMultipartForm {
     var url: APIURL
     let httpMethod: APIHTTPMethod = .patch
     let contentType: ContentType = .multipart
-    var parameter: [String : Any]
+    let parameter: [String : Any]
     var image: [Media]?
     
     init(id: Int, parameter: [String: Any], image:[Media]) {
