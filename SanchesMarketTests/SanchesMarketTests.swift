@@ -21,7 +21,7 @@ class SanchesMarketTests: XCTestCase {
         let expectInputValue = "Items"
         // when
         guard let jsonData = try? parsingManager?.loadedDataAsset(assetName: expectInputValue),
-              let decodedData = try? parsingManager?.decodedJsonData(type: ProductCollection.self, data: jsonData.data) else {
+              let decodedData = try? parsingManager?.decodedJSONData(type: ProductCollection.self, data: jsonData.data) else {
                   return XCTFail()
               }
         let expectResult = "MacBook Pro"
@@ -35,7 +35,7 @@ class SanchesMarketTests: XCTestCase {
         let expectInputValue = "Item"
         // when
         guard let jsonData = try? parsingManager?.loadedDataAsset(assetName: expectInputValue),
-              let decodedData = try? parsingManager?.decodedJsonData(type: Product.self, data: jsonData.data) else {
+              let decodedData = try? parsingManager?.decodedJSONData(type: Product.self, data: jsonData.data) else {
                   return XCTFail()
               }
         let expectResult = 1690000
@@ -53,7 +53,7 @@ class SanchesMarketTests: XCTestCase {
                                  applicableHTTPMethod: [expectHttpMethod])
         // when
         guard let jsonData = try? parsingManager?.loadedDataAsset(assetName: expectInputValue),
-              let decodedData = try? parsingManager?.decodedJsonData(type: Product.self, data: jsonData.data) else {
+              let decodedData = try? parsingManager?.decodedJSONData(type: Product.self, data: jsonData.data) else {
                   return XCTFail()
               }
         sut.commuteWithAPI(api: GetItemApi(id: 1)) { result in
@@ -61,7 +61,7 @@ class SanchesMarketTests: XCTestCase {
                 // then
             case .success(let item):
                 guard let expectedData =
-                        try? self.parsingManager?.decodedJsonData(type: Product.self, data: item) else {
+                        try? self.parsingManager?.decodedJSONData(type: Product.self, data: item) else {
                             return XCTFail()
                         }
                 XCTAssertEqual(expectedData.title, decodedData.title)
