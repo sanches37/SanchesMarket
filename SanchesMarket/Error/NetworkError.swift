@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum NetworkError: Error, LocalizedError {
+enum NetworkError: Error, LocalizedError, Equatable {
     case invalidURL
     case requestFailed
+    case invalidHttpMethod
     case unknown(description: String)
     case responseFailed
     case outOfRange(statusCode: Int)
@@ -21,6 +22,8 @@ enum NetworkError: Error, LocalizedError {
             return "잘못된 URL입니다."
         case .requestFailed:
             return "리퀘스트를 받는데 실패했습니다."
+        case .invalidHttpMethod:
+            return "잘못된 HTTPMethod입니다."
         case .unknown(let description):
             return "에러: \(description)"
         case .responseFailed:
@@ -32,3 +35,4 @@ enum NetworkError: Error, LocalizedError {
         }
     }
 }
+

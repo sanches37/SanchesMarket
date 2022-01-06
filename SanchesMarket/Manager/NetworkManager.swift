@@ -25,7 +25,7 @@ struct NetworkManager {
             return
         }
         guard applicableHTTPMethod.contains(api.httpMethod) else {
-            completionHandler(.failure(.responseFailed))
+            completionHandler(.failure(.invalidHttpMethod))
             return
         }
         
