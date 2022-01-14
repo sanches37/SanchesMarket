@@ -8,11 +8,14 @@
 import UIKit
 
 class ProductCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var discontedPriceLabel: UILabel!
+    @IBOutlet weak var discountedPriceLabel: UILabel!
     @IBOutlet weak var stockLabel: UILabel!
+    
+    static let listIdentifier = "ProductListCell"
+    static let listNibName = "ProductListCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

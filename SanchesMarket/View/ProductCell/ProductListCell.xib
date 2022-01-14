@@ -75,7 +75,7 @@
                 <outlet property="discountedPriceLabel" destination="DqJ-Ng-MjT" id="u8l-tJ-6zg"/>
                 <outlet property="priceLabel" destination="Fmp-B5-48p" id="wJn-Zw-2EI"/>
                 <outlet property="stockLabel" destination="k87-On-aky" id="spE-UH-Jc3"/>
-                <outlet property="thumbnailImage" destination="QCL-ak-EX5" id="ldO-HK-r6k"/>
+                <outlet property="thumbnailImage" destination="QCL-ak-EX5" id="GtD-cB-ptT"/>
                 <outlet property="titleLabel" destination="cL5-W8-wtt" id="EMk-Lp-wR0"/>
             </connections>
             <point key="canvasLocation" x="-263.768115942029" y="99.776785714285708"/>
