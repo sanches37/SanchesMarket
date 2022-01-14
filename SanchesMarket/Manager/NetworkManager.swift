@@ -28,25 +28,15 @@ struct NetworkManager {
             completionHandler(.failure(.invalidHttpMethod))
             return
         }
-        
         session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completionHandler(.failure(.unknown(description: error.localizedDescription)))
-                return
+            let result = session.obtaionResponseData(
+                data: data, response: response, error: error)
+            switch result {
+            case .failure(let error):
+                completionHandler(.failure(error))
+            case .success(let data):
+                completionHandler(.success(data))
             }
-            guard let response = response as? HTTPURLResponse else {
-                completionHandler(.failure(.responseFailed))
-                return
-            }
-            guard Self.rangeOfSuccessState.contains(response.statusCode) else {
-                completionHandler(.failure(.outOfRange(statusCode: response.statusCode)))
-                return
-            }
-            guard let data = data else {
-                completionHandler(.failure(.dataNotfound))
-                return
-            }
-            completionHandler(.success(data))
         }
         .resume()
     }
