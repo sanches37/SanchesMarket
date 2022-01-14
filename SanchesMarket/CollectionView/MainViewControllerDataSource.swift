@@ -11,6 +11,8 @@ import UIKit
 class MainViewControllerDataSource: NSObject {
     private var productList: [Product] = []
     private let networkManager = NetworkManager()
+    private let parsingManager = ParsingManager()
+    private let page = 15
     
 }
 
@@ -26,6 +28,21 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
         let productForItem = productList[indexPath.item]
         
         return cell
+    }
+    
+    func requestProductList(_ collectionView: UICollectionView) {
+        self.networkManager.commuteWithAPI(api: GetItemsApi(page: page)) { result in
+            if case .success(let data) = result {
+                guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
+                    return
+                }
+                self.productList.append(contentsOf: product.items)
+                
+                DispatchQueue.main.async {
+                    collectionView.reloadData()
+                }
+            }
+        }
     }
 }
 
