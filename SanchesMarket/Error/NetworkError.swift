@@ -15,6 +15,7 @@ enum NetworkError: Error, LocalizedError, Equatable {
     case responseFailed
     case outOfRange(statusCode: Int)
     case dataNotfound
+    case convertImageFailed
     
     var errorDescription: String {
         switch self {
@@ -32,6 +33,8 @@ enum NetworkError: Error, LocalizedError, Equatable {
             return "상태코드: \(statusCode)"
         case .dataNotfound:
             return "데이터를 전달 받지 못했습니다."
+        case .convertImageFailed:
+            return "이미지 변환에 실패했습니다."
         }
     }
 }
