@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5EFE278439540037496E /* AppDelegate.swift */; };
 		4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F00278439540037496E /* SceneDelegate.swift */; };
-		4D4C5F03278439540037496E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F02278439540037496E /* ViewController.swift */; };
+		4D4C5F03278439540037496E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F02278439540037496E /* MainViewController.swift */; };
 		4D4C5F06278439540037496E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F04278439540037496E /* Main.storyboard */; };
 		4D4C5F0B278439550037496E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C5F09278439550037496E /* LaunchScreen.storyboard */; };
 		4D4C5F1A27844AE10037496E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F1927844AE10037496E /* Product.swift */; };
@@ -48,7 +48,7 @@
 		4D4C5EFB278439540037496E /* SanchesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4C5EFE278439540037496E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D4C5F00278439540037496E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D4C5F02278439540037496E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D4C5F02278439540037496E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4D4C5F05278439540037496E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D4C5F07278439550037496E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4C5F0A278439550037496E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		4D4C5F1827844ABA0037496E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4D4C5F02278439540037496E /* ViewController.swift */,
+				4D4C5F02278439540037496E /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,
-				4D4C5F03278439540037496E /* ViewController.swift in Sources */,
+				4D4C5F03278439540037496E /* MainViewController.swift in Sources */,
 				4DD88A9027858FC900EAED1D /* Data+extension.swift in Sources */,
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
