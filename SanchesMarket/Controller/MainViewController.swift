@@ -17,5 +17,8 @@ class MainViewController: UIViewController {
         
         collectionView.dataSource = mainCollectionViewDataSource
         collectionView.register(UINib(nibName: ProductCell.listNibName, bundle: nil), forCellWithReuseIdentifier: ProductCell.listIdentifier)
+        mainCollectionViewDataSource.decidedListLayout(collectionView)
+        mainCollectionViewDataSource.requestProductList(collectionView)
+        
     }
 }

@@ -12,7 +12,8 @@ class MainViewControllerDataSource: NSObject {
     private var productList: [Product] = []
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
-    private let page = 15
+    private let layoutDirector = CompositionalLayoutDirector()
+    private let page = 1
     
 }
 
@@ -44,6 +45,10 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
                 }
             }
         }
+    }
+    
+    func decidedListLayout(_ collectionView: UICollectionView) {
+        collectionView.collectionViewLayout = layoutDirector.createMainList().create()
     }
 }
 

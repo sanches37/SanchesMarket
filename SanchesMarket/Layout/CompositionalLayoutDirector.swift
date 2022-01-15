@@ -22,7 +22,6 @@ struct CompositionalLayoutDirector {
                 NSDirectionalEdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
             .setViewMargin(
                 NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
-            
         return builder.build()
     }
 }
