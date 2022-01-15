@@ -23,6 +23,12 @@ class ProductCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    func productConfigure(product: Product) {
+        textConfigure(product: product)
+        imageConfigure(product: product)
+        styleConfigure()
+    }
+    
     private func textConfigure(product: Product) {
         self.titleLabel.text = product.title
         
