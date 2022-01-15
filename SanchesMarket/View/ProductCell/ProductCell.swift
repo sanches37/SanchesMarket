@@ -24,6 +24,7 @@ class ProductCell: UICollectionViewCell {
         super.awakeFromNib()
         
         labelArray = [titleLabel, priceLabel, discountedPriceLabel, stockLabel]
+        setUpTextWidth()
     }
     
     override func prepareForReuse() {
@@ -36,6 +37,12 @@ class ProductCell: UICollectionViewCell {
             $0.attributedText = nil
             $0.textColor = nil
             $0.text = nil
+        }
+    }
+    
+    private func setUpTextWidth() {
+        labelArray.forEach {
+            $0.adjustsFontSizeToFitWidth = true
         }
     }
     
@@ -65,7 +72,7 @@ class ProductCell: UICollectionViewCell {
             stockLabel.text = "품절"
             stockLabel.textColor = .systemOrange
         } else if product.stock > self.maximumStockAount {
-            stockLabel.text = "잔여수량 : \(self.maximumStockAount)"
+            stockLabel.text = "잔여수량 : \(self.maximumStockAount) +"
             stockLabel.textColor = .systemGray
         } else {
             stockLabel.text = "잔여수량 : \(product.stock)"
