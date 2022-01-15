@@ -49,4 +49,19 @@ class ProductCell: UICollectionViewCell {
             stockLabel.textColor = .systemGray
         }
     }
+    
+    private func imageConfigure(product: Product) {
+        if let successImage = product.thumbnails.first {
+            imageManager.fetchImage(url: successImage) { image in
+                DispatchQueue.main.async {
+                    switch image {
+                    case .success(let image):
+                        self.thumbnailImage.image = image
+                    case .failure:
+                        self.thumbnailImage.image = #imageLiteral(resourceName: "LoadedImageFailed")
+                    }
+                }
+            }
+        }
+    }
 }
