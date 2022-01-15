@@ -34,6 +34,7 @@ struct NetworkManager {
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))
+                return
             case .success(let data):
                 completionHandler(.success(data))
             }
