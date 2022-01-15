@@ -18,9 +18,25 @@ class ProductCell: UICollectionViewCell {
     private let maximumStockAount = 999
     static let listIdentifier = "ProductListCell"
     static let listNibName = "ProductListCell"
+    private var labelArray: [UILabel] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        labelArray = [titleLabel, priceLabel, discountedPriceLabel, stockLabel]
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        thumbnailImage.image = nil
+    }
+    
+    private func resetContents() {
+        labelArray.forEach {
+            $0.attributedText = nil
+            $0.textColor = nil
+            $0.text = nil
+        }
     }
     
     func productConfigure(product: Product) {
@@ -30,6 +46,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     private func textConfigure(product: Product) {
+        resetContents()
         self.titleLabel.text = product.title
         
         if let discountedPrice = product.discountedPrice {
