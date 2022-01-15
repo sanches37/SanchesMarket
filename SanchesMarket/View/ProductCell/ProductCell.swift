@@ -50,6 +50,10 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
+    private func styleConfigure() {
+        self.layer.addBorder(edge: .bottom, color: .gray, thickness: 1)
+    }
+    
     private func imageConfigure(product: Product) {
         if let successImage = product.thumbnails.first {
             imageManager.fetchImage(url: successImage) { image in
