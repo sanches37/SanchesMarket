@@ -16,9 +16,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         collectionView.dataSource = mainCollectionViewDataSource
-        collectionView.register(UINib(nibName: ProductCell.listNibName, bundle: nil), forCellWithReuseIdentifier: ProductCell.listIdentifier)
         mainCollectionViewDataSource.decidedListLayout(collectionView)
         mainCollectionViewDataSource.requestProductList(collectionView)
         
+    }
+    
+    private func registeredIdentifier() {
+        collectionView.register(UINib(nibName: ProductCell.listNibName, bundle: nil), forCellWithReuseIdentifier: ProductCell.listIdentifier)
+        collectionView.register(UINib(nibName: ProductCell.gridNibName, bundle: nil), forCellWithReuseIdentifier: ProductCell.listIdentifier)
     }
 }

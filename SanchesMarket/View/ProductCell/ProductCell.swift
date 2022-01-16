@@ -17,7 +17,9 @@ class ProductCell: UICollectionViewCell {
     private let imageManager = ImageManager()
     private let maximumStockAount = 999
     static let listIdentifier = "ProductListCell"
+    static let gridIdentifier = "ProductGridCell"
     static let listNibName = "ProductListCell"
+    static let gridNibName = "ProductGridCell"
     private var labelArray: [UILabel] = []
 
     override func awakeFromNib() {
