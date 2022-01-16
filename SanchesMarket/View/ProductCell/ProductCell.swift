@@ -46,10 +46,10 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    func productConfigure(product: Product) {
+    func productConfigure(product: Product, identifier: String) {
         textConfigure(product: product)
         imageConfigure(product: product)
-        styleConfigure()
+        styleConfigure(identifier: identifier)
     }
     
     private func textConfigure(product: Product) {
@@ -80,8 +80,14 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    private func styleConfigure() {
-        self.layer.addBorder(edge: .bottom, color: .gray, thickness: 1)
+    private func styleConfigure(identifier: String) {
+        if identifier == Self.gridIdentifier {
+            self.layer.cornerRadius = 10
+            self.layer.borderWidth = 1
+            self.layer.borderColor = UIColor.gray.cgColor
+        } else {
+            self.layer.addBorder(edge: .bottom, color: .gray, thickness: 1)
+        }
     }
     
     private func imageConfigure(product: Product) {

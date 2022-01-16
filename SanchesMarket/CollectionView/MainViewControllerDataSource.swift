@@ -27,7 +27,8 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let productForItem = productList[indexPath.item]
-        cell.productConfigure(product: productForItem)
+        cell.productConfigure(product: productForItem,
+                              identifier: changeIdentifier)
         
         return cell
     }
