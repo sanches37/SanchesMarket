@@ -29,4 +29,7 @@ class MainViewController: UIViewController {
         mainCollectionViewDataSource.decidedListLayout(collectionView)
         mainCollectionViewDataSource.requestProductList(collectionView)
     }
+    @IBAction func onCollectionViewTypeChanged(_ sender: UISegmentedControl) {
+        mainCollectionViewDataSource.selectedView(sender, collectionView)
+    }
 }

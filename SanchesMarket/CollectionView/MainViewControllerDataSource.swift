@@ -13,8 +13,8 @@ class MainViewControllerDataSource: NSObject {
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
     private let layoutDirector = CompositionalLayoutDirector()
+    private var changeIdentifier = ProductCell.listIdentifier
     private let page = 1
-    
 }
 
 extension MainViewControllerDataSource: UICollectionViewDataSource {
@@ -23,7 +23,7 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.listIdentifier, for: indexPath) as? ProductCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: changeIdentifier, for: indexPath) as? ProductCell else {
             return UICollectionViewCell()
         }
         let productForItem = productList[indexPath.item]
@@ -49,6 +49,22 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
     
     func decidedListLayout(_ collectionView: UICollectionView) {
         collectionView.collectionViewLayout = layoutDirector.createMainList().create()
+    }
+    
+    func selectedView(_ sender: UISegmentedControl,
+                      _ collectionView: UICollectionView) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            changeIdentifier = ProductCell.listIdentifier
+            decidedListLayout(collectionView)
+            collectionView.reloadData()
+        default:
+            changeIdentifier = ProductCell.gridIdentifier
+            collectionView.collectionViewLayout =
+            layoutDirector.createMainGrid().create()
+            collectionView.reloadData()
+            
+        }
     }
 }
 

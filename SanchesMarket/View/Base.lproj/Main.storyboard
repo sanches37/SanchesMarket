@@ -38,7 +38,20 @@
                             <constraint firstItem="Pa2-a9-ycD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k5I-sd-ZD9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XJG-VZ-7sl"/>
+                    <navigationItem key="navigationItem" id="XJG-VZ-7sl">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gzH-5O-BCk">
+                            <rect key="frame" x="148" y="6" width="79" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="" image="list.dash" catalog="system"/>
+                                <segment title="" image="square.grid.2x2.fill" catalog="system"/>
+                            </segments>
+                            <connections>
+                                <action selector="onCollectionViewTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="TTJ-ln-Z9Q"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
                     </connections>
@@ -67,6 +80,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
