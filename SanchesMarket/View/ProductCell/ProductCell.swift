@@ -13,8 +13,7 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var discountedPriceLabel: UILabel!
     @IBOutlet weak var stockLabel: UILabel!
-    
-    private let imageManager = ImageManager()
+
     private let maximumStockAount = 999
     static let listIdentifier = "ProductListCell"
     static let gridIdentifier = "ProductGridCell"
@@ -46,9 +45,11 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    func productConfigure(product: Product, identifier: String) {
+    func productConfigure(product: Product,
+                          identifier: String,
+                          imageManager: ImageManager) {
         textConfigure(product: product)
-        imageConfigure(product: product)
+        imageConfigure(product: product, imageManager: imageManager)
         styleConfigure(identifier: identifier)
     }
     
@@ -90,7 +91,7 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    private func imageConfigure(product: Product) {
+    private func imageConfigure(product: Product, imageManager: ImageManager) {
         if let successImage = product.thumbnails.first {
             imageManager.fetchImage(url: successImage) { image in
                 DispatchQueue.main.async {

@@ -12,6 +12,7 @@ class MainViewControllerDataSource: NSObject {
     private var productList: [Product] = []
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
+    private let imageManager = ImageManager()
     private let layoutDirector = CompositionalLayoutDirector()
     private var changeIdentifier = ProductCell.listIdentifier
     private let page = 1
@@ -28,7 +29,8 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
         }
         let productForItem = productList[indexPath.item]
         cell.productConfigure(product: productForItem,
-                              identifier: changeIdentifier)
+                              identifier: changeIdentifier,
+                              imageManager: imageManager)
         
         return cell
     }
