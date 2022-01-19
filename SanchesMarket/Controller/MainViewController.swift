@@ -15,10 +15,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.dataSource = mainCollectionViewDataSource
-        collectionView.prefetchDataSource = mainCollectionViewDataSource
+        processCollectionView()
         registeredIdentifier()
         setUpDataSourceContent()
+    }
+    
+    private func processCollectionView() {
+        collectionView.dataSource = mainCollectionViewDataSource
+        collectionView.prefetchDataSource = mainCollectionViewDataSource
     }
     
     private func registeredIdentifier() {

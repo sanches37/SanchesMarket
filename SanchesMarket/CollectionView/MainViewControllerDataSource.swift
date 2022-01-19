@@ -74,7 +74,7 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
 extension MainViewControllerDataSource: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            if indexPath.item == productList.count - 2 {
+            if indexPath.item == productList.count - 1 {
                 requestProductList(collectionView)
             }
         }
