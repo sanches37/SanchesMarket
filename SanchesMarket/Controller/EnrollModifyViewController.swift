@@ -12,6 +12,11 @@ class EnrollModifyViewController: UIViewController {
     
     private let mainTitle = "상품"
     var topItemTitle: String = ""
+    private let photoSelectButton: UIButton = {
+        let button = UIButton()
+        button.contentMode = .scaleAspectFit
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +27,13 @@ class EnrollModifyViewController: UIViewController {
     private func setUpTitle() {
         self.title = mainTitle + topItemTitle
         enrollModifyButton.title = topItemTitle
+    }
+    
+    private func setUpPhotoSelectButton() {
+        photoSelectButton.addTarget(
+            self, action: #selector(movePhotoAlbum(_:)), for: .touchUpInside)
+    }
+    
+    @objc func movePhotoAlbum(_ sender: UIButton) {
     }
 }
