@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum ScrollDirection {
-    case horizontal
-    case vertical
-}
-
 struct CompositionalLayoutProduct {
     let portraitHorizontalNumber: Int
     let landscapeHorizontalNumber: Int
