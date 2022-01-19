@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         collectionView.dataSource = mainCollectionViewDataSource
+        collectionView.prefetchDataSource = mainCollectionViewDataSource
         registeredIdentifier()
         setUpDataSourceContent()
     }
@@ -29,6 +30,7 @@ class MainViewController: UIViewController {
         mainCollectionViewDataSource.decidedListLayout(collectionView)
         mainCollectionViewDataSource.requestProductList(collectionView)
     }
+    
     @IBAction func onCollectionViewTypeChanged(_ sender: UISegmentedControl) {
         mainCollectionViewDataSource.selectedView(sender, collectionView)
     }

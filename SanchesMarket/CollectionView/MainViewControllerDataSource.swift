@@ -15,7 +15,7 @@ class MainViewControllerDataSource: NSObject {
     private let imageManager = ImageManager()
     private let layoutDirector = CompositionalLayoutDirector()
     private var changeIdentifier = ProductCell.listIdentifier
-    private let page = 1
+    private var netxPage = 1
 }
 
 extension MainViewControllerDataSource: UICollectionViewDataSource {
@@ -36,13 +36,13 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
     }
     
     func requestProductList(_ collectionView: UICollectionView) {
-        self.networkManager.commuteWithAPI(api: GetItemsApi(page: page)) { result in
+        self.networkManager.commuteWithAPI(api: GetItemsApi(page: netxPage)) { result in
             if case .success(let data) = result {
                 guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
                     return
                 }
                 self.productList.append(contentsOf: product.items)
-                
+                self.netxPage += 1
                 DispatchQueue.main.async {
                     collectionView.reloadData()
                 }
@@ -71,5 +71,14 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
     }
 }
 
+extension MainViewControllerDataSource: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if indexPath.item == productList.count - 2 {
+                requestProductList(collectionView)
+            }
+        }
+    }
+}
     
     
