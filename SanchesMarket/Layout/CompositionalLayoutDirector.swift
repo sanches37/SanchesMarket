@@ -13,6 +13,7 @@ struct CompositionalLayoutDirector {
             .setViewMargin(NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
         return builder.build()
     }
+    
     func createMainGrid() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalNumber(2)

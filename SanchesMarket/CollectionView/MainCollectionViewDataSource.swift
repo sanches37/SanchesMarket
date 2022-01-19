@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewControllerDataSource: NSObject {
+class MainCollectionViewDataSource: NSObject {
     private var productList: [Product] = []
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
@@ -18,7 +18,7 @@ class MainViewControllerDataSource: NSObject {
     weak var loadingIndicator: LodingIndicatable?
 }
 
-extension MainViewControllerDataSource: UICollectionViewDataSource {
+extension MainCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         productList.count
     }
@@ -75,7 +75,7 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
     }
 }
 
-extension MainViewControllerDataSource: UICollectionViewDataSourcePrefetching {
+extension MainCollectionViewDataSource: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if indexPath.item == productList.count - 1 {

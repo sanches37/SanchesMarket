@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var lodingIndicator: UIActivityIndicatorView!
     
-    private let mainCollectionViewDataSource = MainViewControllerDataSource()
+    private let mainCollectionViewDataSource = MainCollectionViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()

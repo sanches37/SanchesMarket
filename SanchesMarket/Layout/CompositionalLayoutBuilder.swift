@@ -21,30 +21,36 @@ class CompositionalLayoutBuilder {
         self.portraitHorizontalNumber = number
         return self
     }
+    
     func setLandscapeHorizontalNumber(_ number: Int) -> CompositionalLayoutBuilder {
         self.landscapeHorizontalNumber = number
         return self
     }
+    
     func setCellVerticalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
         self.cellVerticalSize = size
         return self
     }
+    
     func setScrollDirection(
         _ direction: ScrollDirection) -> CompositionalLayoutBuilder {
         self.scrollDirection = direction
         return self
     }
+    
     func setCellMargin(
         _ margin: NSDirectionalEdgeInsets) -> CompositionalLayoutBuilder {
         self.cellMargin = margin
         return self
     }
+    
     func setViewMargin(
         _ margin: NSDirectionalEdgeInsets) -> CompositionalLayoutBuilder {
         self.viewMargin = margin
         return self
     }
+    
     func build() -> CompositionalLayoutProduct {
         return CompositionalLayoutProduct(
             portraitHorizontalNumber: portraitHorizontalNumber,
