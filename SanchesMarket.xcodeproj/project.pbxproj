@@ -22,6 +22,7 @@
 		4D4CADE02797F87E0077CC9A /* CompositionalLayoutEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4CADDF2797F87E0077CC9A /* CompositionalLayoutEnum.swift */; };
 		4D4CADE22797FBF60077CC9A /* LodingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4CADE12797FBF60077CC9A /* LodingIndicatorProtocol.swift */; };
 		4D4CADE4279834240077CC9A /* EnrollModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4CADE3279834240077CC9A /* EnrollModifyViewController.swift */; };
+		4D4CADEB27983F340077CC9A /* EnrollModifyPhotoSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4CADEA27983F340077CC9A /* EnrollModifyPhotoSelectCell.swift */; };
 		4D951CAF27911E08009827ED /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D951CAD27911E08009827ED /* ProductCell.swift */; };
 		4D951CB227912385009827ED /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D951CB127912385009827ED /* ProductListCell.xib */; };
 		4D951CB727912ECD009827ED /* MainCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */; };
@@ -78,6 +79,7 @@
 		4D4CADDF2797F87E0077CC9A /* CompositionalLayoutEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutEnum.swift; sourceTree = "<group>"; };
 		4D4CADE12797FBF60077CC9A /* LodingIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingIndicatorProtocol.swift; sourceTree = "<group>"; };
 		4D4CADE3279834240077CC9A /* EnrollModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollModifyViewController.swift; sourceTree = "<group>"; };
+		4D4CADEA27983F340077CC9A /* EnrollModifyPhotoSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollModifyPhotoSelectCell.swift; sourceTree = "<group>"; };
 		4D951CAD27911E08009827ED /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		4D951CB127912385009827ED /* ProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
 		4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				4D951CAC27911DF4009827ED /* ProductCell */,
+				4D4CADE927983EF70077CC9A /* EnrollModifyCell */,
 				4D4C5F04278439540037496E /* Main.storyboard */,
 				4D4C5F09278439550037496E /* LaunchScreen.storyboard */,
 			);
@@ -223,6 +226,22 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		4D4CADE527983DE70077CC9A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4D4CADE927983EF70077CC9A /* EnrollModifyCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D4CADEA27983F340077CC9A /* EnrollModifyPhotoSelectCell.swift */,
+			);
+			path = EnrollModifyCell;
+			sourceTree = "<group>";
+		};
 		4D951CAC27911DF4009827ED /* ProductCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +255,7 @@
 		4D951CB527912E9B009827ED /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */,
+				4D4CADE527983DE70077CC9A /* Main */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -418,6 +437,7 @@
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4D951CCA27933F6E009827ED /* CompositionalLayoutDirector.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
+				4D4CADEB27983F340077CC9A /* EnrollModifyPhotoSelectCell.swift in Sources */,
 				4D951CC62793219B009827ED /* CompositionalLayoutBuilder.swift in Sources */,
 				4D951CC12792829F009827ED /* CALayer+extension.swift in Sources */,
 				4D951CB9279131DB009827ED /* ImageManager.swift in Sources */,
