@@ -15,13 +15,13 @@ struct ImageManager {
     }
     
     func fetchImage(url: String,
-                    completionHandler: @escaping (Result<UIImage, NetworkError>) -> Void) {
+                    completionHandler: @escaping (Result<UIImage, NetworkError>) -> Void) -> URLSessionDataTask? {
         guard let url = URL(string: url) else {
             completionHandler(.failure(.invalidURL))
-            return
+            return nil
         }
         let request = URLRequest(url: url)
-        session.dataTask(with: request) { data, response, error in
+       let dataTask = session.dataTask(with: request) { data, response, error in
             let result = session.obtaionResponseData(data: data, response: response, error: error)
             switch result {
             case .failure(let error):
@@ -34,6 +34,8 @@ struct ImageManager {
                 }
                 completionHandler(.success(imageData))
             }
-        }.resume()
+        }
+        dataTask.resume()
+        return dataTask
     }
 }
