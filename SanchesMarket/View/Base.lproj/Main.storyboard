@@ -26,6 +26,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="Sgz-Vd-eDf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells/>
                             </collectionView>
                         </subviews>
@@ -41,7 +45,7 @@
                     <navigationItem key="navigationItem" id="XJG-VZ-7sl">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gzH-5O-BCk">
-                            <rect key="frame" x="148" y="6" width="79" height="33"/>
+                            <rect key="frame" x="148" y="5.6666666666666679" width="79" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="" image="list.dash" catalog="system"/>
@@ -54,6 +58,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
+                        <outlet property="lodingIndicator" destination="Sgz-Vd-eDf" id="USP-5s-qy3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

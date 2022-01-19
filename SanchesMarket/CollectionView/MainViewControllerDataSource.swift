@@ -5,7 +5,6 @@
 //  Created by tae hoon park on 2022/01/14.
 //
 
-import Foundation
 import UIKit
 
 class MainViewControllerDataSource: NSObject {
@@ -16,6 +15,7 @@ class MainViewControllerDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private var changeIdentifier = ProductCell.listIdentifier
     private var netxPage = 1
+    weak var loadingIndicator: LodingIndicatable?
 }
 
 extension MainViewControllerDataSource: UICollectionViewDataSource {
@@ -31,12 +31,14 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
         cell.productConfigure(product: productForItem,
                               identifier: changeIdentifier,
                               imageManager: imageManager)
-        
         return cell
     }
     
     func requestProductList(_ collectionView: UICollectionView) {
-        self.networkManager.commuteWithAPI(api: GetItemsApi(page: netxPage)) { result in
+        loadingIndicator?.startAnimating()
+        loadingIndicator?.isHidden(false)
+        self.networkManager.commuteWithAPI(
+            api: GetItemsApi(page: netxPage)) { result in
             if case .success(let data) = result {
                 guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
                     return
@@ -45,6 +47,8 @@ extension MainViewControllerDataSource: UICollectionViewDataSource {
                 self.netxPage += 1
                 DispatchQueue.main.async {
                     collectionView.reloadData()
+                    self.loadingIndicator?.stopAnimating()
+                    self.loadingIndicator?.isHidden(true)
                 }
             }
         }

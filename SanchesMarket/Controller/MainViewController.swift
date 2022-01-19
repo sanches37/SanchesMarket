@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var lodingIndicator: UIActivityIndicatorView!
     
     private let mainCollectionViewDataSource = MainViewControllerDataSource()
     
@@ -33,9 +34,24 @@ class MainViewController: UIViewController {
     private func setUpDataSourceContent() {
         mainCollectionViewDataSource.decidedListLayout(collectionView)
         mainCollectionViewDataSource.requestProductList(collectionView)
+        mainCollectionViewDataSource.loadingIndicator = self
     }
     
     @IBAction func onCollectionViewTypeChanged(_ sender: UISegmentedControl) {
         mainCollectionViewDataSource.selectedView(sender, collectionView)
+    }
+}
+
+extension MainViewController: LodingIndicatable {
+    func startAnimating() {
+        lodingIndicator.startAnimating()
+    }
+    
+    func stopAnimating() {
+        lodingIndicator.stopAnimating()
+    }
+    
+    func isHidden(_ isHidden: Bool) {
+        lodingIndicator.isHidden = isHidden
     }
 }
