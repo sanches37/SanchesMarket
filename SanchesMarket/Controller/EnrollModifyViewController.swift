@@ -24,11 +24,23 @@ class EnrollModifyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpTitle()
+        processCollectionView()
+        registeredIdetifier()
         setUpDataSourceContent()
+        setUpPhotoSelectButton()
+        setUpTitle()
+    }
+    
+    private func processCollectionView() {
+        collectionView.dataSource = enrollModifyCollectionViewDataSource
+    }
+    
+    private func registeredIdetifier() {
+        collectionView.register(EnrollModifyPhotoSelectCell.self, forCellWithReuseIdentifier: EnrollModifyPhotoSelectCell.identifier)
     }
     
     private func setUpDataSourceContent() {
+        enrollModifyCollectionViewDataSource.decidedListLayout(collectionView)
         enrollModifyCollectionViewDataSource.photoSelectButton.append(photoSelectButton)
     }
     

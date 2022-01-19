@@ -31,7 +31,7 @@ class EnrollModifyPhotoSelectCell: UICollectionViewCell {
     
     func configure(photoSelectButton: UIButton) {
         photoSelectButton.setTitle(
-            "\(photoTotalNumber)/\(photoTotalNumber)", for: .normal)
+            "\(photoSelectNumber)/\(photoTotalNumber)", for: .normal)
         photoSelectButton.setImage(cameraImage, for: .normal)
         photoSelectButton.setTitleColor(.black, for: .normal)
         photoSelectButton.tintColor = .black

@@ -8,6 +8,7 @@
 import UIKit
 
 class EnrollModifyViewCollectionViewDataSource: NSObject {
+    private let layoutDirector = CompositionalLayoutDirector()
     var photoSelectButton: [UIButton] = []
 }
 
@@ -24,5 +25,9 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
         photoSelectCell.configure(photoSelectButton: selectButton)
         
         return photoSelectCell
+    }
+    
+    func decidedListLayout(_ collectionView: UICollectionView) {
+        collectionView.collectionViewLayout = layoutDirector.createEnrollModify().create()
     }
 }
