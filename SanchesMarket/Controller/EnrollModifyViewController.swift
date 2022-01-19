@@ -8,6 +8,8 @@
 import UIKit
 
 class EnrollModifyViewController: UIViewController {
+    @IBOutlet weak var enrollModifyButton: UIBarButtonItem!
+    
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     
@@ -19,5 +21,6 @@ class EnrollModifyViewController: UIViewController {
     
     private func setUpTitle() {
         self.title = mainTitle + topItemTitle
+        enrollModifyButton.title = topItemTitle
     }
 }

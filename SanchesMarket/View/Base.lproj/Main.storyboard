@@ -80,7 +80,12 @@
                         <viewLayoutGuide key="safeArea" id="X0c-3X-ZS5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="상품" id="a55-md-2hM"/>
+                    <navigationItem key="navigationItem" title="상품" id="a55-md-2hM">
+                        <barButtonItem key="rightBarButtonItem" title="등록/수정" id="ZK8-zt-Ykv"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="enrollModifyButton" destination="ZK8-zt-Ykv" id="Src-VB-CXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jds-m5-I72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
