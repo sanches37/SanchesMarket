@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--취소-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,8 +42,7 @@
                             <constraint firstItem="Pa2-a9-ycD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k5I-sd-ZD9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XJG-VZ-7sl">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="취소" id="XJG-VZ-7sl">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gzH-5O-BCk">
                             <rect key="frame" x="148" y="5.6666666666666679" width="79" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,15 +54,37 @@
                                 <action selector="onCollectionViewTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="TTJ-ln-Z9Q"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KOf-oe-cXs">
+                            <connections>
+                                <action selector="enrollModifyButton:" destination="BYZ-38-t0r" id="awP-fZ-nNn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
                         <outlet property="lodingIndicator" destination="Sgz-Vd-eDf" id="USP-5s-qy3"/>
+                        <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToEnrollModify" id="wuc-nc-cYp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="64.955357142857139"/>
+        </scene>
+        <!--상품-->
+        <scene sceneID="PUz-ky-7nm">
+            <objects>
+                <viewController id="Bq1-0Q-j1e" customClass="EnrollModifyViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2d3-Yt-yEE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="X0c-3X-ZS5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="상품" id="a55-md-2hM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jds-m5-I72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Cp-c4-Kyv">
