@@ -77,13 +77,33 @@
                     <view key="view" contentMode="scaleToFill" id="2d3-Yt-yEE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B64-Y8-9m0">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lbx-Hw-jFY">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="X0c-3X-ZS5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B64-Y8-9m0" firstAttribute="top" secondItem="X0c-3X-ZS5" secondAttribute="top" id="BbG-ks-cfO"/>
+                            <constraint firstItem="B64-Y8-9m0" firstAttribute="leading" secondItem="X0c-3X-ZS5" secondAttribute="leading" id="d6q-Tv-HNA"/>
+                            <constraint firstItem="X0c-3X-ZS5" firstAttribute="trailing" secondItem="B64-Y8-9m0" secondAttribute="trailing" id="dH2-Lm-oHR"/>
+                            <constraint firstItem="X0c-3X-ZS5" firstAttribute="bottom" secondItem="B64-Y8-9m0" secondAttribute="bottom" id="pPB-NI-y3v"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="상품" id="a55-md-2hM">
                         <barButtonItem key="rightBarButtonItem" title="등록/수정" id="ZK8-zt-Ykv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="B64-Y8-9m0" id="fbM-CQ-fIh"/>
                         <outlet property="enrollModifyButton" destination="ZK8-zt-Ykv" id="Src-VB-CXl"/>
                     </connections>
                 </viewController>

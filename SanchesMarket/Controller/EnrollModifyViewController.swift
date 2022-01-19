@@ -8,8 +8,11 @@
 import UIKit
 
 class EnrollModifyViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var enrollModifyButton: UIBarButtonItem!
     
+    private let enrollModifyCollectionViewDataSource =
+    EnrollModifyViewCollectionViewDataSource()
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     private let photoSelectButton: UIButton = {
@@ -22,6 +25,11 @@ class EnrollModifyViewController: UIViewController {
         super.viewDidLoad()
         
         setUpTitle()
+        setUpDataSourceContent()
+    }
+    
+    private func setUpDataSourceContent() {
+        enrollModifyCollectionViewDataSource.photoSelectButton.append(photoSelectButton)
     }
     
     private func setUpTitle() {
@@ -35,5 +43,6 @@ class EnrollModifyViewController: UIViewController {
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
+        
     }
 }
