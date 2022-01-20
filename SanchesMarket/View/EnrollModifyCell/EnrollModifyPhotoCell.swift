@@ -23,6 +23,9 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setUpPhotoAlbumImage()
+        setUpDeleteImage()
     }
     
     required init?(coder: NSCoder) {

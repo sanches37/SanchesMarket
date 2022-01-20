@@ -11,13 +11,13 @@ class PhotoAlbumCollectionViewDelegate: NSObject {
     private var selectImageDictionary: [UIImage?: Bool] = [:]
     
     func selectPhotoImage() -> [UIImage] {
-        var needIndexPath: [UIImage] = []
+        var selectImage: [UIImage] = []
         for (key, value) in selectImageDictionary {
             if let key = key, value == true {
-                needIndexPath.append(key)
+                selectImage.append(key)
             }
         }
-        return needIndexPath
+        return selectImage
     }
 }
 

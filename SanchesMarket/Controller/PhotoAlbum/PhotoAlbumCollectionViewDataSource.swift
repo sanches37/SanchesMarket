@@ -32,5 +32,4 @@ extension PhotoAlbumCollectionViewDataSource: UICollectionViewDataSource {
     func decidedCollectionViewLayout(_ collecionView: UICollectionView) {
         collecionView.collectionViewLayout = layoutDirector.createPhotoAlbum().create()
     }
-    
 }

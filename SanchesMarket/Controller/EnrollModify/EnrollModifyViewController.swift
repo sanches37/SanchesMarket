@@ -60,6 +60,12 @@ class EnrollModifyViewController: UIViewController {
                 storyboard?.instantiateViewController(identifier: PhotoAlbumViewController.identifier) as? PhotoAlbumViewController else {
                     return
                 }
+        convertPhotoAlbumViewController.getSelectedImage { images in
+            DispatchQueue.main.async {
+                self.enrollModifyCollectionViewDataSource.photoAlbumImages += images
+                self.collectionView.reloadData()
+            }
+        }
         navigationController?.pushViewController(
             convertPhotoAlbumViewController, animated: true)
     }

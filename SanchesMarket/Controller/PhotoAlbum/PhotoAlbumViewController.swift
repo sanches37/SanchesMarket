@@ -14,6 +14,7 @@ class PhotoAlbumViewController: UIViewController {
     private let photoAlbumCollectionViewDelegate =
     PhotoAlbumCollectionViewDelegate()
     static let identifier = "PhotoAlbumVC"
+    private var selectedImage: (([UIImage]) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,5 +36,14 @@ class PhotoAlbumViewController: UIViewController {
     private func setUpDataSourceContent() {
         photoAlbumCollectionViewDataSource.photoAlbumManager.initializeAllPhotos(collectionView: collectionView)
         photoAlbumCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
+    }
+    
+    func getSelectedImage(completion: @escaping (([UIImage])) -> Void) {
+        self.selectedImage = completion
+    }
+    
+    @IBAction func resultPhotoButton(_ sender: UIBarButtonItem) {
+        selectedImage?(photoAlbumCollectionViewDelegate.selectPhotoImage())
+        navigationController?.popViewController(animated: true)
     }
 }

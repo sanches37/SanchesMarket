@@ -25,6 +25,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             photoSelectButton?(photoSelectCell.photoSelectButton)
+            
             return photoSelectCell
     
         } else {
@@ -32,7 +33,9 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let photoAlbumImageForItem = photoAlbumImages[indexPath.item - 1]
+            photoCell.configure(image: photoAlbumImageForItem)
             photoDeleteButton?(photoCell.deleteButton)
+            
             return photoCell
         }
     }
