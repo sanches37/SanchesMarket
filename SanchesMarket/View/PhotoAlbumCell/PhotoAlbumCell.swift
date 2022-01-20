@@ -11,7 +11,7 @@ class PhotoAlbumCell: UICollectionViewCell {
     static let identifier = String(describing: PhotoAlbumCell.self)
     let photoAlbumImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     

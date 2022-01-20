@@ -45,7 +45,7 @@ struct CompositionalLayoutDirector {
             .setLandscapeHorizontalNumber(5)
             .setCellVerticalSize(.absolute(100))
             .setCellMargin(
-                NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
             .setViewMargin(
                 NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
         return builder.build()
