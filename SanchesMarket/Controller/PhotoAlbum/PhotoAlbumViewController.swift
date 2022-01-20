@@ -30,5 +30,6 @@ class PhotoAlbumViewController: UIViewController {
     
     private func setUpDataSourceContent() {
         photoAlbumCollectionViewDataSource.photoAlbumManager.initializeAllPhotos(collectionView: collectionView)
+        photoAlbumCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
     }
 }
