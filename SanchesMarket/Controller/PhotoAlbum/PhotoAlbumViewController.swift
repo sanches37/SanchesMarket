@@ -11,6 +11,7 @@ class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private let photoAlbumCollectionViewDataSource =
     PhotoAlbumCollectionViewDataSource()
+    static let identifier = "PhotoAlbumVC"
     
     override func viewDidLoad() {
         super.viewDidLoad()

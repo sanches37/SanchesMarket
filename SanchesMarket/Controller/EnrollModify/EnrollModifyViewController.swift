@@ -55,6 +55,12 @@ class EnrollModifyViewController: UIViewController {
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
+        guard let convertPhotoAlbumViewController =
+                storyboard?.instantiateViewController(identifier: PhotoAlbumViewController.identifier) as? PhotoAlbumViewController else {
+                    return
+                }
+        navigationController?.pushViewController(
+            convertPhotoAlbumViewController, animated: true)
     }
     
     @objc func removeSelectPhoto(_ sender: UIButton) {
