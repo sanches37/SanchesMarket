@@ -15,17 +15,7 @@ class EnrollModifyViewController: UIViewController {
     EnrollModifyViewCollectionViewDataSource()
     private let mainTitle = "상품"
     var topItemTitle: String = ""
-    private let photoSelectButton: UIButton = {
-        let button = UIButton()
-        button.contentMode = .scaleAspectFit
-        return button
-    }()
-    private let photoDeleteButton: UIButton = {
-        let button = UIButton()
-        button.contentMode = .scaleToFill
-        return button
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +36,6 @@ class EnrollModifyViewController: UIViewController {
     
     private func setUpDataSourceContent() {
         enrollModifyCollectionViewDataSource.decidedListLayout(collectionView)
-        enrollModifyCollectionViewDataSource.photoSelectButton.append(photoSelectButton)
     }
     
     private func setUpTitle() {
@@ -55,10 +44,14 @@ class EnrollModifyViewController: UIViewController {
     }
     
     private func setUpButton() {
-        photoSelectButton.addTarget(
-            self, action: #selector(movePhotoAlbum(_:)), for: .touchUpInside)
-        photoDeleteButton.addTarget(
-            self, action: #selector(removeSelectPhoto(_:)), for: .touchUpInside)
+        enrollModifyCollectionViewDataSource.getPhotoSelectButton { selectButton in
+            selectButton.addTarget(
+                self, action: #selector(self.movePhotoAlbum(_:)), for: .touchUpInside)
+        }
+        enrollModifyCollectionViewDataSource.getPhotoDeleteButton { selectButton in
+            selectButton.addTarget(
+                self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
+        }
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {

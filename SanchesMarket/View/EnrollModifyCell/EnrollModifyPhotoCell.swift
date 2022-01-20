@@ -14,6 +14,11 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
+    let deleteButton: UIButton = {
+        let button = UIButton()
+        button.contentMode = .scaleToFill
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,26 +39,25 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
                                        height: contentView.frame.height)
     }
     
-    private func deleteImageSetup(deletButton: UIButton) {
-        contentView.addSubview(deletButton)
-        deletButton.translatesAutoresizingMaskIntoConstraints = false
-        deletButton.setBackgroundImage(UIImage(systemName: "multiply.circle.fill"),
+    private func deleteImageSetup() {
+        contentView.addSubview(deleteButton)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.setBackgroundImage(UIImage(systemName: "multiply.circle.fill"),
                                        for: .normal)
-        deletButton.tintColor = .black
-        deletButton.backgroundColor = .white
-        deletButton.layer.cornerRadius = 22
+        deleteButton.tintColor = .black
+        deleteButton.backgroundColor = .white
+        deleteButton.layer.cornerRadius = 22
         NSLayoutConstraint.activate([
-            deletButton.trailingAnchor.constraint(
+            deleteButton.trailingAnchor.constraint(
                 equalTo: contentView.trailingAnchor, constant: 3),
-            deletButton.topAnchor.constraint(
+            deleteButton.topAnchor.constraint(
                 equalTo: contentView.topAnchor, constant: -3),
-            deletButton.widthAnchor.constraint(equalToConstant: 22),
-            deletButton.heightAnchor.constraint(equalToConstant: 22)
+            deleteButton.widthAnchor.constraint(equalToConstant: 22),
+            deleteButton.heightAnchor.constraint(equalToConstant: 22)
         ])
     }
     
-    func configure(image: UIImage, button: UIButton) {
+    func configure(image: UIImage) {
         self.photoAlbumImage.image = image
-        deleteImageSetup(deletButton: button)
     }
 }
