@@ -27,7 +27,7 @@ class EnrollModifyViewController: UIViewController {
         processCollectionView()
         registeredIdetifier()
         setUpDataSourceContent()
-        setUpPhotoSelectButton()
+        setUpButton()
         setUpTitle()
     }
     
@@ -49,12 +49,13 @@ class EnrollModifyViewController: UIViewController {
         enrollModifyButton.title = topItemTitle
     }
     
-    private func setUpPhotoSelectButton() {
+    private func setUpButton() {
         photoSelectButton.addTarget(
             self, action: #selector(movePhotoAlbum(_:)), for: .touchUpInside)
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
-        
     }
+    
+
 }
