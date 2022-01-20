@@ -37,7 +37,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
         }
     }
     
-    func decidedListLayout(_ collectionView: UICollectionView) {
+    func decidedCollectionViewLayout(_ collectionView: UICollectionView) {
         collectionView.collectionViewLayout = layoutDirector.createEnrollModify().create()
     }
     

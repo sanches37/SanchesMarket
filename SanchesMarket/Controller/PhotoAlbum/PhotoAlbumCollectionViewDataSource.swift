@@ -9,7 +9,7 @@ import UIKit
 
 class PhotoAlbumCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
-    private let photoAlbumManager = PhotoAlbumManager()
+    let photoAlbumManager = PhotoAlbumManager()
 }
 
 extension PhotoAlbumCollectionViewDataSource: UICollectionViewDataSource {
@@ -25,6 +25,10 @@ extension PhotoAlbumCollectionViewDataSource: UICollectionViewDataSource {
         photoAlbumManager.requestImage(asset: asset, cell: cell)
         
         return cell
+    }
+    
+    func decidedCollectionViewLayout(_ collecionView: UICollectionView) {
+        collecionView.collectionViewLayout = layoutDirector.createPhotoAlbum().create()
     }
     
 }

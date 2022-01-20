@@ -35,7 +35,7 @@ class EnrollModifyViewController: UIViewController {
     }
     
     private func setUpDataSourceContent() {
-        enrollModifyCollectionViewDataSource.decidedListLayout(collectionView)
+        enrollModifyCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
     }
     
     private func setUpTitle() {

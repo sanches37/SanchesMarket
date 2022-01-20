@@ -38,4 +38,16 @@ struct CompositionalLayoutDirector {
                 NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
         return builder.build()
     }
+    
+    func createPhotoAlbum() -> CompositionalLayoutProduct {
+        let builder = CompositionalLayoutBuilder()
+            .setPortraitHorizontalNumber(3)
+            .setLandscapeHorizontalNumber(5)
+            .setCellVerticalSize(.absolute(100))
+            .setCellMargin(
+                NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+            .setViewMargin(
+                NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+        return builder.build()
+    }
 }
