@@ -9,7 +9,7 @@ import UIKit
 
 class EnrollModifyViewCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
-    private var photoSelectButton: ((UIButton) -> Void)?
+    var photoSelectButton: ((UIButton) -> Void)?
     private var photoDeleteButton: ((UIButton) -> Void)?
     var photoAlbumImages: [UIImage] = []
 }
@@ -24,15 +24,15 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
             guard let photoSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: EnrollModifyPhotoSelectCell.identifier, for: indexPath) as? EnrollModifyPhotoSelectCell else {
                 return UICollectionViewCell()
             }
-            self.photoSelectButton?(photoSelectCell.photoSelectButton)
-            
+            photoSelectButton?(photoSelectCell.photoSelectButton)
             return photoSelectCell
+    
         } else {
             guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: EnrollModifyPhotoCell.identifier, for: indexPath) as? EnrollModifyPhotoCell else {
                 return UICollectionViewCell()
             }
             let photoAlbumImageForItem = photoAlbumImages[indexPath.item - 1]
-            self.photoDeleteButton?(photoCell.deleteButton)
+            photoDeleteButton?(photoCell.deleteButton)
             return photoCell
         }
     }
@@ -44,6 +44,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
     func getPhotoSelectButton(completion: @escaping ((UIButton) -> Void)) {
         self.photoSelectButton = completion
     }
+    
     func getPhotoDeleteButton(completion: @escaping ((UIButton) -> Void)) {
         self.photoDeleteButton = completion
     }

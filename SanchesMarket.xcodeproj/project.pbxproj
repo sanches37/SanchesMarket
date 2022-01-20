@@ -36,6 +36,7 @@
 		4D951CC62793219B009827ED /* CompositionalLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D951CC52793219B009827ED /* CompositionalLayoutBuilder.swift */; };
 		4D951CCA27933F6E009827ED /* CompositionalLayoutDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D951CC927933F6E009827ED /* CompositionalLayoutDirector.swift */; };
 		4DB73C802799041600FC2A66 /* EnrollModifyPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C7F2799041600FC2A66 /* EnrollModifyPhotoCell.swift */; };
+		4DB73C832799955B00FC2A66 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */; };
 		4DCD7F9C2793CE890073D907 /* ProductGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD7F9B2793CE890073D907 /* ProductGridCell.xib */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
@@ -95,6 +96,7 @@
 		4D951CC52793219B009827ED /* CompositionalLayoutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutBuilder.swift; sourceTree = "<group>"; };
 		4D951CC927933F6E009827ED /* CompositionalLayoutDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutDirector.swift; sourceTree = "<group>"; };
 		4DB73C7F2799041600FC2A66 /* EnrollModifyPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollModifyPhotoCell.swift; sourceTree = "<group>"; };
+		4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		4DCD7F9B2793CE890073D907 /* ProductGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductGridCell.xib; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				4D4CADE527983DE70077CC9A /* Main */,
 				4D4CADEC27984ABF0077CC9A /* EnrollModify */,
+				4DB73C812799952200FC2A66 /* PhotoAlbum */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,14 @@
 				4D951CC927933F6E009827ED /* CompositionalLayoutDirector.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		4DB73C812799952200FC2A66 /* PhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */,
+			);
+			path = PhotoAlbum;
 			sourceTree = "<group>";
 		};
 		4DD88A7727851E9300EAED1D /* Enumeration */ = {
@@ -431,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD88A942785F20C00EAED1D /* URLSessionProtocol.swift in Sources */,
+				4DB73C832799955B00FC2A66 /* PhotoAlbumViewController.swift in Sources */,
 				4D951CB727912ECD009827ED /* MainCollectionViewDataSource.swift in Sources */,
 				4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */,
 				4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */,

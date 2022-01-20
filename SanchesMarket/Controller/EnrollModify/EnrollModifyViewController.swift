@@ -48,8 +48,8 @@ class EnrollModifyViewController: UIViewController {
             selectButton.addTarget(
                 self, action: #selector(self.movePhotoAlbum(_:)), for: .touchUpInside)
         }
-        enrollModifyCollectionViewDataSource.getPhotoDeleteButton { selectButton in
-            selectButton.addTarget(
+        enrollModifyCollectionViewDataSource.getPhotoDeleteButton { deleteButton in
+            deleteButton.addTarget(
                 self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
         }
     }
