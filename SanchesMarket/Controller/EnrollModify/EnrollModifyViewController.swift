@@ -20,6 +20,11 @@ class EnrollModifyViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         return button
     }()
+    private let photoDeleteButton: UIButton = {
+        let button = UIButton()
+        button.contentMode = .scaleToFill
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +57,13 @@ class EnrollModifyViewController: UIViewController {
     private func setUpButton() {
         photoSelectButton.addTarget(
             self, action: #selector(movePhotoAlbum(_:)), for: .touchUpInside)
+        photoDeleteButton.addTarget(
+            self, action: #selector(removeSelectPhoto(_:)), for: .touchUpInside)
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
     }
     
-
+    @objc func removeSelectPhoto(_ sender: UIButton) {
+    }
 }

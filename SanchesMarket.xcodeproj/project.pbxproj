@@ -154,7 +154,6 @@
 				4D4C5F1727844AB40037496E /* View */,
 				4D4C5F1827844ABA0037496E /* Controller */,
 				4D4C5F1D278452690037496E /* Manager */,
-				4D951CB527912E9B009827ED /* CollectionView */,
 				4DD88A84278574C600EAED1D /* Network */,
 				4D951CC227931896009827ED /* Layout */,
 				4DD88A7727851E9300EAED1D /* Enumeration */,
@@ -194,8 +193,8 @@
 		4D4C5F1827844ABA0037496E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4D4C5F02278439540037496E /* MainViewController.swift */,
-				4D4CADE3279834240077CC9A /* EnrollModifyViewController.swift */,
+				4D4CADE527983DE70077CC9A /* Main */,
+				4D4CADEC27984ABF0077CC9A /* EnrollModify */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +232,7 @@
 		4D4CADE527983DE70077CC9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4D4C5F02278439540037496E /* MainViewController.swift */,
 				4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */,
 			);
 			path = Main;
@@ -250,6 +250,7 @@
 		4D4CADEC27984ABF0077CC9A /* EnrollModify */ = {
 			isa = PBXGroup;
 			children = (
+				4D4CADE3279834240077CC9A /* EnrollModifyViewController.swift */,
 				4D4CADED27984ADF0077CC9A /* EnrollModifyCollectionViewDataSource.swift */,
 			);
 			path = EnrollModify;
@@ -263,15 +264,6 @@
 				4DCD7F9B2793CE890073D907 /* ProductGridCell.xib */,
 			);
 			path = ProductCell;
-			sourceTree = "<group>";
-		};
-		4D951CB527912E9B009827ED /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				4D4CADE527983DE70077CC9A /* Main */,
-				4D4CADEC27984ABF0077CC9A /* EnrollModify */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		4D951CC227931896009827ED /* Layout */ = {
