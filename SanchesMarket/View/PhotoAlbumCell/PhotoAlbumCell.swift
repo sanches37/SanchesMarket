@@ -9,6 +9,7 @@ import UIKit
 
 class PhotoAlbumCell: UICollectionViewCell {
     static let identifier = String(describing: PhotoAlbumCell.self)
+    private var currentImage: UIImage?
     let photoAlbumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -49,6 +50,8 @@ class PhotoAlbumCell: UICollectionViewCell {
     private func setUpHighlightIndicator() {
         contentView.addSubview(highlightIndicator)
         highlightIndicator.isHidden = true
+        highlightIndicator.backgroundColor = .white
+        highlightIndicator.alpha = 0.5
         highlightIndicator.frame = CGRect(x: .zero, y: .zero,
                                           width: contentView.frame.width,
                                           height: contentView.frame.height)
@@ -61,10 +64,10 @@ class PhotoAlbumCell: UICollectionViewCell {
         selectIndicator.isHidden = true
         NSLayoutConstraint.activate([
             selectIndicator.trailingAnchor.constraint(
-                equalTo: contentView.trailingAnchor, constant: 8),
+                equalTo: contentView.trailingAnchor, constant: -5),
             selectIndicator.topAnchor.constraint(
-                equalTo: contentView.topAnchor, constant: -8),
-            selectIndicator.widthAnchor.constraint(equalToConstant: 25),
+                equalTo: contentView.topAnchor, constant: 5),
+            selectIndicator.widthAnchor.constraint(equalToConstant: 28),
             selectIndicator.heightAnchor.constraint(
                 equalTo: selectIndicator.widthAnchor, multiplier: 1)
         ])
@@ -72,5 +75,10 @@ class PhotoAlbumCell: UICollectionViewCell {
     
     func configure(image: UIImage) {
         self.photoAlbumImage.image = image
+        currentImage = image
+    }
+    
+    func getCurrentImage() -> UIImage? {
+        return currentImage
     }
 }

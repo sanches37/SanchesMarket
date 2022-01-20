@@ -11,6 +11,8 @@ class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private let photoAlbumCollectionViewDataSource =
     PhotoAlbumCollectionViewDataSource()
+    private let photoAlbumCollectionViewDelegate =
+    PhotoAlbumCollectionViewDelegate()
     static let identifier = "PhotoAlbumVC"
     
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class PhotoAlbumViewController: UIViewController {
     
     private func processCollectionView() {
         collectionView.dataSource = photoAlbumCollectionViewDataSource
+        collectionView.delegate = photoAlbumCollectionViewDelegate
     }
     
     private func registeredIdentifier() {

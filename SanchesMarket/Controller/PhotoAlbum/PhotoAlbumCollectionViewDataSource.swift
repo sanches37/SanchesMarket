@@ -22,7 +22,9 @@ extension PhotoAlbumCollectionViewDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let asset = photoAlbumManager.getAllPhotos()[indexPath.item]
-        photoAlbumManager.requestImage(asset: asset, cell: cell)
+        photoAlbumManager.requestImage(asset: asset) { image in
+            cell.configure(image: image)
+        }
         
         return cell
     }

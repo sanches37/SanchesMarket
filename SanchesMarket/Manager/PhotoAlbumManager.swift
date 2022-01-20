@@ -28,12 +28,12 @@ struct PhotoAlbumManager {
         }
     }
     
-    func requestImage(asset: PHAsset, cell: PhotoAlbumCell) {
+    func requestImage(asset: PHAsset, completion: @escaping ((UIImage) -> Void)) {
         let options = PHImageRequestOptions()
         options.deliveryMode = .opportunistic
         PHImageManager().requestImage(for: asset, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFill, options: options) { (image, _) in
             if let image = image {
-                cell.configure(image: image)
+                completion(image)
             }
         }
     }
