@@ -38,6 +38,7 @@
 		4DB73C802799041600FC2A66 /* EnrollModifyPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C7F2799041600FC2A66 /* EnrollModifyPhotoCell.swift */; };
 		4DB73C832799955B00FC2A66 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */; };
 		4DB73C852799988500FC2A66 /* PhotoAlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C842799988500FC2A66 /* PhotoAlbumManager.swift */; };
+		4DB73C8B2799A22900FC2A66 /* PhotoAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB73C8A2799A22900FC2A66 /* PhotoAlbumCell.swift */; };
 		4DCD7F9C2793CE890073D907 /* ProductGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD7F9B2793CE890073D907 /* ProductGridCell.xib */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
@@ -99,6 +100,7 @@
 		4DB73C7F2799041600FC2A66 /* EnrollModifyPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollModifyPhotoCell.swift; sourceTree = "<group>"; };
 		4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		4DB73C842799988500FC2A66 /* PhotoAlbumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumManager.swift; sourceTree = "<group>"; };
+		4DB73C8A2799A22900FC2A66 /* PhotoAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumCell.swift; sourceTree = "<group>"; };
 		4DCD7F9B2793CE890073D907 /* ProductGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductGridCell.xib; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				4D951CAC27911DF4009827ED /* ProductCell */,
 				4D4CADE927983EF70077CC9A /* EnrollModifyCell */,
+				4DB73C892799A1F700FC2A66 /* PhotoAlbumCell */,
 				4D4C5F04278439540037496E /* Main.storyboard */,
 				4D4C5F09278439550037496E /* LaunchScreen.storyboard */,
 			);
@@ -288,6 +291,14 @@
 				4DB73C822799955B00FC2A66 /* PhotoAlbumViewController.swift */,
 			);
 			path = PhotoAlbum;
+			sourceTree = "<group>";
+		};
+		4DB73C892799A1F700FC2A66 /* PhotoAlbumCell */ = {
+			isa = PBXGroup;
+			children = (
+				4DB73C8A2799A22900FC2A66 /* PhotoAlbumCell.swift */,
+			);
+			path = PhotoAlbumCell;
 			sourceTree = "<group>";
 		};
 		4DD88A7727851E9300EAED1D /* Enumeration */ = {
@@ -454,6 +465,7 @@
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,
 				4D4C5F03278439540037496E /* MainViewController.swift in Sources */,
+				4DB73C8B2799A22900FC2A66 /* PhotoAlbumCell.swift in Sources */,
 				4DD88A9027858FC900EAED1D /* Data+extension.swift in Sources */,
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4D4CADEE27984ADF0077CC9A /* EnrollModifyCollectionViewDataSource.swift in Sources */,

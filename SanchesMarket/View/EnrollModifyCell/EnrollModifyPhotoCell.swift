@@ -14,6 +14,7 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
+    
     let deleteButton: UIButton = {
         let button = UIButton()
         button.contentMode = .scaleToFill
@@ -28,7 +29,7 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    private func photoAlbumImageSetup() {
+    private func setUpPhotoAlbumImage() {
         contentView.addSubview(photoAlbumImage)
         photoAlbumImage.layer.cornerRadius = 10
         photoAlbumImage.layer.borderWidth = 1
@@ -39,7 +40,7 @@ class EnrollModifyPhotoCell: UICollectionViewCell {
                                        height: contentView.frame.height)
     }
     
-    private func deleteImageSetup() {
+    private func setUpDeleteImage() {
         contentView.addSubview(deleteButton)
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.setBackgroundImage(UIImage(systemName: "multiply.circle.fill"),
