@@ -32,6 +32,7 @@ class EnrollModifyViewController: UIViewController {
     
     private func registeredIdetifier() {
         collectionView.register(EnrollModifyPhotoSelectCell.self, forCellWithReuseIdentifier: EnrollModifyPhotoSelectCell.identifier)
+        collectionView.register(EnrollModifyPhotoCell.self, forCellWithReuseIdentifier: EnrollModifyPhotoCell.identifier)
     }
     
     private func setUpDataSourceContent() {
