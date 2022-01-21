@@ -9,9 +9,9 @@ import UIKit
 
 class EnrollModifyViewCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
-    var photoSelectButton: ((UIButton) -> Void)?
+    private var photoSelectButton: ((UIButton) -> Void)?
     private var photoDeleteButton: ((UIButton) -> Void)?
-    var photoAlbumImages: [UIImage] = []
+    private(set) var photoAlbumImages: [UIImage] = []
 }
 
 extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
@@ -33,6 +33,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let photoAlbumImageForItem = photoAlbumImages[indexPath.item - 1]
+            photoCell.deleteButton.tag = indexPath.item - 1
             photoCell.configure(image: photoAlbumImageForItem)
             photoDeleteButton?(photoCell.deleteButton)
             
@@ -50,5 +51,13 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
     
     func getPhotoDeleteButton(completion: @escaping ((UIButton) -> Void)) {
         self.photoDeleteButton = completion
+    }
+    
+    func addPhotoAlbumImage(images: [UIImage]) {
+        photoAlbumImages += images
+    }
+    
+    func removePhotoAlbumImage(index: Int) {
+        photoAlbumImages.remove(at: index)
     }
 }

@@ -15,7 +15,7 @@ class EnrollModifyViewController: UIViewController {
     EnrollModifyViewCollectionViewDataSource()
     private let mainTitle = "상품"
     var topItemTitle: String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,7 +62,7 @@ class EnrollModifyViewController: UIViewController {
                 }
         convertPhotoAlbumViewController.getSelectedImage { images in
             DispatchQueue.main.async {
-                self.enrollModifyCollectionViewDataSource.photoAlbumImages += images
+                self.enrollModifyCollectionViewDataSource.addPhotoAlbumImage(images: images)
                 self.collectionView.reloadData()
             }
         }
@@ -71,5 +71,8 @@ class EnrollModifyViewController: UIViewController {
     }
     
     @objc func removeSelectPhoto(_ sender: UIButton) {
+        enrollModifyCollectionViewDataSource.removePhotoAlbumImage(
+            index: sender.tag)
+        collectionView.reloadData()
     }
 }
