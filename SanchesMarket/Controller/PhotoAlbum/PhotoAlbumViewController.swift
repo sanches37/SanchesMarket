@@ -42,6 +42,10 @@ class PhotoAlbumViewController: UIViewController {
         self.selectedImage = completion
     }
     
+    func getSelectableImageCount(to count : Int) {
+        photoAlbumCollectionViewDelegate.getSelectImageCount(to: count)
+    }
+    
     @IBAction func resultPhotoButton(_ sender: UIBarButtonItem) {
         selectedImage?(photoAlbumCollectionViewDelegate.selectPhotoImage())
         navigationController?.popViewController(animated: true)

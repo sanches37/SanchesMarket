@@ -10,7 +10,7 @@ import UIKit
 class EnrollModifyViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var enrollModifyButton: UIBarButtonItem!
-    
+    private let PhotoLimitCount = 5
     private let enrollModifyCollectionViewDataSource =
     EnrollModifyViewCollectionViewDataSource()
     private let mainTitle = "상품"
@@ -66,6 +66,10 @@ class EnrollModifyViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         }
+        
+        convertPhotoAlbumViewController.getSelectableImageCount(
+            to: PhotoLimitCount - enrollModifyCollectionViewDataSource.photoAlbumImages.count)
+        
         navigationController?.pushViewController(
             convertPhotoAlbumViewController, animated: true)
     }

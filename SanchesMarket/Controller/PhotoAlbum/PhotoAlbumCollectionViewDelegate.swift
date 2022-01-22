@@ -9,6 +9,7 @@ import UIKit
 
 class PhotoAlbumCollectionViewDelegate: NSObject {
     private var selectImageDictionary: [UIImage?: Bool] = [:]
+    private var selectableImageCount = 0
     
     func selectPhotoImage() -> [UIImage] {
         var selectImage: [UIImage] = []
@@ -19,6 +20,10 @@ class PhotoAlbumCollectionViewDelegate: NSObject {
         }
         return selectImage
     }
+    
+    func getSelectImageCount(to count: Int) {
+        selectableImageCount = count
+    }
 }
 
 extension PhotoAlbumCollectionViewDelegate: UICollectionViewDelegate {
@@ -26,7 +31,7 @@ extension PhotoAlbumCollectionViewDelegate: UICollectionViewDelegate {
                         didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? PhotoAlbumCell
         if cell?.highlightIndicator.isHidden == true &&
-            selectPhotoImage().count < 5 {
+            selectPhotoImage().count < selectableImageCount {
             selectImageDictionary[cell?.getCurrentImage()] = true
             cell?.highlightIndicator.isHidden = false
             cell?.selectIndicator.isHidden = false
