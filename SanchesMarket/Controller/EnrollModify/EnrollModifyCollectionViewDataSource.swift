@@ -24,6 +24,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
             guard let photoSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: EnrollModifyPhotoSelectCell.identifier, for: indexPath) as? EnrollModifyPhotoSelectCell else {
                 return UICollectionViewCell()
             }
+            photoSelectCell.setPhotoSelectCount(count: photoAlbumImages.count)
             photoSelectButton?(photoSelectCell.photoSelectButton)
             
             return photoSelectCell
