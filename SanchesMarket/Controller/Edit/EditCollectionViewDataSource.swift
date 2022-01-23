@@ -7,21 +7,21 @@
 
 import UIKit
 
-class EnrollModifyViewCollectionViewDataSource: NSObject {
+class EditCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private var photoSelectButton: ((UIButton) -> Void)?
     private var photoDeleteButton: ((UIButton) -> Void)?
     private(set) var photoAlbumImages: [UIImage] = []
 }
 
-extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
+extension EditCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoAlbumImages.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == .zero {
-            guard let photoSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: EnrollModifyPhotoSelectCell.identifier, for: indexPath) as? EnrollModifyPhotoSelectCell else {
+            guard let photoSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: EditPhotoSelectCell.identifier, for: indexPath) as? EditPhotoSelectCell else {
                 return UICollectionViewCell()
             }
             photoSelectCell.setPhotoSelectCount(count: photoAlbumImages.count)
@@ -30,7 +30,7 @@ extension EnrollModifyViewCollectionViewDataSource: UICollectionViewDataSource {
             return photoSelectCell
     
         } else {
-            guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: EnrollModifyPhotoCell.identifier, for: indexPath) as? EnrollModifyPhotoCell else {
+            guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: EditPhotoCell.identifier, for: indexPath) as? EditPhotoCell else {
                 return UICollectionViewCell()
             }
             let photoAlbumImageForItem = photoAlbumImages[indexPath.item - 1]

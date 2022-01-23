@@ -78,7 +78,7 @@ extension MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let enrollModifyViewController = segue.destination as? EnrollModifyViewController else {
+        guard let enrollModifyViewController = segue.destination as? EditViewController else {
             return
         }
         guard let labelString = sender as? String else { return }

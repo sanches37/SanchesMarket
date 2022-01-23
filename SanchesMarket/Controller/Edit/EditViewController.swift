@@ -7,12 +7,12 @@
 
 import UIKit
 
-class EnrollModifyViewController: UIViewController {
+class EditViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var enrollModifyButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     private let PhotoLimitCount = 5
-    private let enrollModifyCollectionViewDataSource =
-    EnrollModifyViewCollectionViewDataSource()
+    private let editCollectionViewDataSource =
+    EditCollectionViewDataSource()
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     
@@ -27,29 +27,29 @@ class EnrollModifyViewController: UIViewController {
     }
     
     private func processCollectionView() {
-        collectionView.dataSource = enrollModifyCollectionViewDataSource
+        collectionView.dataSource = editCollectionViewDataSource
     }
     
     private func registeredIdetifier() {
-        collectionView.register(EnrollModifyPhotoSelectCell.self, forCellWithReuseIdentifier: EnrollModifyPhotoSelectCell.identifier)
-        collectionView.register(EnrollModifyPhotoCell.self, forCellWithReuseIdentifier: EnrollModifyPhotoCell.identifier)
+        collectionView.register(EditPhotoSelectCell.self, forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
+        collectionView.register(EditPhotoCell.self, forCellWithReuseIdentifier: EditPhotoCell.identifier)
     }
     
     private func setUpDataSourceContent() {
-        enrollModifyCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
+        editCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
     }
     
     private func setUpTitle() {
         self.title = mainTitle + topItemTitle
-        enrollModifyButton.title = topItemTitle
+        editButton.title = topItemTitle
     }
     
     private func setUpButton() {
-        enrollModifyCollectionViewDataSource.getPhotoSelectButton { selectButton in
+        editCollectionViewDataSource.getPhotoSelectButton { selectButton in
             selectButton.addTarget(
                 self, action: #selector(self.movePhotoAlbum(_:)), for: .touchUpInside)
         }
-        enrollModifyCollectionViewDataSource.getPhotoDeleteButton { deleteButton in
+        editCollectionViewDataSource.getPhotoDeleteButton { deleteButton in
             deleteButton.addTarget(
                 self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
         }
@@ -62,15 +62,15 @@ class EnrollModifyViewController: UIViewController {
                 }
         convertPhotoAlbumViewController.getSelectedImage { images in
             DispatchQueue.main.async {
-                self.enrollModifyCollectionViewDataSource.addPhotoAlbumImage(images: images)
+                self.editCollectionViewDataSource.addPhotoAlbumImage(images: images)
                 self.collectionView.reloadData()
             }
         }
         
         convertPhotoAlbumViewController.getSelectableImageCount(
-            to: PhotoLimitCount - enrollModifyCollectionViewDataSource.photoAlbumImages.count)
+            to: PhotoLimitCount - editCollectionViewDataSource.photoAlbumImages.count)
         
-        if enrollModifyCollectionViewDataSource.photoAlbumImages.count < PhotoLimitCount {
+        if editCollectionViewDataSource.photoAlbumImages.count < PhotoLimitCount {
             navigationController?.pushViewController(
                 convertPhotoAlbumViewController, animated: true)
         } else {
@@ -82,7 +82,7 @@ class EnrollModifyViewController: UIViewController {
     }
     
     @objc func removeSelectPhoto(_ sender: UIButton) {
-        enrollModifyCollectionViewDataSource.removePhotoAlbumImage(
+        editCollectionViewDataSource.removePhotoAlbumImage(
             index: sender.tag)
         collectionView.reloadData()
     }

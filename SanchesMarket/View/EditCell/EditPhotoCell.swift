@@ -7,8 +7,8 @@
 
 import UIKit
 
-class EnrollModifyPhotoCell: UICollectionViewCell {
-    static let identifier = String(describing: EnrollModifyPhotoCell.self)
+class EditPhotoCell: UICollectionViewCell {
+    static let identifier = String(describing: EditPhotoCell.self)
     let photoAlbumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill

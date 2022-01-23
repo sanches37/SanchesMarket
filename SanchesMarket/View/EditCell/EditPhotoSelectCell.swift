@@ -7,8 +7,8 @@
 
 import UIKit
 
-class EnrollModifyPhotoSelectCell: UICollectionViewCell {
-    static let identifier = String(describing: EnrollModifyPhotoSelectCell.self)
+class EditPhotoSelectCell: UICollectionViewCell {
+    static let identifier = String(describing: EditPhotoSelectCell.self)
     private let cameraImage = UIImage(systemName: "camera")
     private let photoTotalCount = 5
     let photoSelectButton: UIButton = {
