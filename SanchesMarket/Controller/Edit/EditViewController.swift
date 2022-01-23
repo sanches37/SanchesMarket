@@ -74,10 +74,7 @@ class EditViewController: UIViewController {
             navigationController?.pushViewController(
                 convertPhotoAlbumViewController, animated: true)
         } else {
-            let photoLimitAlert = UIAlertController(title: "이미지는 5장까지 등록할 수 있습니다", message: nil, preferredStyle: .alert)
-            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-            photoLimitAlert.addAction(ok)
-            present(photoLimitAlert, animated: true)
+            self.showAlert(message: "사진은 5장까지만 등록할 수 있습니다")
         }
     }
     
