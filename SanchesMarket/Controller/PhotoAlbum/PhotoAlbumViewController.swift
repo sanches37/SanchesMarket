@@ -11,7 +11,7 @@ class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private let photoAlbumCollectionViewDataSource =
     PhotoAlbumCollectionViewDataSource()
-    private let photoAlbumCollectionViewDelegate =
+    let photoAlbumCollectionViewDelegate =
     PhotoAlbumCollectionViewDelegate()
     static let identifier = "PhotoAlbumVC"
     private var selectedImage: (([UIImage]) -> Void)?
@@ -40,10 +40,6 @@ class PhotoAlbumViewController: UIViewController {
     
     func getSelectedImage(completion: @escaping (([UIImage])) -> Void) {
         self.selectedImage = completion
-    }
-    
-    func getSelectableImageCount(to count : Int) {
-        photoAlbumCollectionViewDelegate.getSelectImageCount(to: count)
     }
     
     @IBAction func resultPhotoButton(_ sender: UIBarButtonItem) {

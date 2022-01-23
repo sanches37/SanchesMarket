@@ -67,7 +67,7 @@ class EditViewController: UIViewController {
             }
         }
         
-        convertPhotoAlbumViewController.getSelectableImageCount(
+        convertPhotoAlbumViewController.photoAlbumCollectionViewDelegate.getSelectImageCount(
             to: PhotoLimitCount - editCollectionViewDataSource.photoAlbumImages.count)
         
         if editCollectionViewDataSource.photoAlbumImages.count < PhotoLimitCount {
