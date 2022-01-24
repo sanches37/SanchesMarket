@@ -8,28 +8,37 @@
 import UIKit
 
 class CompositionalLayoutBuilder {
-    private var portraitHorizontalNumber: Int = 1
-    private var landscapeHorizontalNumber: Int = 1
-    private var cellVerticalSize: NSCollectionLayoutDimension = .absolute(100)
+    private var portraitHorizontalSize: NSCollectionLayoutDimension = .fractionalWidth(1/1)
+    private lazy var landscapeHorizontalSize: NSCollectionLayoutDimension = portraitHorizontalSize
+    private var portraitVerticalSize: NSCollectionLayoutDimension = .absolute(100)
+    private lazy var landscapeVerticalSize: NSCollectionLayoutDimension = portraitVerticalSize
     private var scrollDirection: ScrollDirection = .vertical
     private var cellMargin: NSDirectionalEdgeInsets =
     NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     private var viewMargin: NSDirectionalEdgeInsets =
     NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     
-    func setPortraitHorizontalNumber(_ number: Int) -> CompositionalLayoutBuilder {
-        self.portraitHorizontalNumber = number
-        return self
-    }
-    
-    func setLandscapeHorizontalNumber(_ number: Int) -> CompositionalLayoutBuilder {
-        self.landscapeHorizontalNumber = number
-        return self
-    }
-    
-    func setCellVerticalSize(
+    func setPortraitHorizontalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
-        self.cellVerticalSize = size
+        self.portraitHorizontalSize = size
+        return self
+    }
+    
+    func setLandscapeHorizontalSize(
+        _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
+        self.landscapeHorizontalSize = size
+        return self
+    }
+    
+    func setportraitVerticalSize(
+        _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
+        self.portraitVerticalSize = size
+        return self
+    }
+    
+    func setlandscapeVerticalSize(
+        _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
+        self.landscapeVerticalSize = size
         return self
     }
     
@@ -53,9 +62,10 @@ class CompositionalLayoutBuilder {
     
     func build() -> CompositionalLayoutProduct {
         return CompositionalLayoutProduct(
-            portraitHorizontalNumber: portraitHorizontalNumber,
-            landscapeHorizontalNumber: landscapeHorizontalNumber,
-            cellVerticalSize: cellVerticalSize,
+            portraitHorizontalSize: portraitHorizontalSize,
+            landscapeHorizontalSize: landscapeHorizontalSize,
+            portraitVerticalSize: portraitVerticalSize,
+            landscapeVerticalSize: landscapeVerticalSize,
             scrollDirection: scrollDirection,
             cellMargin: cellMargin,
             viewMargin: viewMargin)

@@ -31,7 +31,7 @@ class EditPhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     private func setUpPhotoAlbumImage() {
         contentView.addSubview(photoAlbumImage)
         photoAlbumImage.layer.cornerRadius = 10

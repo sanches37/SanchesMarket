@@ -16,9 +16,9 @@ struct CompositionalLayoutDirector {
     
     func createMainGrid() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
-            .setPortraitHorizontalNumber(2)
-            .setLandscapeHorizontalNumber(4)
-            .setCellVerticalSize(.absolute(250))
+            .setPortraitHorizontalSize(.fractionalWidth(1/2))
+            .setLandscapeHorizontalSize(.fractionalWidth(1/4))
+            .setportraitVerticalSize(.absolute(250))
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
             .setViewMargin(
@@ -28,9 +28,10 @@ struct CompositionalLayoutDirector {
     
     func createEnrollModify() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
-            .setPortraitHorizontalNumber(4)
-            .setLandscapeHorizontalNumber(4)
-            .setCellVerticalSize(.fractionalHeight(1/6))
+            .setPortraitHorizontalSize(.fractionalWidth(1/4))
+            .setLandscapeHorizontalSize(.fractionalWidth(1/8))
+            .setportraitVerticalSize(.fractionalWidth(1/4))
+            .setlandscapeVerticalSize(.fractionalWidth(1/8))
             .setScrollDirection(.horizontal)
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
@@ -41,9 +42,10 @@ struct CompositionalLayoutDirector {
     
     func createPhotoAlbum() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
-            .setPortraitHorizontalNumber(3)
-            .setLandscapeHorizontalNumber(5)
-            .setCellVerticalSize(.absolute(100))
+            .setPortraitHorizontalSize(.fractionalWidth(1/3))
+            .setLandscapeHorizontalSize(.fractionalWidth(1/5))
+            .setportraitVerticalSize(.fractionalWidth(1/3))
+            .setlandscapeVerticalSize(.fractionalWidth(1/5))
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
             .setViewMargin(

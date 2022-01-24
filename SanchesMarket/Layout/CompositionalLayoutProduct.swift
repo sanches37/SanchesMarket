@@ -8,9 +8,10 @@
 import UIKit
 
 struct CompositionalLayoutProduct {
-    let portraitHorizontalNumber: Int
-    let landscapeHorizontalNumber: Int
-    let cellVerticalSize: NSCollectionLayoutDimension
+    let portraitHorizontalSize: NSCollectionLayoutDimension
+    let landscapeHorizontalSize: NSCollectionLayoutDimension
+    let portraitVerticalSize: NSCollectionLayoutDimension
+    let landscapeVerticalSize: NSCollectionLayoutDimension
     let scrollDirection: ScrollDirection
     let cellMargin: NSDirectionalEdgeInsets
     let viewMargin: NSDirectionalEdgeInsets
@@ -21,23 +22,27 @@ struct CompositionalLayoutProduct {
         }
         return layout
     }
-
+    
     private func decidedItem() -> NSCollectionLayoutItem {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        var horizontalSize: NSCollectionLayoutDimension {
+            UIDevice.current.orientation.isLandscape ?
+        landscapeHorizontalSize: portraitHorizontalSize
+        }
+        let itemSize = NSCollectionLayoutSize(widthDimension: horizontalSize, heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = cellMargin
         return item
     }
     
     private func decidedGroup() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: cellVerticalSize)
-        var horizontalNumber: Int {
+        var verticalSize: NSCollectionLayoutDimension {
             UIDevice.current.orientation.isLandscape ?
-        landscapeHorizontalNumber: portraitHorizontalNumber
+        landscapeVerticalSize: portraitVerticalSize
         }
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: verticalSize)
+        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitem: decidedItem(),
-                                                       count: horizontalNumber)
+                                                       subitems: [decidedItem()])
         return group
     }
     
