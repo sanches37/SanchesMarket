@@ -31,6 +31,12 @@ class EditPhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        photoAlbumImage.frame = bounds
+    }
 
     private func setUpPhotoAlbumImage() {
         contentView.addSubview(photoAlbumImage)

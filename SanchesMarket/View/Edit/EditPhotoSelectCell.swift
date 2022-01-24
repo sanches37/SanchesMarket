@@ -24,6 +24,12 @@ class EditPhotoSelectCell: UICollectionViewCell {
         configure()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        photoSelectButton.frame = bounds
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

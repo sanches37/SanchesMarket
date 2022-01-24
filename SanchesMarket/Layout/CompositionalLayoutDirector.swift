@@ -18,7 +18,7 @@ struct CompositionalLayoutDirector {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalSize(.fractionalWidth(1/2))
             .setLandscapeHorizontalSize(.fractionalWidth(1/4))
-            .setportraitVerticalSize(.absolute(250))
+            .setPortraitVerticalSize(.absolute(250))
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
             .setViewMargin(
@@ -30,8 +30,8 @@ struct CompositionalLayoutDirector {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalSize(.fractionalWidth(1/4))
             .setLandscapeHorizontalSize(.fractionalWidth(1/8))
-            .setportraitVerticalSize(.fractionalWidth(1/4))
-            .setlandscapeVerticalSize(.fractionalWidth(1/8))
+            .setPortraitVerticalSize(.fractionalWidth(1/4))
+            .setLandscapeVerticalSize(.fractionalWidth(1/8))
             .setScrollDirection(.horizontal)
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
@@ -44,8 +44,8 @@ struct CompositionalLayoutDirector {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalSize(.fractionalWidth(1/3))
             .setLandscapeHorizontalSize(.fractionalWidth(1/5))
-            .setportraitVerticalSize(.fractionalWidth(1/3))
-            .setlandscapeVerticalSize(.fractionalWidth(1/5))
+            .setPortraitVerticalSize(.fractionalWidth(1/3))
+            .setLandscapeVerticalSize(.fractionalWidth(1/5))
             .setCellMargin(
                 NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
             .setViewMargin(

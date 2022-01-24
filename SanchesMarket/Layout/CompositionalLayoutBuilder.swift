@@ -30,13 +30,13 @@ class CompositionalLayoutBuilder {
         return self
     }
     
-    func setportraitVerticalSize(
+    func setPortraitVerticalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
         self.portraitVerticalSize = size
         return self
     }
     
-    func setlandscapeVerticalSize(
+    func setLandscapeVerticalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
         self.landscapeVerticalSize = size
         return self
