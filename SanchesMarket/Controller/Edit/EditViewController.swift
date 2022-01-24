@@ -8,11 +8,11 @@
 import UIKit
 
 class EditViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     private let PhotoLimitCount = 5
     private let editCollectionViewDataSource =
     EditCollectionViewDataSource()
+    private let content = EditContentView()
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     
@@ -24,19 +24,20 @@ class EditViewController: UIViewController {
         setUpDataSourceContent()
         setUpButton()
         setUpTitle()
+        content.setUpScrollView(view: view)
     }
     
     private func processCollectionView() {
-        collectionView.dataSource = editCollectionViewDataSource
+        content.photoCollectionView.dataSource = editCollectionViewDataSource
     }
     
     private func registeredIdetifier() {
-        collectionView.register(EditPhotoSelectCell.self, forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
-        collectionView.register(EditPhotoCell.self, forCellWithReuseIdentifier: EditPhotoCell.identifier)
+        content.photoCollectionView.register(EditPhotoSelectCell.self, forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
+        content.photoCollectionView.register(EditPhotoCell.self, forCellWithReuseIdentifier: EditPhotoCell.identifier)
     }
     
     private func setUpDataSourceContent() {
-        editCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
+        editCollectionViewDataSource.decidedCollectionViewLayout(content.photoCollectionView)
     }
     
     private func setUpTitle() {
@@ -63,7 +64,7 @@ class EditViewController: UIViewController {
         convertPhotoAlbumViewController.getSelectedImage { images in
             DispatchQueue.main.async {
                 self.editCollectionViewDataSource.addPhotoAlbumImage(images: images)
-                self.collectionView.reloadData()
+                self.content.photoCollectionView.reloadData()
             }
         }
         
@@ -81,6 +82,6 @@ class EditViewController: UIViewController {
     @objc func removeSelectPhoto(_ sender: UIButton) {
         editCollectionViewDataSource.removePhotoAlbumImage(
             index: sender.tag)
-        collectionView.reloadData()
+        content.photoCollectionView.reloadData()
     }
 }
