@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Photos
+import Photos.PHAsset
 
 class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!

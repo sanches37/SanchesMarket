@@ -9,9 +9,9 @@ import UIKit
 import Photos.PHAsset
 
 class PhotoAlbumManager {
-    private var photos: PHFetchResult<PHAsset> = PHAsset.fetchAssets(with: PHFetchOptions())
+    private var photos: PHFetchResult<PHAsset>?
     
-    func getPhotos() -> PHFetchResult<PHAsset> {
+    func getPhotos() -> PHFetchResult<PHAsset>? {
         return photos
     }
     
@@ -31,12 +31,12 @@ class PhotoAlbumManager {
                     completion()
                 }
             }
-        }
-        
-        PHPhotoLibrary.requestAuthorization { status in
-            if status == .authorized {
-                self.initializedPhotos()
-                completion()
+        } else {
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .authorized {
+                    self.initializedPhotos()
+                    completion()
+                }
             }
         }
     }

@@ -14,14 +14,16 @@ class PhotoAlbumCollectionViewDataSource: NSObject {
 
 extension PhotoAlbumCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photoAlbumManager.getPhotos().count
+        photoAlbumManager.getPhotos()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoAlbumCell.identifier, for: indexPath) as? PhotoAlbumCell else {
             return UICollectionViewCell()
         }
-        let asset = photoAlbumManager.getPhotos()[indexPath.item]
+        guard let asset = photoAlbumManager.getPhotos()?[indexPath.item] else {
+            return UICollectionViewCell()
+        }
         photoAlbumManager.requestImage(asset: asset) { image in
             cell.configure(image: image)
         }
