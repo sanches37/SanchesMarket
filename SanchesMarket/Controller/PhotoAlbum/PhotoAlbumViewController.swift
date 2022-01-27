@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,7 +21,7 @@ class PhotoAlbumViewController: UIViewController {
         super.viewDidLoad()
         
         processCollectionView()
-        registeredIdentifier()
+        registeredContent()
         setUpDataSourceContent()
     }
     
@@ -29,12 +30,17 @@ class PhotoAlbumViewController: UIViewController {
         collectionView.delegate = photoAlbumCollectionViewDelegate
     }
     
-    private func registeredIdentifier() {
+    private func registeredContent() {
         collectionView.register(PhotoAlbumCell.self, forCellWithReuseIdentifier: PhotoAlbumCell.identifier)
+        PHPhotoLibrary.shared().register(self)
     }
     
     private func setUpDataSourceContent() {
-        photoAlbumCollectionViewDataSource.photoAlbumManager.initializeAllPhotos(collectionView: collectionView)
+        photoAlbumCollectionViewDataSource.photoAlbumManager.requestPhotosAuthorization {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
         photoAlbumCollectionViewDataSource.decidedCollectionViewLayout(collectionView)
     }
     
@@ -45,5 +51,14 @@ class PhotoAlbumViewController: UIViewController {
     @IBAction func resultPhotoButton(_ sender: UIBarButtonItem) {
         selectedImage?(photoAlbumCollectionViewDelegate.selectPhotoImage())
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension PhotoAlbumViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        photoAlbumCollectionViewDataSource.photoAlbumManager.initializedPhotos()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
