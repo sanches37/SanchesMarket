@@ -26,7 +26,7 @@ struct CompositionalLayoutDirector {
         return builder.build()
     }
     
-    func createEnrollModify() -> CompositionalLayoutProduct {
+    func createEdit() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalSize(.fractionalWidth(1/4))
             .setLandscapeHorizontalSize(.fractionalWidth(1/8))

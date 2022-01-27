@@ -58,7 +58,7 @@ extension MainViewController: LodingIndicatable {
 }
 
 extension MainViewController {
-    @IBAction func enrollModifyButton(_ sender: Any) {
+    @IBAction func editButton(_ sender: Any) {
         self.showEditAction()
     }
     

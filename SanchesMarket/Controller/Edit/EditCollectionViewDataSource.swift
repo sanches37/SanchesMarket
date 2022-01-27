@@ -1,5 +1,5 @@
 //
-//  EnrollModifyCollectionViewDataSource.swift
+//  EditCollectionViewDataSource.swift
 //  SanchesMarket
 //
 //  Created by tae hoon park on 2022/01/19.
@@ -43,7 +43,7 @@ extension EditCollectionViewDataSource: UICollectionViewDataSource {
     }
     
     func decidedCollectionViewLayout(_ collectionView: UICollectionView) {
-        collectionView.collectionViewLayout = layoutDirector.createEnrollModify().create()
+        collectionView.collectionViewLayout = layoutDirector.createEdit().create()
     }
     
     func getPhotoSelectButton(completion: @escaping ((UIButton) -> Void)) {

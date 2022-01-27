@@ -11,7 +11,6 @@ struct NetworkManager {
     private let request = Request()
     private let session: URLSessionProtocol
     private var applicableHTTPMethod: [APIHTTPMethod]
-    private static let rangeOfSuccessState = 200...299
     
     init(session: URLSessionProtocol = URLSession.shared, applicableHTTPMethod: [APIHTTPMethod] = APIHTTPMethod.allCases) {
         self.session = session
