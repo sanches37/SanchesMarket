@@ -10,6 +10,7 @@ import UIKit
 class PhotoAlbumCell: UICollectionViewCell {
     static let identifier = String(describing: PhotoAlbumCell.self)
     private var currentImage: UIImage?
+    private var viewArray: [UIView] = []
     let photoAlbumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -34,10 +35,19 @@ class PhotoAlbumCell: UICollectionViewCell {
         setUpPhotoAlbumImage()
         setUpHighlightIndicator()
         setUpSelectIndicator()
+        viewArray = [photoAlbumImage, highlightIndicator, selectIndicator]
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        viewArray.forEach {
+            $0.frame = bounds
+        }
     }
     
     private func setUpPhotoAlbumImage() {

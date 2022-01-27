@@ -70,7 +70,7 @@ class EditContentView: UIView {
     }
     
     private func setUpSteckViewAddSubView() {
-//        photoCollectionView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        photoCollectionView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         verticalStacView.addArrangedSubview(photoCollectionView)
     }
 }
