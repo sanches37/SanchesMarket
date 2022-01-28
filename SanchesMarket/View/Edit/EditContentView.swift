@@ -13,7 +13,7 @@ class EditContentView: UIView {
         super.init(frame: frame)
         
         setUpVerticalStackView()
-        setUpSteckViewAddSubView()
+        setUpVerticalStackViewContent()
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +44,7 @@ class EditContentView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isDirectionalLockEnabled = true
+        collectionView.backgroundColor = .yellow
         return collectionView
     }()
     
@@ -69,8 +70,7 @@ class EditContentView: UIView {
         ])
     }
     
-    private func setUpSteckViewAddSubView() {
-        photoCollectionView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+    private func setUpVerticalStackViewContent() {
         verticalStacView.addArrangedSubview(photoCollectionView)
     }
 }

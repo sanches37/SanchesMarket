@@ -57,6 +57,7 @@
 		4DD88A942785F20C00EAED1D /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A932785F20C00EAED1D /* URLSessionProtocol.swift */; };
 		4DD88A962785F42400EAED1D /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A952785F42400EAED1D /* MockURLSession.swift */; };
 		4DD88A982785F49900EAED1D /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */; };
+		4DE506B727A449220053FE77 /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE506B627A449220053FE77 /* UITextField+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		4DD88A932785F20C00EAED1D /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		4DD88A952785F42400EAED1D /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		4DE506B627A449220053FE77 /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 				4D951CBE27926F96009827ED /* Int+extension.swift */,
 				4D951CC02792829F009827ED /* CALayer+extension.swift */,
 				4D7F8942279D305C00770DE2 /* UIViewController+extension.swift */,
+				4DE506B627A449220053FE77 /* UITextField+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				4D951CB9279131DB009827ED /* ImageManager.swift in Sources */,
 				4D4CADE02797F87E0077CC9A /* CompositionalLayoutEnum.swift in Sources */,
 				4DD88A802785384A00EAED1D /* parameter.swift in Sources */,
+				4DE506B727A449220053FE77 /* UITextField+extension.swift in Sources */,
 				4D4CADE22797FBF60077CC9A /* LodingIndicatorProtocol.swift in Sources */,
 				4DD88A8B27857B0100EAED1D /* RequestApi.swift in Sources */,
 				4D7F8943279D305C00770DE2 /* UIViewController+extension.swift in Sources */,
