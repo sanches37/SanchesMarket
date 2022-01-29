@@ -43,7 +43,6 @@ class CurrencyTextField: UITextField {
     
     @objc private func tappedDoneButton() {
         self.resignFirstResponder()
-        inputView = pickerView
     }
     
 }

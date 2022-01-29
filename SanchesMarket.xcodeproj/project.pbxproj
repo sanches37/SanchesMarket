@@ -59,6 +59,7 @@
 		4DD88A982785F49900EAED1D /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */; };
 		4DE506B727A449220053FE77 /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE506B627A449220053FE77 /* UITextField+extension.swift */; };
 		4DEF39DE27A5E44B00EC4695 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEF39DD27A5E44B00EC4695 /* CurrencyTextField.swift */; };
+		4DEF39E027A5FA9700EC4695 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEF39DF27A5FA9700EC4695 /* KeyboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		4DE506B627A449220053FE77 /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 		4DEF39DD27A5E44B00EC4695 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
+		4DEF39DF27A5FA9700EC4695 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				4DD88A912785999C00EAED1D /* NetworkManager.swift */,
 				4D951CB8279131DB009827ED /* ImageManager.swift */,
 				4DB73C842799988500FC2A66 /* PhotoAlbumManager.swift */,
+				4DEF39DF27A5FA9700EC4695 /* KeyboardManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4D4CADEE27984ADF0077CC9A /* EditCollectionViewDataSource.swift in Sources */,
 				4DB73C852799988500FC2A66 /* PhotoAlbumManager.swift in Sources */,
+				4DEF39E027A5FA9700EC4695 /* KeyboardManager.swift in Sources */,
 				4D951CCA27933F6E009827ED /* CompositionalLayoutDirector.swift in Sources */,
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
 				4D4CADEB27983F340077CC9A /* EditPhotoSelectCell.swift in Sources */,

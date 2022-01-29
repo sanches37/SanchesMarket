@@ -13,20 +13,21 @@ class EditViewController: UIViewController {
     private let editCollectionViewDataSource =
     EditCollectionViewDataSource()
     private let content = EditContentView()
+    private lazy var keyboardManager =
+    KeyboardManager(view: self.view, scrollView: content.scrollView)
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         processCollectionView()
         registeredIdetifier()
         setUpContent()
         setUpDataSourceContent()
         setUpTitle()
         setUpButton()
-        addKeyboardNotification()
-        self.hideKeyboard()
+        setUpKeyboard()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -68,21 +69,8 @@ class EditViewController: UIViewController {
         }
     }
     
-    private func addKeyboardNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func keyboardWillShow(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-                  return
-              }
-        content.scrollView.contentInset.bottom = keyboardFrame.cgRectValue.height
-    }
-    
-    @objc private func keyboardWillHide(_ notification: Notification) {
-        content.scrollView.contentInset = .zero
+    private func setUpKeyboard() {
+        keyboardManager.setUpKeyboard()
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
