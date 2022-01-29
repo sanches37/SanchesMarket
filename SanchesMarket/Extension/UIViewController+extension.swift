@@ -19,17 +19,28 @@ extension UIViewController {
         let alert = UIAlertController()
         let enroll = UIAlertAction(
             title: "등록", style: .default) { _ in
-            self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "등록")
-        }
+                self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "등록")
+            }
         let modify = UIAlertAction(
             title: "수정", style: .default) { _ in
-            self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "수정")
-        }
+                self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "수정")
+            }
         let cancel = UIAlertAction(
             title: "취소", style: .cancel, handler: nil)
         alert.addAction(enroll)
         alert.addAction(modify)
         alert.addAction(cancel)
         present(alert, animated: true)
+    }
+    
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

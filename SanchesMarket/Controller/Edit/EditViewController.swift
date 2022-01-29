@@ -21,10 +21,12 @@ class EditViewController: UIViewController {
         
         processCollectionView()
         registeredIdetifier()
+        setUpContent()
         setUpDataSourceContent()
-        setUpButton()
         setUpTitle()
-        content.setUpScrollView(view: view)
+        setUpButton()
+        addKeyboardNotification()
+        self.hideKeyboard()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -40,6 +42,10 @@ class EditViewController: UIViewController {
     private func registeredIdetifier() {
         content.photoCollectionView.register(EditPhotoSelectCell.self, forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
         content.photoCollectionView.register(EditPhotoCell.self, forCellWithReuseIdentifier: EditPhotoCell.identifier)
+    }
+    
+    private func setUpContent() {
+        content.setUpScrollView(view: view)
     }
     
     private func setUpDataSourceContent() {
@@ -60,6 +66,23 @@ class EditViewController: UIViewController {
             deleteButton.addTarget(
                 self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
         }
+    }
+    
+    private func addKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+                  return
+              }
+        content.scrollView.contentInset.bottom = keyboardFrame.cgRectValue.height
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        content.scrollView.contentInset = .zero
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {

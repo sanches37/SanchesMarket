@@ -20,7 +20,7 @@ class EditContentView: UIView {
         super.init(coder: coder)
     }
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isDirectionalLockEnabled = true
@@ -40,6 +40,7 @@ class EditContentView: UIView {
     
     let photoCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isDirectionalLockEnabled = true
@@ -52,7 +53,7 @@ class EditContentView: UIView {
         textField.addLeftPadding()
         textField.addUnderLine()
         textField.placeholder = "상품명"
-        textField.keyboardType = .decimalPad
+        textField.keyboardType = .default
         return textField
     }()
     
@@ -72,7 +73,7 @@ class EditContentView: UIView {
         textField.addLeftPadding()
         textField.addUnderLine()
         textField.placeholder = "화폐단위"
-        textField.keyboardType = .decimalPad
+        textField.keyboardType = .default
         return textField
     }()
     
@@ -82,7 +83,7 @@ class EditContentView: UIView {
         textField.addLeftPadding()
         textField.addUnderLine()
         textField.placeholder = "가격"
-        textField.keyboardType = .numberPad
+        textField.keyboardType = .decimalPad
         return textField
     }()
     
@@ -92,7 +93,7 @@ class EditContentView: UIView {
         textField.addLeftPadding()
         textField.addUnderLine()
         textField.placeholder = "할인가격"
-        textField.keyboardType = .numberPad
+        textField.keyboardType = .decimalPad
         return textField
     }()
     
@@ -111,7 +112,7 @@ class EditContentView: UIView {
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.text = "상세설명"
         textView.textColor = UIColor.gray.withAlphaComponent(0.5)
-        textView.keyboardType = .decimalPad
+        textView.keyboardType = .default
         textView.isScrollEnabled = false
         return textView
     }()
@@ -162,9 +163,11 @@ class EditContentView: UIView {
     
     func setUpPhotoCollectionViewConstraint() {
         if  UIDevice.current.orientation.isLandscape {
-            photoCollectionView.heightAnchor.constraint(equalTo: verticalStacView.widthAnchor, multiplier: 1/8).isActive = true
+            photoCollectionView.heightAnchor.constraint(
+                equalTo: verticalStacView.widthAnchor, multiplier: 1/8).isActive = true
         } else {
-            photoCollectionView.heightAnchor.constraint(equalTo: verticalStacView.widthAnchor, multiplier: 1/3).isActive = true
+            photoCollectionView.heightAnchor.constraint(
+                equalTo: verticalStacView.widthAnchor, multiplier: 1/3).isActive = true
         }
     }
     
