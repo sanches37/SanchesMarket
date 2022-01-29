@@ -28,9 +28,9 @@ struct CompositionalLayoutDirector {
     
     func createEdit() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
-            .setPortraitHorizontalSize(.fractionalWidth(1/4))
+            .setPortraitHorizontalSize(.fractionalWidth(1/3))
             .setLandscapeHorizontalSize(.fractionalWidth(1/8))
-            .setPortraitVerticalSize(.fractionalWidth(1/4))
+            .setPortraitVerticalSize(.fractionalWidth(1/3))
             .setLandscapeVerticalSize(.fractionalWidth(1/8))
             .setScrollDirection(.horizontal)
             .setCellMargin(

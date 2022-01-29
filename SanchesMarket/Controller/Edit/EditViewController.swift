@@ -27,6 +27,12 @@ class EditViewController: UIViewController {
         content.setUpScrollView(view: view)
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        content.setUpPhotoCollectionViewConstraint()
+    }
+    
     private func processCollectionView() {
         content.photoCollectionView.dataSource = editCollectionViewDataSource
     }
