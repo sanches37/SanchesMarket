@@ -58,6 +58,7 @@
 		4DD88A962785F42400EAED1D /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A952785F42400EAED1D /* MockURLSession.swift */; };
 		4DD88A982785F49900EAED1D /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */; };
 		4DE506B727A449220053FE77 /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE506B627A449220053FE77 /* UITextField+extension.swift */; };
+		4DEF39DE27A5E44B00EC4695 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEF39DD27A5E44B00EC4695 /* CurrencyTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		4DD88A952785F42400EAED1D /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		4DD88A972785F49900EAED1D /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		4DE506B627A449220053FE77 /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
+		4DEF39DD27A5E44B00EC4695 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				4D4CADEA27983F340077CC9A /* EditPhotoSelectCell.swift */,
 				4DB73C7F2799041600FC2A66 /* EditPhotoCell.swift */,
 				4DBD101A279F3BA700452478 /* EditContentView.swift */,
+				4DEF39DD27A5E44B00EC4695 /* CurrencyTextField.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				4D4C5F1F278452860037496E /* ParsingManager.swift in Sources */,
 				4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */,
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
+				4DEF39DE27A5E44B00EC4695 /* CurrencyTextField.swift in Sources */,
 				4D951CC4279318B3009827ED /* CompositionalLayoutProduct.swift in Sources */,
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,

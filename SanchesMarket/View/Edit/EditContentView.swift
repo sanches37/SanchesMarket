@@ -67,13 +67,12 @@ class EditContentView: UIView {
         return stackView
     }()
     
-    let currencyTextField: UITextField = {
-        let textField = UITextField()
-        textField.font = .preferredFont(forTextStyle: .body)
+    let currencyTextField: CurrencyTextField = {
+        let textField = CurrencyTextField()
+        textField.textColor = .black
         textField.addLeftPadding()
         textField.addUnderLine()
         textField.placeholder = "화폐단위"
-        textField.keyboardType = .default
         return textField
     }()
     

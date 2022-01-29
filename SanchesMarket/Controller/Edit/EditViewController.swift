@@ -96,7 +96,6 @@ class EditViewController: UIViewController {
                 self.content.photoCollectionView.reloadData()
             }
         }
-        
         convertPhotoAlbumViewController.photoAlbumCollectionViewDelegate.getSelectImageCount(
             to: PhotoLimitCount - editCollectionViewDataSource.photoAlbumImages.count)
         
