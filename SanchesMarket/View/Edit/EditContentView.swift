@@ -9,15 +9,6 @@ import UIKit
 
 class EditContentView: UIView {
     
-    private enum Placeholder {
-        static let title = "상품명"
-        static let currency = "화폐단위"
-        static let price = "가격"
-        static let discountedPrice = "할인가격"
-        static let stock = "재고수량"
-        static let description = "상세설명"
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -62,7 +53,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = Placeholder.title
+        textField.placeholder = EditText.title
         textField.keyboardType = .default
         return textField
     }()
@@ -82,7 +73,7 @@ class EditContentView: UIView {
         textField.textColor = .black
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = Placeholder.currency
+        textField.placeholder = EditText.currency
         return textField
     }()
     
@@ -91,7 +82,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = Placeholder.price
+        textField.placeholder = EditText.price
         textField.keyboardType = .decimalPad
         return textField
     }()
@@ -101,7 +92,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = Placeholder.discountedPrice
+        textField.placeholder = EditText.discountedPrice
         textField.keyboardType = .decimalPad
         return textField
     }()
@@ -111,7 +102,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = Placeholder.stock
+        textField.placeholder = EditText.stock
         textField.keyboardType = .numberPad
         return textField
     }()
@@ -119,7 +110,7 @@ class EditContentView: UIView {
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.text = Placeholder.description
+        textView.text = EditText.description
         textView.textColor = UIColor.gray.withAlphaComponent(0.5)
         textView.keyboardType = .default
         textView.isScrollEnabled = false
@@ -191,17 +182,17 @@ class EditContentView: UIView {
     
     func createPostAndPatch() -> [String: String] {
         var viewItem:[String: String] = [:]
-        viewItem[Placeholder.title] = titleTextField.text
-        viewItem[Placeholder.price] = priceTextField.text
-        viewItem[Placeholder.discountedPrice] = discountedPriceTextField.text
-        viewItem[Placeholder.currency] = currencyTextField.text
-        viewItem[Placeholder.stock] = stockTextField.text
+        viewItem[EditText.title] = titleTextField.text
+        viewItem[EditText.price] = priceTextField.text
+        viewItem[EditText.discountedPrice] = discountedPriceTextField.text
+        viewItem[EditText.currency] = currencyTextField.text
+        viewItem[EditText.stock] = stockTextField.text
         
         if !descriptionTextView.text.isEmpty &&
             descriptionTextView.textColor == .black {
-            viewItem[Placeholder.description] = descriptionTextView.text
+            viewItem[EditText.description] = descriptionTextView.text
         } else {
-            viewItem[Placeholder.description] = ""
+            viewItem[EditText.description] = ""
         }
         return viewItem
     }
@@ -209,7 +200,7 @@ class EditContentView: UIView {
 
 extension EditContentView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == Placeholder.description {
+        if textView.text == EditText.description {
             textView.text = nil
             textView.textColor = .black
         }
@@ -217,7 +208,7 @@ extension EditContentView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            textView.text = Placeholder.description
+            textView.text = EditText.description
             textView.textColor = UIColor.gray.withAlphaComponent(0.5)
         }
     }
