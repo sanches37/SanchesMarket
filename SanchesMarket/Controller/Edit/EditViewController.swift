@@ -94,6 +94,10 @@ class EditViewController: UIViewController {
         }
     }
     
+    @IBAction func editButton(_ sender: UIBarButtonItem) {
+        judgeEssentialParameter()
+    }
+    
     @objc func movePhotoAlbum(_ sender: UIButton) {
         guard let convertPhotoAlbumViewController =
                 storyboard?.instantiateViewController(identifier: PhotoAlbumViewController.identifier) as? PhotoAlbumViewController else {

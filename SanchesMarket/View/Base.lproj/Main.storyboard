@@ -81,7 +81,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="상품" id="a55-md-2hM">
-                        <barButtonItem key="rightBarButtonItem" title="등록/수정" id="ZK8-zt-Ykv"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록/수정" id="ZK8-zt-Ykv">
+                            <connections>
+                                <action selector="editButton:" destination="Bq1-0Q-j1e" id="CbP-tW-k69"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="ZK8-zt-Ykv" id="Src-VB-CXl"/>
