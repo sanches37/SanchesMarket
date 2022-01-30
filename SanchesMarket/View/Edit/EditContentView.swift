@@ -188,6 +188,23 @@ class EditContentView: UIView {
             currencyTextField.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
+    
+    func createPostAndPatch() -> [String: String] {
+        var viewItem:[String: String] = [:]
+        viewItem[Placeholder.title] = titleTextField.text
+        viewItem[Placeholder.price] = priceTextField.text
+        viewItem[Placeholder.discountedPrice] = discountedPriceTextField.text
+        viewItem[Placeholder.currency] = currencyTextField.text
+        viewItem[Placeholder.stock] = stockTextField.text
+        
+        if !descriptionTextView.text.isEmpty &&
+            descriptionTextView.textColor == .black {
+            viewItem[Placeholder.description] = descriptionTextView.text
+        } else {
+            viewItem[Placeholder.description] = ""
+        }
+        return viewItem
+    }
 }
 
 extension EditContentView: UITextViewDelegate {

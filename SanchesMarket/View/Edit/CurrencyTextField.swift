@@ -10,7 +10,6 @@ import UIKit
 class CurrencyTextField: UITextField {
     private let pickerView = UIPickerView()
     private let currencies: [String] = ["", "KRW", "USD"]
-    private var selectedCurrency: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +43,6 @@ class CurrencyTextField: UITextField {
     @objc private func tappedDoneButton() {
         self.resignFirstResponder()
     }
-    
 }
 
 extension CurrencyTextField: UIPickerViewDataSource, UIPickerViewDelegate {
