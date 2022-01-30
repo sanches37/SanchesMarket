@@ -8,6 +8,16 @@
 import UIKit
 
 class EditContentView: UIView {
+    
+    private enum Placeholder {
+        static let title = "상품명"
+        static let currency = "화폐단위"
+        static let price = "가격"
+        static let discountedPrice = "할인가격"
+        static let stock = "재고수량"
+        static let description = "상세설명"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -52,7 +62,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = "상품명"
+        textField.placeholder = Placeholder.title
         textField.keyboardType = .default
         return textField
     }()
@@ -72,7 +82,7 @@ class EditContentView: UIView {
         textField.textColor = .black
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = "화폐단위"
+        textField.placeholder = Placeholder.currency
         return textField
     }()
     
@@ -81,7 +91,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = "가격"
+        textField.placeholder = Placeholder.price
         textField.keyboardType = .decimalPad
         return textField
     }()
@@ -91,7 +101,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = "할인가격"
+        textField.placeholder = Placeholder.discountedPrice
         textField.keyboardType = .decimalPad
         return textField
     }()
@@ -101,7 +111,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = "재고수량"
+        textField.placeholder = Placeholder.stock
         textField.keyboardType = .numberPad
         return textField
     }()
@@ -109,7 +119,7 @@ class EditContentView: UIView {
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.text = "상세설명"
+        textView.text = Placeholder.description
         textView.textColor = UIColor.gray.withAlphaComponent(0.5)
         textView.keyboardType = .default
         textView.isScrollEnabled = false
@@ -158,6 +168,7 @@ class EditContentView: UIView {
         let descriptionTextViewInitSize = descriptionTextView.heightAnchor.constraint(equalToConstant: 80)
         descriptionTextViewInitSize.priority = .defaultLow
         descriptionTextViewInitSize.isActive = true
+        descriptionTextView.delegate = self
     }
     
     func setUpPhotoCollectionViewConstraint() {
@@ -176,5 +187,21 @@ class EditContentView: UIView {
         NSLayoutConstraint.activate([
             currencyTextField.widthAnchor.constraint(equalToConstant: 100)
         ])
+    }
+}
+
+extension EditContentView: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == Placeholder.description {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = Placeholder.description
+            textView.textColor = UIColor.gray.withAlphaComponent(0.5)
+        }
     }
 }
