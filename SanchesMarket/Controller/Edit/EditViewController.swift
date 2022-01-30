@@ -95,7 +95,7 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-        judgeEssentialParameter()
+//        judgeEssentialParameter()
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {

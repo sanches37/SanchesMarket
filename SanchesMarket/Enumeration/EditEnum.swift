@@ -15,3 +15,21 @@ enum EditParameter: String {
     case stock = "재고수량"
     case description = "상세설명"
 }
+
+enum EditEssentialElement {
+    case post
+    case patch
+    
+    var values: [String] {
+        switch self {
+        case .post:
+            return [EditParameter.title.rawValue,
+                    EditParameter.currency.rawValue,
+                    EditParameter.price.rawValue,
+                    EditParameter.stock.rawValue,
+                    EditParameter.description.rawValue]
+        case .patch:
+            return []
+        }
+    }
+}
