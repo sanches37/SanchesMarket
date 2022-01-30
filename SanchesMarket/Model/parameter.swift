@@ -14,7 +14,7 @@ struct MultipartFormData {
     var currency: String?
     var stock: Int?
     var discountedPrice: Int?
-    var password: String
+    var password: String?
     var id: Int?
     
     var parameter: [String: Any] {
@@ -38,8 +38,9 @@ struct MultipartFormData {
         if let discountedPrice = self.discountedPrice {
             param["discounted_price"] = discountedPrice
         }
-        param["password"] = password
-        
+        if let password = self.password {
+            param["password"] = password
+        }
         return param
     }
 }

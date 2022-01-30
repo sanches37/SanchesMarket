@@ -53,8 +53,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = EditText.title
-        textField.keyboardType = .default
+        textField.placeholder = EditParameter.title.rawValue
         return textField
     }()
     
@@ -73,7 +72,7 @@ class EditContentView: UIView {
         textField.textColor = .black
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = EditText.currency
+        textField.placeholder = EditParameter.currency.rawValue
         return textField
     }()
     
@@ -82,8 +81,8 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = EditText.price
-        textField.keyboardType = .decimalPad
+        textField.placeholder = EditParameter.price.rawValue
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -92,8 +91,8 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = EditText.discountedPrice
-        textField.keyboardType = .decimalPad
+        textField.placeholder = EditParameter.discountedPrice.rawValue
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -102,7 +101,7 @@ class EditContentView: UIView {
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
         textField.addUnderLine()
-        textField.placeholder = EditText.stock
+        textField.placeholder = EditParameter.stock.rawValue
         textField.keyboardType = .numberPad
         return textField
     }()
@@ -110,9 +109,8 @@ class EditContentView: UIView {
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.text = EditText.description
+        textView.text = EditParameter.description.rawValue
         textView.textColor = UIColor.gray.withAlphaComponent(0.5)
-        textView.keyboardType = .default
         textView.isScrollEnabled = false
         return textView
     }()
@@ -182,17 +180,17 @@ class EditContentView: UIView {
     
     func createPostAndPatch() -> [String: String] {
         var viewItem:[String: String] = [:]
-        viewItem[EditText.title] = titleTextField.text
-        viewItem[EditText.price] = priceTextField.text
-        viewItem[EditText.discountedPrice] = discountedPriceTextField.text
-        viewItem[EditText.currency] = currencyTextField.text
-        viewItem[EditText.stock] = stockTextField.text
+        viewItem[EditParameter.title.rawValue] = titleTextField.text
+        viewItem[EditParameter.price.rawValue] = priceTextField.text
+        viewItem[EditParameter.discountedPrice.rawValue] = discountedPriceTextField.text
+        viewItem[EditParameter.currency.rawValue] = currencyTextField.text
+        viewItem[EditParameter.stock.rawValue] = stockTextField.text
         
         if !descriptionTextView.text.isEmpty &&
             descriptionTextView.textColor == .black {
-            viewItem[EditText.description] = descriptionTextView.text
+            viewItem[EditParameter.description.rawValue] = descriptionTextView.text
         } else {
-            viewItem[EditText.description] = ""
+            viewItem[EditParameter.description.rawValue] = ""
         }
         return viewItem
     }
@@ -200,7 +198,7 @@ class EditContentView: UIView {
 
 extension EditContentView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == EditText.description {
+        if textView.text == EditParameter.description.rawValue {
             textView.text = nil
             textView.textColor = .black
         }
@@ -208,7 +206,7 @@ extension EditContentView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            textView.text = EditText.description
+            textView.text = EditParameter.description.rawValue
             textView.textColor = UIColor.gray.withAlphaComponent(0.5)
         }
     }

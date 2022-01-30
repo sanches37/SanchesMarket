@@ -12,6 +12,7 @@ class EditViewController: UIViewController {
     private let PhotoLimitCount = 5
     private let editCollectionViewDataSource =
     EditCollectionViewDataSource()
+    private var multipartFormData = MultipartFormData()
     private let content = EditContentView()
     private lazy var keyboardManager =
     KeyboardManager(view: self.view, scrollView: content.scrollView)
@@ -71,6 +72,26 @@ class EditViewController: UIViewController {
     
     private func setUpKeyboard() {
         keyboardManager.setUpKeyboard()
+    }
+    
+    private func setUpMultipartParameter() {
+        content.createPostAndPatch().forEach { (key, value) in
+            guard let item = EditParameter(rawValue: key) else { return }
+            switch item {
+            case .title:
+                multipartFormData.title = value
+            case .currency:
+                multipartFormData.currency = value
+            case .price:
+                multipartFormData.price = Int(value)
+            case .discountedPrice:
+                multipartFormData.discountedPrice = Int(value)
+            case .stock:
+                multipartFormData.stock = Int(value)
+            case .description:
+                multipartFormData.descriptions = value
+            }
+        }
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
