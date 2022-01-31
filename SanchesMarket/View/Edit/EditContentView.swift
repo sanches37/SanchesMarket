@@ -178,7 +178,7 @@ class EditContentView: UIView {
         ])
     }
     
-    func createPostAndPatch() -> [String: String] {
+    func createEdit() -> [String: String] {
         var viewItem:[String: String] = [:]
         viewItem[EditParameter.title.rawValue] = titleTextField.text
         viewItem[EditParameter.price.rawValue] = priceTextField.text

@@ -16,12 +16,15 @@ class EditViewController: UIViewController {
     private let content = EditContentView()
     private lazy var keyboardManager =
     KeyboardManager(view: self.view, scrollView: content.scrollView)
+    private var editImpormation: Editable?
+    private var medias: [Media] = []
     private let mainTitle = "상품"
     var topItemTitle: String = ""
+    var id: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         processCollectionView()
         registeredIdetifier()
         setUpContent()
@@ -31,7 +34,8 @@ class EditViewController: UIViewController {
         setUpKeyboard()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         content.setUpPhotoCollectionViewConstraint()
@@ -42,8 +46,20 @@ class EditViewController: UIViewController {
     }
     
     private func registeredIdetifier() {
-        content.photoCollectionView.register(EditPhotoSelectCell.self, forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
-        content.photoCollectionView.register(EditPhotoCell.self, forCellWithReuseIdentifier: EditPhotoCell.identifier)
+        content.photoCollectionView.register(EditPhotoSelectCell.self,
+                                             forCellWithReuseIdentifier: EditPhotoSelectCell.identifier)
+        content.photoCollectionView.register(EditPhotoCell.self,
+                                             forCellWithReuseIdentifier: EditPhotoCell.identifier)
+    }
+    
+    private func initializeEditImpormation() {
+        if topItemTitle == "등록" {
+            editImpormation =
+            PostImpormation(parameter: multipartFormData.parameter, image: medias)
+        } else {
+            editImpormation =
+            PatchImpormation(id: id, parameter: multipartFormData.parameter, image: medias)
+        }
     }
     
     private func setUpContent() {
@@ -74,8 +90,29 @@ class EditViewController: UIViewController {
         keyboardManager.setUpKeyboard()
     }
     
+    private func judgeEssentialParameter() -> Bool {
+        guard let essentialElement = editImpormation?.essentialElement else {
+            return false
+        }
+        var missingText: [String] = []
+        content.createEdit().forEach { (key, value) in
+            if value.isEmpty {
+                missingText.append(key)
+            }
+        }
+        let necessaryText =
+        essentialElement.values.filter { missingText.contains($0) }
+        
+        if necessaryText.isEmpty {
+            return true
+        } else {
+            self.showAlert(message: "\(necessaryText)는 필수입력사항입니다")
+            return false
+        }
+    }
+    
     private func setUpMultipartParameter() {
-        content.createPostAndPatch().forEach { (key, value) in
+        content.createEdit().forEach { (key, value) in
             guard let item = EditParameter(rawValue: key) else { return }
             switch item {
             case .title:
@@ -95,7 +132,8 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-//        judgeEssentialParameter()
+        initializeEditImpormation()
+        guard judgeEssentialParameter() else { return }
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
