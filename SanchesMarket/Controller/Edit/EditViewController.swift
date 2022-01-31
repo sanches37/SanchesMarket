@@ -112,7 +112,7 @@ class EditViewController: UIViewController {
         keyboardManager.setUpKeyboard()
     }
     
-    private func judgeEssentialImage() -> Bool {
+    private func checkEssentialImage() -> Bool {
         guard let essentialElement = editImpormation?.essentialElement else {
             return false
         }
@@ -124,7 +124,7 @@ class EditViewController: UIViewController {
         }
     }
     
-    private func judgeEssentialParameter() -> Bool {
+    private func checkEssentialParameter() -> Bool {
         guard let essentialElement = editImpormation?.essentialElement else {
             return false
         }
@@ -167,8 +167,8 @@ class EditViewController: UIViewController {
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
         initializeEditImpormation()
-        guard judgeEssentialImage() else { return }
-        guard judgeEssentialParameter() else { return }
+        guard checkEssentialImage() else { return }
+        guard checkEssentialParameter() else { return }
         
     }
     
