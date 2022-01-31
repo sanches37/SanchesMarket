@@ -90,6 +90,18 @@ class EditViewController: UIViewController {
         keyboardManager.setUpKeyboard()
     }
     
+    private func judgeEssentialImage() -> Bool {
+        guard let essentialElement = editImpormation?.essentialElement else {
+            return false
+        }
+        if essentialElement.minimumImage <= medias.count {
+            return true
+        } else {
+            self.showAlert(message: "최소 \(essentialElement.minimumImage)개의 이미지를 등록해야합니다.")
+            return false
+        }
+    }
+    
     private func judgeEssentialParameter() -> Bool {
         guard let essentialElement = editImpormation?.essentialElement else {
             return false
@@ -101,7 +113,7 @@ class EditViewController: UIViewController {
             }
         }
         let necessaryText =
-        essentialElement.values.filter { missingText.contains($0) }
+        essentialElement.text.filter { missingText.contains($0) }
         
         if necessaryText.isEmpty {
             return true
@@ -133,7 +145,9 @@ class EditViewController: UIViewController {
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
         initializeEditImpormation()
+        guard judgeEssentialImage() else { return }
         guard judgeEssentialParameter() else { return }
+        
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {

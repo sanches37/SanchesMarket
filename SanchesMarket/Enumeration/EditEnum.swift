@@ -20,7 +20,7 @@ enum EditEssentialElement {
     case post
     case patch
     
-    var values: [String] {
+    var text: [String] {
         switch self {
         case .post:
             return [EditParameter.title.rawValue,
@@ -30,6 +30,15 @@ enum EditEssentialElement {
                     EditParameter.description.rawValue]
         case .patch:
             return []
+        }
+    }
+    
+    var minimumImage: Int {
+        switch self {
+        case .post:
+            return 1
+        case .patch:
+            return .zero
         }
     }
 }
