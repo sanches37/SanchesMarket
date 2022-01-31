@@ -11,7 +11,7 @@ class EditCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private var photoSelectButton: ((UIButton) -> Void)?
     private var photoDeleteButton: ((UIButton) -> Void)?
-    private(set) var photoAlbumImages: [UIImage] = []
+    @objc dynamic private(set) var photoAlbumImages: [UIImage] = []
 }
 
 extension EditCollectionViewDataSource: UICollectionViewDataSource {

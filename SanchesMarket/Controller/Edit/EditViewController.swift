@@ -18,6 +18,7 @@ class EditViewController: UIViewController {
     KeyboardManager(view: self.view, scrollView: content.scrollView)
     private var editImpormation: Editable?
     private var medias: [Media] = []
+    private var observe: NSKeyValueObservation?
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     var id: Int = 0
@@ -31,6 +32,7 @@ class EditViewController: UIViewController {
         setUpDataSourceContent()
         setUpTitle()
         setUpButton()
+        setUpKVO()
         setUpKeyboard()
     }
     
@@ -84,6 +86,26 @@ class EditViewController: UIViewController {
             deleteButton.addTarget(
                 self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
         }
+    }
+    
+    private func setUpKVO() {
+        observe =
+        editCollectionViewDataSource.observe(\.photoAlbumImages, options: [.new]) {  _, change in
+            if let images = change.newValue {
+                self.convertMedias(images: images)
+            }
+        }
+    }
+    
+    private func convertMedias(images: [UIImage]) {
+        var mediaArray: [Media] = []
+        images.forEach { image in
+            guard let media = Media(image: image, mimeType: .png) else {
+                return
+            }
+            mediaArray.append(media)
+        }
+        medias = mediaArray
     }
     
     private func setUpKeyboard() {
