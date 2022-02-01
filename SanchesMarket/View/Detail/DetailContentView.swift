@@ -131,12 +131,15 @@ class DetailContentView: UIView {
     
     private func setUpVerticalStackViewContent() {
         verticalStacView.addArrangedSubview(photoCollectionView)
+        verticalStacView.addArrangedSubview(photoPageControl)
         verticalStacView.addArrangedSubview(horizontalStacView)
         verticalStacView.addArrangedSubview(priceLabel)
         verticalStacView.addArrangedSubview(discountedPriceLabel)
         verticalStacView.addArrangedSubview(descriptionLabel)
         setUpPhotoCollectionViewConstraint()
         NSLayoutConstraint.activate([
+            photoPageControl.topAnchor.constraint(equalTo: photoCollectionView.bottomAnchor),
+            photoPageControl.bottomAnchor.constraint(equalTo: horizontalStacView.topAnchor),
             horizontalStacView.heightAnchor.constraint(equalToConstant: 20),
             priceLabel.heightAnchor.constraint(equalToConstant: 20),
             discountedPriceLabel.heightAnchor.constraint(equalToConstant: 20),
