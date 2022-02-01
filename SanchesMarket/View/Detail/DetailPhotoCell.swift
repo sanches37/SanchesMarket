@@ -18,6 +18,7 @@ class DetailPhotoCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setUpPhotoImage()
     }
     
     required init?(coder: NSCoder) {
