@@ -19,11 +19,11 @@ extension UIViewController {
         let alert = UIAlertController()
         let enroll = UIAlertAction(
             title: "등록", style: .default) { _ in
-                self.performSegue(withIdentifier: EditViewController.segueIdentifier, sender: "등록")
+                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: "등록")
             }
         let modify = UIAlertAction(
             title: "수정", style: .default) { _ in
-                self.performSegue(withIdentifier: EditViewController.segueIdentifier, sender: "수정")
+                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: "수정")
             }
         let cancel = UIAlertAction(
             title: "취소", style: .cancel, handler: nil)

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Efg-qX-6OQ">
             <objects>
-                <viewController id="5Ox-4m-mnR" sceneMemberID="viewController">
+                <viewController id="5Ox-4m-mnR" customClass="DetailViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0u-8S-3sy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
                         <outlet property="lodingIndicator" destination="Sgz-Vd-eDf" id="USP-5s-qy3"/>
-                        <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToEnrollModify" id="wuc-nc-cYp"/>
+                        <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToEdit" id="wuc-nc-cYp"/>
                         <segue destination="5Ox-4m-mnR" kind="show" id="iCw-gH-CLH"/>
                     </connections>
                 </viewController>

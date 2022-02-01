@@ -10,7 +10,8 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var lodingIndicator: UIActivityIndicatorView!
-    
+    static let segueEditIdentifier = "presentToEdit"
+    static let segueDetailIdentifier = "presentToDetail"
     private let mainCollectionViewDataSource = MainCollectionViewDataSource()
     
     override func viewDidLoad() {

@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     private let content = DetailContentView()
+    static let identifier = "DetailView"
 
     override func viewDidLoad() {
         super.viewDidLoad()
