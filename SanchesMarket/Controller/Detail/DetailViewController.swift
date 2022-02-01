@@ -20,4 +20,8 @@ class DetailViewController: UIViewController {
     private func setUpContent() {
         content.setUpScrollView(view: view)
     }
+    
+    func setUpTitle(title: String) {
+        self.title = title
+    }
 }

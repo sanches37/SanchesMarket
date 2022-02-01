@@ -80,7 +80,7 @@
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
                         <outlet property="lodingIndicator" destination="Sgz-Vd-eDf" id="USP-5s-qy3"/>
                         <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToEdit" id="wuc-nc-cYp"/>
-                        <segue destination="5Ox-4m-mnR" kind="show" id="iCw-gH-CLH"/>
+                        <segue destination="5Ox-4m-mnR" kind="show" identifier="presentToDetail" id="iCw-gH-CLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

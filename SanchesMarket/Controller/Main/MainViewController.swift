@@ -63,10 +63,15 @@ extension MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let editViewController = segue.destination as? EditViewController else {
+        guard let editViewController = segue.destination as? EditViewController,
+        let labelString = sender as? String else {
             return
         }
-        guard let labelString = sender as? String else { return }
+        guard let detailViewController = segue.destination as? DetailViewController,
+              let product = sender as? Product else {
+                  return
+              }
         editViewController.topItemTitle = labelString
+        detailViewController.setUpTitle(title: product.title)
     }
 }
