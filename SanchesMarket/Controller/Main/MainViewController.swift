@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     static let segueEditIdentifier = "presentToEdit"
     static let segueDetailIdentifier = "presentToDetail"
     private let mainCollectionViewDataSource = MainCollectionViewDataSource()
+    private let mainCollectionViewDelegate = MainCollectionViewDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class MainViewController: UIViewController {
     
     private func processCollectionView() {
         collectionView.dataSource = mainCollectionViewDataSource
+        collectionView.delegate = mainCollectionViewDelegate
         collectionView.prefetchDataSource = mainCollectionViewDataSource
     }
     
@@ -36,6 +38,7 @@ class MainViewController: UIViewController {
         mainCollectionViewDataSource.decidedListLayout(collectionView)
         mainCollectionViewDataSource.requestProductList(collectionView)
         mainCollectionViewDataSource.loadingIndicator = self
+        mainCollectionViewDelegate.delegate = self
     }
     
     @IBAction func onCollectionViewTypeChanged(_ sender: UISegmentedControl) {
@@ -57,21 +60,23 @@ extension MainViewController: LodingIndicatable {
     }
 }
 
-extension MainViewController {
+extension MainViewController: performSegueDelegate {
+    func operatePerformSegue(indexPath: IndexPath) {
+        performSegue(withIdentifier: MainViewController.segueDetailIdentifier, sender: mainCollectionViewDataSource.productList[indexPath.item])
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
     @IBAction func editButton(_ sender: Any) {
         self.showEditAction()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let editViewController = segue.destination as? EditViewController,
-        let labelString = sender as? String else {
-            return
+        if let editViewController = segue.destination as? EditViewController,
+           let labelString = sender as? String {
+            editViewController.topItemTitle = labelString
+        } else if let detailViewController = segue.destination as? DetailViewController,
+                  let product = sender as? Product {
+            detailViewController.setUpTitle(title: product.title)
         }
-        guard let detailViewController = segue.destination as? DetailViewController,
-              let product = sender as? Product else {
-                  return
-              }
-        editViewController.topItemTitle = labelString
-        detailViewController.setUpTitle(title: product.title)
     }
 }

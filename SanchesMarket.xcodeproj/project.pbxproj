@@ -51,6 +51,8 @@
 		4DD80C7727A9066A00A04346 /* DetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7627A9066A00A04346 /* DetailContentView.swift */; };
 		4DD80C7927A9222700A04346 /* DetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7827A9222700A04346 /* DetailPhotoCell.swift */; };
 		4DD80C7B27A9249D00A04346 /* DetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7A27A9249D00A04346 /* DetailCollectionViewDataSource.swift */; };
+		4DD80C7D27A92F2600A04346 /* MainCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7C27A92F2600A04346 /* MainCollectionViewDelegate.swift */; };
+		4DD80C7F27A93CB700A04346 /* performSegueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7E27A93CB700A04346 /* performSegueDelegate.swift */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
 		4DD88A7E278535BD00EAED1D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7D278535BD00EAED1D /* Media.swift */; };
@@ -127,6 +129,8 @@
 		4DD80C7627A9066A00A04346 /* DetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentView.swift; sourceTree = "<group>"; };
 		4DD80C7827A9222700A04346 /* DetailPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoCell.swift; sourceTree = "<group>"; };
 		4DD80C7A27A9249D00A04346 /* DetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		4DD80C7C27A92F2600A04346 /* MainCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		4DD80C7E27A93CB700A04346 /* performSegueDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = performSegueDelegate.swift; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		4DD88A7D278535BD00EAED1D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 			children = (
 				4D4C5F02278439540037496E /* MainViewController.swift */,
 				4D951CB627912ECD009827ED /* MainCollectionViewDataSource.swift */,
+				4DD80C7C27A92F2600A04346 /* MainCollectionViewDelegate.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				4DD88A932785F20C00EAED1D /* URLSessionProtocol.swift */,
 				4D4CADE12797FBF60077CC9A /* LodingIndicatorProtocol.swift */,
 				4DD80C6E27A7531200A04346 /* EditProtocol.swift */,
+				4DD80C7E27A93CB700A04346 /* performSegueDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				4D951CC4279318B3009827ED /* CompositionalLayoutProduct.swift in Sources */,
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,
+				4DD80C7F27A93CB700A04346 /* performSegueDelegate.swift in Sources */,
 				4DD80C7727A9066A00A04346 /* DetailContentView.swift in Sources */,
 				4DD80C7B27A9249D00A04346 /* DetailCollectionViewDataSource.swift in Sources */,
 				4D4C5F03278439540037496E /* MainViewController.swift in Sources */,
@@ -540,6 +547,7 @@
 				4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */,
 				4D4CADEB27983F340077CC9A /* EditPhotoSelectCell.swift in Sources */,
 				4D951CC62793219B009827ED /* CompositionalLayoutBuilder.swift in Sources */,
+				4DD80C7D27A92F2600A04346 /* MainCollectionViewDelegate.swift in Sources */,
 				4DBD101B279F3BA700452478 /* EditContentView.swift in Sources */,
 				4D951CC12792829F009827ED /* CALayer+extension.swift in Sources */,
 				4D951CB9279131DB009827ED /* ImageManager.swift in Sources */,

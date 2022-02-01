@@ -8,7 +8,7 @@
 import UIKit
 
 class MainCollectionViewDataSource: NSObject {
-    private var productList: [Product] = []
+    private(set) var productList: [Product] = []
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
     private let imageManager = ImageManager()
