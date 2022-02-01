@@ -8,8 +8,15 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    private let content = DetailContentView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpContent()
+    }
+    
+    private func setUpContent() {
+        content.setUpScrollView(view: view)
     }
 }
