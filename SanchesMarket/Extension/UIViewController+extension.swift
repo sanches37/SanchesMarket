@@ -19,11 +19,11 @@ extension UIViewController {
         let alert = UIAlertController()
         let enroll = UIAlertAction(
             title: "등록", style: .default) { _ in
-                self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "등록")
+                self.performSegue(withIdentifier: EditViewController.segueIdentifier, sender: "등록")
             }
         let modify = UIAlertAction(
             title: "수정", style: .default) { _ in
-                self.performSegue(withIdentifier: MainViewController.segueIdentifier, sender: "수정")
+                self.performSegue(withIdentifier: EditViewController.segueIdentifier, sender: "수정")
             }
         let cancel = UIAlertAction(
             title: "취소", style: .cancel, handler: nil)
@@ -46,8 +46,9 @@ extension UIViewController {
             }
         enroll.isEnabled = false
         alert.addTextField { textField in
-            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
-                                                   object: textField, queue: OperationQueue.main) { _ in
+            NotificationCenter.default.addObserver(
+                forName: UITextField.textDidChangeNotification,
+                object: textField, queue: OperationQueue.main) { _ in
                 let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
                 let textIsNotEmpty = textCount > 0
                 enroll.isEnabled = textIsNotEmpty

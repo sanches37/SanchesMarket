@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="Efg-qX-6OQ">
+            <objects>
+                <viewController id="5Ox-4m-mnR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q0u-8S-3sy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aEj-Q7-ghI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dhJ-JC-3HA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vkv-8O-tVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1727" y="-333"/>
+        </scene>
         <!--취소-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -64,11 +80,12 @@
                         <outlet property="collectionView" destination="Pa2-a9-ycD" id="S40-T4-BjF"/>
                         <outlet property="lodingIndicator" destination="Sgz-Vd-eDf" id="USP-5s-qy3"/>
                         <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToEnrollModify" id="wuc-nc-cYp"/>
+                        <segue destination="5Ox-4m-mnR" kind="show" id="iCw-gH-CLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="64.955357142857139"/>
+            <point key="canvasLocation" x="903" y="64"/>
         </scene>
         <!--상품-->
         <scene sceneID="PUz-ky-7nm">
@@ -94,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jds-m5-I72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="64"/>
+            <point key="canvasLocation" x="2556" y="64"/>
         </scene>
         <!--Photo Album View Controller-->
         <scene sceneID="z5d-x6-kQC">
@@ -138,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d1-uo-Rug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="64"/>
+            <point key="canvasLocation" x="3436" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Cp-c4-Kyv">
@@ -156,7 +173,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9P-wP-Vwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="64.955357142857139"/>
+            <point key="canvasLocation" x="95" y="64"/>
         </scene>
     </scenes>
     <resources>

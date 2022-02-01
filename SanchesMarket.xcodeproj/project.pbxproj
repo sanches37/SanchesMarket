@@ -47,6 +47,8 @@
 		4DD80C6D27A6B55300A04346 /* EditEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C6C27A6B55300A04346 /* EditEnum.swift */; };
 		4DD80C6F27A7531200A04346 /* EditProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C6E27A7531200A04346 /* EditProtocol.swift */; };
 		4DD80C7127A753EE00A04346 /* MultipartFormImpormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7027A753EE00A04346 /* MultipartFormImpormation.swift */; };
+		4DD80C7427A905FC00A04346 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7327A905FC00A04346 /* DetailViewController.swift */; };
+		4DD80C7727A9066A00A04346 /* DetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7627A9066A00A04346 /* DetailContentView.swift */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
 		4DD88A7E278535BD00EAED1D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7D278535BD00EAED1D /* Media.swift */; };
@@ -119,6 +121,8 @@
 		4DD80C6C27A6B55300A04346 /* EditEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEnum.swift; sourceTree = "<group>"; };
 		4DD80C6E27A7531200A04346 /* EditProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProtocol.swift; sourceTree = "<group>"; };
 		4DD80C7027A753EE00A04346 /* MultipartFormImpormation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormImpormation.swift; sourceTree = "<group>"; };
+		4DD80C7327A905FC00A04346 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4DD80C7627A9066A00A04346 /* DetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentView.swift; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		4DD88A7D278535BD00EAED1D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				4D951CAC27911DF4009827ED /* ProductCell */,
 				4D7F8944279D8B6800770DE2 /* Edit */,
 				4DB73C892799A1F700FC2A66 /* PhotoAlbumCell */,
+				4DD80C7527A9063B00A04346 /* Detail */,
 				4D4C5F04278439540037496E /* Main.storyboard */,
 				4D4C5F09278439550037496E /* LaunchScreen.storyboard */,
 			);
@@ -223,6 +228,7 @@
 				4D4CADE527983DE70077CC9A /* Main */,
 				4D4CADEC27984ABF0077CC9A /* Edit */,
 				4DB73C812799952200FC2A66 /* PhotoAlbum */,
+				4DD80C7227A905CE00A04346 /* Detail */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,6 +330,22 @@
 				4DB73C8A2799A22900FC2A66 /* PhotoAlbumCell.swift */,
 			);
 			path = PhotoAlbumCell;
+			sourceTree = "<group>";
+		};
+		4DD80C7227A905CE00A04346 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4DD80C7327A905FC00A04346 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		4DD80C7527A9063B00A04346 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4DD80C7627A9066A00A04346 /* DetailContentView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		4DD88A7727851E9300EAED1D /* Enumeration */ = {
@@ -496,11 +518,13 @@
 				4D951CC4279318B3009827ED /* CompositionalLayoutProduct.swift in Sources */,
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,
+				4DD80C7727A9066A00A04346 /* DetailContentView.swift in Sources */,
 				4D4C5F03278439540037496E /* MainViewController.swift in Sources */,
 				4DA87CAA2799B59D00F555A5 /* PhotoAlbumCollectionViewDataSource.swift in Sources */,
 				4DB73C8B2799A22900FC2A66 /* PhotoAlbumCell.swift in Sources */,
 				4DD88A9027858FC900EAED1D /* Data+extension.swift in Sources */,
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
+				4DD80C7427A905FC00A04346 /* DetailViewController.swift in Sources */,
 				4D4CADEE27984ADF0077CC9A /* EditCollectionViewDataSource.swift in Sources */,
 				4DB73C852799988500FC2A66 /* PhotoAlbumManager.swift in Sources */,
 				4DEF39E027A5FA9700EC4695 /* KeyboardManager.swift in Sources */,

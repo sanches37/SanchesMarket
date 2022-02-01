@@ -12,7 +12,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var lodingIndicator: UIActivityIndicatorView!
     
     private let mainCollectionViewDataSource = MainCollectionViewDataSource()
-    static let segueIdentifier = "presentToEnrollModify"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +62,10 @@ extension MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let enrollModifyViewController = segue.destination as? EditViewController else {
+        guard let editViewController = segue.destination as? EditViewController else {
             return
         }
         guard let labelString = sender as? String else { return }
-        enrollModifyViewController.topItemTitle = labelString
+        editViewController.topItemTitle = labelString
     }
 }

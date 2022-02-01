@@ -21,6 +21,7 @@ class EditViewController: UIViewController {
     private var editImpormation: Editable?
     private var medias: [Media] = []
     private var observe: NSKeyValueObservation?
+    static let segueIdentifier = "presentToEnrollModify"
     private let mainTitle = "상품"
     var topItemTitle: String = ""
     var id: Int = 0
