@@ -25,6 +25,7 @@ struct Request {
         } else if let api = api as? RequestableWithMultipartForm {
             let body = createBody(parameters: api.parameter, image: api.image)
             request.httpBody = body
+            print(String(decoding: body, as: UTF8.self))
         }
         return request
     }
@@ -49,7 +50,7 @@ struct Request {
                 body.append("--\(Boundary.uuid)\(lineBreak)")
                 body.append(
                     "Content-Disposition: form-data; name=\"\(photo.key)\"; filename=\"\(photo.filename)\"\(lineBreak)")
-                body.append("Content-type: \(photo.mimeType)\(doubleLineBreak)")
+                body.append("Content-Type: \(photo.mimeType)\(doubleLineBreak)")
                 body.append(photo.data)
                 body.append(lineBreak)
             }

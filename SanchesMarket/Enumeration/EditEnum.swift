@@ -32,7 +32,6 @@ enum EditEssentialElement {
             return []
         }
     }
-    
     var minimumImage: Int {
         switch self {
         case .post:

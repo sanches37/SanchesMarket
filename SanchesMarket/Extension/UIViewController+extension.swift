@@ -32,4 +32,30 @@ extension UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
+    
+    func setUpPasswordAlert(completion: @escaping (String) -> Void) {
+        let alert = UIAlertController(title: "비밀번호를 입력해주세요", message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(
+            title: "취소", style: .cancel, handler: nil)
+        let enroll = UIAlertAction(
+            title: "등록", style: .default) { ok in
+                guard let password = alert.textFields?.first?.text else {
+                    return
+                }
+                completion(password)
+            }
+        enroll.isEnabled = false
+        alert.addTextField { textField in
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
+                                                   object: textField, queue: OperationQueue.main) { _ in
+                let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+                let textIsNotEmpty = textCount > 0
+                enroll.isEnabled = textIsNotEmpty
+            }
+        }
+        alert.addAction(enroll)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+        
+    }
 }

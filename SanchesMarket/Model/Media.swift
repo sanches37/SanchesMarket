@@ -8,7 +8,7 @@
 import UIKit
 
 struct Media {
-    let key: String = "image[]"
+    let key: String = "images[]"
     let filename: String
     let data: Data
     let mimeType: MimeType
@@ -18,11 +18,11 @@ struct Media {
         case .jpeg:
             guard let data = image.jpegData(compressionQuality: 0.7) else { return nil }
             self.data = data
-            self.filename = "\(Data()).jpeg"
+            self.filename = "\(Date()).jpeg"
         case .png:
             guard let data = image.pngData() else { return nil }
             self.data = data
-            self.filename = "\(Data()).png"
+            self.filename = "\(Date()).png"
         }
         
         self.mimeType = mimeType

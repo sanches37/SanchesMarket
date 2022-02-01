@@ -12,10 +12,12 @@ class EditViewController: UIViewController {
     private let PhotoLimitCount = 5
     private let editCollectionViewDataSource =
     EditCollectionViewDataSource()
-    private var multipartFormData = MultipartFormData()
     private let content = EditContentView()
+    private let networkManager = NetworkManager()
+    private let parsingManager = ParsingManager()
     private lazy var keyboardManager =
     KeyboardManager(view: self.view, scrollView: content.scrollView)
+    private var multipartFormData = MultipartFormData()
     private var editImpormation: Editable?
     private var medias: [Media] = []
     private var observe: NSKeyValueObservation?
@@ -26,6 +28,7 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeEditImpormation()
         processCollectionView()
         registeredIdetifier()
         setUpContent()
@@ -165,11 +168,45 @@ class EditViewController: UIViewController {
         }
     }
     
+    private func reqeustEdit(completion: @escaping (Product) -> Void) {
+        guard let requestAPI = self.editImpormation?.requestAPI else { return }
+        self.networkManager.commuteWithAPI(api: requestAPI) { result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showAlert(message: "시스템문제(\(error.errorDescription))로 실패하였습니다")
+                }
+            case .success(let data):
+                guard let product = try? self.parsingManager.decodedJSONData(
+                    type: Product.self, data: data) else {
+                        return
+                    }
+                completion(product)
+            }
+        }
+    }
+    
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-        initializeEditImpormation()
         guard checkEssentialImage() else { return }
         guard checkEssentialParameter() else { return }
-        
+        setUpMultipartParameter()
+        if editImpormation?.essentialElement == .post {
+            self.setUpPasswordAlert { password in
+                self.multipartFormData.password = password
+                self.initializeEditImpormation()
+                self.reqeustEdit { product in
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "\(product.id)번에 글이 등록되었습니다")
+                    }
+                }
+            }
+        } else {
+            reqeustEdit { product in
+                DispatchQueue.main.async {
+                    self.showAlert(message: "\(product.id)번 글이 수정되었습니다")
+                }
+            }
+        }
     }
     
     @objc func movePhotoAlbum(_ sender: UIButton) {
