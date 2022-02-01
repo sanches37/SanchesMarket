@@ -38,7 +38,7 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
         loadingIndicator?.startAnimating()
         loadingIndicator?.isHidden(false)
         self.networkManager.commuteWithAPI(
-            api: GetItemsApi(page: netxPage)) { result in
+            api: GetItemsAPI(page: netxPage)) { result in
             if case .success(let data) = result {
                 guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
                     return

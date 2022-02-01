@@ -13,9 +13,10 @@ class DetailContentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUpVerticalStackView()
-        setUpVerticalStackViewContent()
-        setUpHorizontalStckViewContent()
+        setUpContentStackView()
+        setUpContentStackViewContent()
+        setUpTitleStckViewContent()
+        setUpPriceStackViewContent()
     }
     
     required init?(coder: NSCoder) {
@@ -30,13 +31,13 @@ class DetailContentView: UIView {
         return scrollView
     }()
     
-    let verticalStacView: UIStackView = {
+    let contentStacView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = 5
+        stackView.spacing = 15
         return stackView
     }()
     
@@ -59,19 +60,21 @@ class DetailContentView: UIView {
         return pageControl
     }()
     
-    let horizontalStacView: UIStackView = {
+    let titleStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = 8
+        stackView.alignment = .firstBaseline
+        stackView.spacing = 2
         return stackView
     }()
     
-    let titleLabel: UILabel = {
+    var titleLabel: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection(legibilityWeight: .bold))
         label.textColor = .black
+        label.textAlignment = .left
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -79,13 +82,26 @@ class DetailContentView: UIView {
     
     let stockLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .right
+        label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
+    let priceStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
+    
     let priceLabel: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -93,6 +109,7 @@ class DetailContentView: UIView {
     
     let discountedPriceLabel: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -100,6 +117,7 @@ class DetailContentView: UIView {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .justified
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -115,56 +133,68 @@ class DetailContentView: UIView {
         ])
     }
     
-    private func setUpVerticalStackView() {
-        scrollView.addSubview(verticalStacView)
+    private func setUpContentStackView() {
+        scrollView.addSubview(contentStacView)
         NSLayoutConstraint.activate([
-            verticalStacView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5),
-            verticalStacView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            verticalStacView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            verticalStacView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            verticalStacView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -5)
+            contentStacView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
+            contentStacView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 8),
+            contentStacView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentStacView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentStacView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentStacView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -16)
         ])
-        let bottomHeight = verticalStacView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
+        let bottomHeight = contentStacView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
         bottomHeight.priority = .defaultLow
         bottomHeight.isActive = true
     }
     
-    private func setUpVerticalStackViewContent() {
-        verticalStacView.addArrangedSubview(photoCollectionView)
-        verticalStacView.addArrangedSubview(photoPageControl)
-        verticalStacView.addArrangedSubview(horizontalStacView)
-        verticalStacView.addArrangedSubview(priceLabel)
-        verticalStacView.addArrangedSubview(discountedPriceLabel)
-        verticalStacView.addArrangedSubview(descriptionLabel)
+    private func setUpContentStackViewContent() {
+        contentStacView.addArrangedSubview(photoCollectionView)
+        contentStacView.addArrangedSubview(photoPageControl)
+        contentStacView.addArrangedSubview(titleStackView)
+        contentStacView.addArrangedSubview(priceStackView)
+        contentStacView.addArrangedSubview(descriptionLabel)
         setUpPhotoCollectionViewConstraint()
         NSLayoutConstraint.activate([
-            photoPageControl.topAnchor.constraint(equalTo: photoCollectionView.bottomAnchor),
-            photoPageControl.bottomAnchor.constraint(equalTo: horizontalStacView.topAnchor),
-            horizontalStacView.heightAnchor.constraint(equalToConstant: 20),
-            priceLabel.heightAnchor.constraint(equalToConstant: 20),
-            discountedPriceLabel.heightAnchor.constraint(equalToConstant: 20),
-            descriptionLabel.topAnchor.constraint(equalTo: discountedPriceLabel.bottomAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: verticalStacView.bottomAnchor)
+            titleStackView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     func setUpPhotoCollectionViewConstraint() {
         if  UIDevice.current.orientation.isLandscape {
             photoCollectionView.heightAnchor.constraint(
-                equalTo: verticalStacView.widthAnchor).isActive = true
+                equalTo: contentStacView.widthAnchor).isActive = true
         } else {
             photoCollectionView.heightAnchor.constraint(
-                equalTo: verticalStacView.heightAnchor, multiplier: 1/2).isActive = true
+                equalTo: contentStacView.widthAnchor).isActive = true
         }
     }
     
-    private func setUpHorizontalStckViewContent() {
-        horizontalStacView.addArrangedSubview(titleLabel)
-        horizontalStacView.addArrangedSubview(stockLabel)
-        horizontalStacView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    private func setUpTitleStckViewContent() {
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(stockLabel)
+        NSLayoutConstraint.activate([
+            stockLabel.widthAnchor.constraint(equalTo: contentStacView.widthAnchor, multiplier: 1/3)
+        ])
+    }
+    
+    private func setUpPriceStackViewContent() {
+        priceStackView.addArrangedSubview(priceLabel)
+        priceStackView.addArrangedSubview(discountedPriceLabel)
     }
     
     func setUpLabel(product: Product) {
+        titleLabel.text = product.title
+        if product.stock == .zero {
+            stockLabel.text = "품절"
+            stockLabel.textColor = .systemOrange
+        } else if product.stock > self.maximumStockAount {
+            stockLabel.text = "수량 : \(self.maximumStockAount) +"
+            stockLabel.textColor = .systemGray
+        } else {
+            stockLabel.text = "수량 : \(product.stock)"
+            stockLabel.textColor = .systemGray
+        }
         if let discountedPrice = product.discountedPrice {
             priceLabel.attributedText =
             "\(product.currency) \(product.price.withComma)".strikeThrough
@@ -176,16 +206,6 @@ class DetailContentView: UIView {
             priceLabel.text = "\(product.currency) \(product.price.withComma)"
             priceLabel.textColor = .systemGray
         }
-
-        if product.stock == .zero {
-            stockLabel.text = "품절"
-            stockLabel.textColor = .systemOrange
-        } else if product.stock > self.maximumStockAount {
-            stockLabel.text = "잔여수량 : \(self.maximumStockAount) +"
-            stockLabel.textColor = .systemGray
-        } else {
-            stockLabel.text = "잔여수량 : \(product.stock)"
-            stockLabel.textColor = .systemGray
-        }
+        descriptionLabel.text = product.descriptions
     }
 }

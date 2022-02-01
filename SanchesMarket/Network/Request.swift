@@ -17,7 +17,7 @@ struct Request {
         request.setValue(api.contentType.format,
                          forHTTPHeaderField: ContentType.httpHeaderField)
         
-        if let api = api as? DeleteApi {
+        if let api = api as? DeleteAPI {
             guard let body = try? JSONEncoder().encode(api.password) else {
                 throw ParsingError.encodingFailed
             }

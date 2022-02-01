@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GetItemApi: Requestable {
+struct GetItemAPI: Requestable {
     var url: APIURL
     let httpMethod: APIHTTPMethod = .get
     let contentType: ContentType = .json
@@ -17,7 +17,7 @@ struct GetItemApi: Requestable {
     }
 }
 
-struct GetItemsApi: Requestable {
+struct GetItemsAPI: Requestable {
     var url: APIURL
     let httpMethod: APIHTTPMethod = .get
     let contentType: ContentType = .json
@@ -54,7 +54,7 @@ struct PatchAPI: RequestableWithMultipartForm {
     }
 }
 
-struct DeleteApi: Requestable {
+struct DeleteAPI: Requestable {
     var url: APIURL
     let httpMethod: APIHTTPMethod = .delete
     let contentType: ContentType = .json

@@ -56,7 +56,7 @@ class SanchesMarketTests: XCTestCase {
               let decodedData = try? parsingManager?.decodedJSONData(type: Product.self, data: jsonData.data) else {
                   return XCTFail()
               }
-        sut.commuteWithAPI(api: GetItemApi(id: 1)) { result in
+        sut.commuteWithAPI(api: GetItemAPI(id: 1)) { result in
             switch result {
                 // then
             case .success(let item):
@@ -77,7 +77,7 @@ class SanchesMarketTests: XCTestCase {
         let sut = NetworkManager(session: MockURLSession(isRequestSucess: false),
                                  applicableHTTPMethod: [expectHttpMethod])
         // when
-        sut.commuteWithAPI(api: GetItemApi(id: 1)) { result in
+        sut.commuteWithAPI(api: GetItemAPI(id: 1)) { result in
             if case .failure(let error) =  result {
                 // then
                 XCTAssertEqual(error, NetworkError.invalidHttpMethod)
@@ -90,7 +90,7 @@ class SanchesMarketTests: XCTestCase {
         let expectBool = false
         let sut = NetworkManager(session: MockURLSession(isRequestSucess: expectBool), applicableHTTPMethod: [.get])
         // when
-        sut.commuteWithAPI(api: GetItemApi(id: 1)) { result in
+        sut.commuteWithAPI(api: GetItemAPI(id: 1)) { result in
             guard case .failure(let error) = result else {
                 return XCTFail()
             }
