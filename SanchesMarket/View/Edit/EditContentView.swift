@@ -15,6 +15,7 @@ class EditContentView: UIView {
         setUpVerticalStackView()
         setUpVerticalStackViewContent()
         setUpHorizontalStckViewContent()
+        setUpDelegate()
     }
     
     required init?(coder: NSCoder) {
@@ -157,7 +158,6 @@ class EditContentView: UIView {
         let descriptionTextViewInitSize = descriptionTextView.heightAnchor.constraint(equalToConstant: 80)
         descriptionTextViewInitSize.priority = .defaultLow
         descriptionTextViewInitSize.isActive = true
-        descriptionTextView.delegate = self
     }
     
     func setUpPhotoCollectionViewConstraint() {
@@ -176,6 +176,15 @@ class EditContentView: UIView {
         NSLayoutConstraint.activate([
             currencyTextField.widthAnchor.constraint(equalToConstant: 100)
         ])
+    }
+    
+    private func setUpDelegate() {
+        titleTextField.delegate = self
+        currencyTextField.delegate = self
+        priceTextField.delegate = self
+        discountedPriceTextField.delegate = self
+        stockTextField.delegate = self
+        descriptionTextView.delegate = self
     }
     
     func createEdit() -> [String: String] {
@@ -209,5 +218,18 @@ extension EditContentView: UITextViewDelegate {
             textView.text = EditParameter.description.rawValue
             textView.textColor = UIColor.gray.withAlphaComponent(0.5)
         }
+    }
+}
+
+extension EditContentView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == priceTextField ||
+            textField == discountedPriceTextField ||
+            textField == stockTextField {
+            let allowedCharacters = CharacterSet.decimalDigits
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
     }
 }
