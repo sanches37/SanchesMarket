@@ -63,7 +63,6 @@ extension MainViewController: LodingIndicatable {
 extension MainViewController: performSegueDelegate {
     func operatePerformSegue(indexPath: IndexPath) {
         performSegue(withIdentifier: MainViewController.segueDetailIdentifier, sender: mainCollectionViewDataSource.productList[indexPath.item])
-//        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     @IBAction func editButton(_ sender: Any) {
@@ -76,8 +75,7 @@ extension MainViewController: performSegueDelegate {
             editViewController.topItemTitle = labelString
         } else if let detailViewController = segue.destination as? DetailViewController,
                   let product = sender as? Product {
-            detailViewController.setUpTitle(title: product.title)
-            detailViewController.requestDetail(id: product.id)
+            detailViewController.setUpDetail(product: product)
         }
     }
 }

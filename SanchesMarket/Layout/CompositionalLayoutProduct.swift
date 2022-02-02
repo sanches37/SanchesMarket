@@ -15,6 +15,7 @@ struct CompositionalLayoutProduct {
     let scrollDirection: ScrollDirection
     let cellMargin: NSDirectionalEdgeInsets
     let viewMargin: NSDirectionalEdgeInsets
+    let scrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
     
     func create() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_, _) -> NSCollectionLayoutSection in
@@ -49,7 +50,7 @@ struct CompositionalLayoutProduct {
     private func decidedSection() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: decidedGroup())
         if scrollDirection == .horizontal {
-            section.orthogonalScrollingBehavior = .continuous
+            section.orthogonalScrollingBehavior = scrollingBehavior
         }
         section.contentInsets = viewMargin
         return section

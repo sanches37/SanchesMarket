@@ -52,4 +52,15 @@ struct CompositionalLayoutDirector {
                 NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
         return builder.build()
     }
+    
+    func createDetail() -> CompositionalLayoutProduct {
+        let builder = CompositionalLayoutBuilder()
+            .setPortraitHorizontalSize(.fractionalWidth(1))
+            .setLandscapeHorizontalSize(.fractionalWidth(1/8))
+            .setPortraitVerticalSize(.fractionalWidth(1))
+            .setLandscapeVerticalSize(.fractionalWidth(1/8))
+            .setScrollDirection(.horizontal)
+            .setScrollingBehavior(.paging)
+        return builder.build()
+    }
 }

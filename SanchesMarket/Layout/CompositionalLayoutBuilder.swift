@@ -17,46 +17,53 @@ class CompositionalLayoutBuilder {
     NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     private var viewMargin: NSDirectionalEdgeInsets =
     NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+    private var scrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior =
+        .continuous
     
     func setPortraitHorizontalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
-        self.portraitHorizontalSize = size
-        return self
-    }
+            self.portraitHorizontalSize = size
+            return self
+        }
     
     func setLandscapeHorizontalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
-        self.landscapeHorizontalSize = size
-        return self
-    }
+            self.landscapeHorizontalSize = size
+            return self
+        }
     
     func setPortraitVerticalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
-        self.portraitVerticalSize = size
-        return self
-    }
+            self.portraitVerticalSize = size
+            return self
+        }
     
     func setLandscapeVerticalSize(
         _ size: NSCollectionLayoutDimension) -> CompositionalLayoutBuilder {
-        self.landscapeVerticalSize = size
-        return self
-    }
+            self.landscapeVerticalSize = size
+            return self
+        }
     
     func setScrollDirection(
         _ direction: ScrollDirection) -> CompositionalLayoutBuilder {
-        self.scrollDirection = direction
-        return self
-    }
+            self.scrollDirection = direction
+            return self
+        }
     
     func setCellMargin(
         _ margin: NSDirectionalEdgeInsets) -> CompositionalLayoutBuilder {
-        self.cellMargin = margin
-        return self
-    }
+            self.cellMargin = margin
+            return self
+        }
     
     func setViewMargin(
         _ margin: NSDirectionalEdgeInsets) -> CompositionalLayoutBuilder {
-        self.viewMargin = margin
+            self.viewMargin = margin
+            return self
+        }
+    
+    func setScrollingBehavior(_ behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior) -> CompositionalLayoutBuilder {
+        self.scrollingBehavior = behavior
         return self
     }
     
@@ -68,6 +75,7 @@ class CompositionalLayoutBuilder {
             landscapeVerticalSize: landscapeVerticalSize,
             scrollDirection: scrollDirection,
             cellMargin: cellMargin,
-            viewMargin: viewMargin)
+            viewMargin: viewMargin,
+            scrollingBehavior: scrollingBehavior)
     }
 }

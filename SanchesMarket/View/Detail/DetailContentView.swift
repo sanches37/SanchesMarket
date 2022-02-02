@@ -31,6 +31,16 @@ class DetailContentView: UIView {
         return scrollView
     }()
     
+    let navigationItemTitle: UILabel = {
+        let label = UILabel(
+            frame: CGRect(x: .zero, y: .zero, width: 100, height: 100))
+        label.textColor = UIColor.black
+        label.font = .preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection(legibilityWeight: .bold))
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        return label
+    }()
+    
     let contentStacView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -206,6 +216,8 @@ class DetailContentView: UIView {
             priceLabel.text = "\(product.currency) \(product.price.withComma)"
             priceLabel.textColor = .systemGray
         }
-        descriptionLabel.text = product.descriptions
+        if let description = product.descriptions {
+            descriptionLabel.text = description
+        }
     }
 }

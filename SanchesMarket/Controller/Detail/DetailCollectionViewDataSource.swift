@@ -8,7 +8,13 @@
 import UIKit
 
 class DetailCollectionViewDataSource: NSObject {
-    private var photos: [UIImage] = []
+    private let layoutDirector = CompositionalLayoutDirector()
+    private let imageManager = ImageManager()
+    private var photos: [String] = []
+    
+    func setUpPhotos(thumbnails: [String]) {
+        self.photos = thumbnails
+    }
 }
 
 extension DetailCollectionViewDataSource: UICollectionViewDataSource {
@@ -20,6 +26,13 @@ extension DetailCollectionViewDataSource: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPhotoCell.identifier, for: indexPath) as? DetailPhotoCell else {
             return UICollectionViewCell()
         }
+        let photoForItem = photos[indexPath.item]
+        cell.photoConfigure(thumnail: photoForItem, imageManager: imageManager)
+        
         return cell
+    }
+    
+    func decidedCollectionViewLayout(_ collectionView: UICollectionView) {
+        collectionView.collectionViewLayout = layoutDirector.createDetail().create()
     }
 }
