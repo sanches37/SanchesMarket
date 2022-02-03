@@ -20,7 +20,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dhJ-JC-3HA">
-                        <barButtonItem key="rightBarButtonItem" title="수정" id="Gcy-dz-vcf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Gcy-dz-vcf"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkv-8O-tVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

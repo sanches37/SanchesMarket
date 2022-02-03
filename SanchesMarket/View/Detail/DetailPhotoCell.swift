@@ -12,7 +12,7 @@ class DetailPhotoCell: UICollectionViewCell {
     private var imageDataTask: URLSessionDataTask?
     let photoImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

@@ -64,9 +64,10 @@ class DetailContentView: UIView {
     let photoPageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.currentPageIndicatorTintColor = .blue
+        pageControl.currentPageIndicatorTintColor = .systemBlue
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.hidesForSinglePage = true
+        pageControl.isUserInteractionEnabled = false
         return pageControl
     }()
     
@@ -127,6 +128,7 @@ class DetailContentView: UIView {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title3)
         label.textAlignment = .justified
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
