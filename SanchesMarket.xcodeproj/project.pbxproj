@@ -53,6 +53,7 @@
 		4DD80C7B27A9249D00A04346 /* DetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7A27A9249D00A04346 /* DetailCollectionViewDataSource.swift */; };
 		4DD80C7D27A92F2600A04346 /* MainCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7C27A92F2600A04346 /* MainCollectionViewDelegate.swift */; };
 		4DD80C7F27A93CB700A04346 /* performSegueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C7E27A93CB700A04346 /* performSegueDelegate.swift */; };
+		4DD80C8327AB9F0D00A04346 /* DetailCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD80C8227AB9F0D00A04346 /* DetailCollectionViewDelegate.swift */; };
 		4DD88A7927851EC600EAED1D /* RequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7827851EC600EAED1D /* RequestEnum.swift */; };
 		4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7B2785325600EAED1D /* RequestProtocol.swift */; };
 		4DD88A7E278535BD00EAED1D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD88A7D278535BD00EAED1D /* Media.swift */; };
@@ -131,6 +132,7 @@
 		4DD80C7A27A9249D00A04346 /* DetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		4DD80C7C27A92F2600A04346 /* MainCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		4DD80C7E27A93CB700A04346 /* performSegueDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = performSegueDelegate.swift; sourceTree = "<group>"; };
+		4DD80C8227AB9F0D00A04346 /* DetailCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		4DD88A7827851EC600EAED1D /* RequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEnum.swift; sourceTree = "<group>"; };
 		4DD88A7B2785325600EAED1D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		4DD88A7D278535BD00EAED1D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			children = (
 				4DD80C7327A905FC00A04346 /* DetailViewController.swift */,
 				4DD80C7A27A9249D00A04346 /* DetailCollectionViewDataSource.swift */,
+				4DD80C8227AB9F0D00A04346 /* DetailCollectionViewDelegate.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				4DA87CAA2799B59D00F555A5 /* PhotoAlbumCollectionViewDataSource.swift in Sources */,
 				4DD80C7927A9222700A04346 /* DetailPhotoCell.swift in Sources */,
 				4DB73C8B2799A22900FC2A66 /* PhotoAlbumCell.swift in Sources */,
+				4DD80C8327AB9F0D00A04346 /* DetailCollectionViewDelegate.swift in Sources */,
 				4DD88A9027858FC900EAED1D /* Data+extension.swift in Sources */,
 				4DD88A86278574E800EAED1D /* Request.swift in Sources */,
 				4DD80C7427A905FC00A04346 /* DetailViewController.swift in Sources */,

@@ -12,6 +12,8 @@ class DetailViewController: UIViewController {
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
     private let detailCollectionViewDataSource = DetailCollectionViewDataSource()
+    private let detailCollectionViewDelegate = DetailCollectionViewDelegate()
+    private var observe: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class DetailViewController: UIViewController {
         setUpContent()
         setUpDataSourceContent()
         setUpNavigationTitle()
+        setUpKVO()
     }
     
     private func setUpContent() {
@@ -29,6 +32,7 @@ class DetailViewController: UIViewController {
     
     private func processCollectionView() {
         content.photoCollectionView.dataSource = detailCollectionViewDataSource
+        content.photoCollectionView.delegate = detailCollectionViewDelegate
     }
     
     private func registeredIdetifier() {
@@ -45,10 +49,13 @@ class DetailViewController: UIViewController {
         self.navigationItem.titleView = content.navigationItemTitle
     }
     
-    func setUpDetail(product: Product) {
-        self.title = product.title
-        detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
-        requestDetail(id: product.id)
+    private func setUpKVO() {
+        observe =
+        detailCollectionViewDelegate.observe(\.currentPageNumber, options: [.new]) {  _, change in
+            if let currentPageNumber = change.newValue {
+                self.content.setUpCurrentPageNumber(number: currentPageNumber)
+            }
+        }
     }
     
     private func requestDetail(id: Int) {
@@ -62,5 +69,11 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setUpDetail(product: Product) {
+        self.title = product.title
+        detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
+        requestDetail(id: product.id)
     }
 }

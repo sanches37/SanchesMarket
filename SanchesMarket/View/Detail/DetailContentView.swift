@@ -195,6 +195,7 @@ class DetailContentView: UIView {
     
     func setUpLabel(product: Product) {
         titleLabel.text = product.title
+        photoPageControl.numberOfPages = product.thumbnails.count
         if product.stock == .zero {
             stockLabel.text = "품절"
             stockLabel.textColor = .systemOrange
@@ -216,8 +217,10 @@ class DetailContentView: UIView {
             priceLabel.text = "\(product.currency) \(product.price.withComma)"
             priceLabel.textColor = .systemGray
         }
-        if let description = product.descriptions {
-            descriptionLabel.text = description
-        }
+        descriptionLabel.text = product.descriptions
+    }
+    
+    func setUpCurrentPageNumber(number: Int) {
+        photoPageControl.currentPage = number
     }
 }
