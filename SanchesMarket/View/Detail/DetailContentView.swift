@@ -170,7 +170,6 @@ class DetailContentView: UIView {
     private func setUpLandscapeScrollView(view: UIView) {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -225,7 +224,7 @@ class DetailContentView: UIView {
     private func setUpLandscapePhotoStackView(view: UIView) {
         view.addSubview(photoStackView)
         NSLayoutConstraint.activate([
-            photoStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2, constant: -16),
+            photoStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -16),
             photoStackView.trailingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: -8),
             photoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             photoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
