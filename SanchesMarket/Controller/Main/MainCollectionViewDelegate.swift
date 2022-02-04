@@ -8,12 +8,13 @@
 import UIKit
 
 class MainCollectionViewDelegate: NSObject {
-    weak var delegate: performSegueDelegate?
+    weak var delegate: IndexPathAvailable?
 }
 
 extension MainCollectionViewDelegate: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
+        delegate?.getCollectionViewIndexPath(indexPath: indexPath)
         delegate?.operatePerformSegue(indexPath: indexPath)
     }
 }

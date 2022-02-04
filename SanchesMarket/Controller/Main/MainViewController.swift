@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     static let segueDetailIdentifier = "presentToDetail"
     private let mainCollectionViewDataSource = MainCollectionViewDataSource()
     private let mainCollectionViewDelegate = MainCollectionViewDelegate()
+    private var selectIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +61,27 @@ extension MainViewController: LodingIndicatable {
     }
 }
 
-extension MainViewController: performSegueDelegate {
+extension MainViewController: IndexPathAvailable {
+    func getCollectionViewIndexPath(indexPath: IndexPath) {
+        self.selectIndex = indexPath.item
+    }
+    
     func operatePerformSegue(indexPath: IndexPath) {
         performSegue(withIdentifier: MainViewController.segueDetailIdentifier, sender: mainCollectionViewDataSource.productList[indexPath.item])
     }
     
+    func updateDeleteIndexPath(completion: @escaping () -> Void) {
+        guard let index = selectIndex else { return }
+        mainCollectionViewDataSource.removeProductListIndex(index: index)
+        collectionView.performBatchUpdates {
+            collectionView.deleteItems(at: [IndexPath(item: index, section: .zero)])
+        } completion: { _ in
+            completion()
+        }
+    }
+}
+
+extension MainViewController {
     @IBAction func editButton(_ sender: Any) {
         self.showEditAction()
     }
@@ -76,6 +93,7 @@ extension MainViewController: performSegueDelegate {
         } else if let detailViewController = segue.destination as? DetailViewController,
                   let product = sender as? Product {
             detailViewController.setUpDetail(product: product)
+            detailViewController.delegate = self
         }
     }
 }

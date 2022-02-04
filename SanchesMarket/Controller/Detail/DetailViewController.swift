@@ -15,7 +15,8 @@ class DetailViewController: UIViewController {
     private let detailCollectionViewDelegate = DetailCollectionViewDelegate()
     private var observe: NSKeyValueObservation?
     private var productData: Product?
-
+    weak var delegate: IndexPathAvailable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,11 +30,11 @@ class DetailViewController: UIViewController {
     
     override func viewWillTransition(
         to size: CGSize,with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        view.subviews.forEach { $0.removeFromSuperview() }
-        setUpContent()
-    }
+            super.viewWillTransition(to: size, with: coordinator)
+            
+            view.subviews.forEach { $0.removeFromSuperview() }
+            setUpContent()
+        }
     
     private func setUpContent() {
         view.addSubview(content.scrollView)
@@ -92,8 +93,33 @@ class DetailViewController: UIViewController {
         requestDetail(id: product.id)
     }
     
+    private func requestDelete(password: String) {
+        guard let product = productData else {
+            return
+        }
+        networkManager.commuteWithAPI(
+            api: DeleteAPI(id: product.id, password: password)) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.errorDescription)
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "비밀번호가 틀렸습니다")
+                    }
+                case .success:
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "삭제되었습니다") {
+                            self.delegate?.updateDeleteIndexPath {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
         self.showDetailAction { password in
+            self.requestDelete(password: password)
         }
     }
 }

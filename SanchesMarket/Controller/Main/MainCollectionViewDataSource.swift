@@ -16,6 +16,10 @@ class MainCollectionViewDataSource: NSObject {
     private var changeIdentifier = ProductCell.listIdentifier
     private var netxPage = 1
     weak var loadingIndicator: LodingIndicatable?
+    
+    func removeProductListIndex(index: Int) {
+        productList.remove(at: index)
+    }
 }
 
 extension MainCollectionViewDataSource: UICollectionViewDataSource {

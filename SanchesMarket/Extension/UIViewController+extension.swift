@@ -8,9 +8,11 @@
 import UIKit
 
 extension UIViewController {
-    func showAlert(message: String) {
+    func showAlert(message: String, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            completion?()
+        }
         alert.addAction(ok)
         present(alert, animated: true)
     }
@@ -38,7 +40,7 @@ extension UIViewController {
         let cancel = UIAlertAction(
             title: "취소", style: .cancel, handler: nil)
         let enroll = UIAlertAction(
-            title: "등록", style: .default) { _ in
+            title: "확인", style: .default) { _ in
                 guard let password = alert.textFields?.first?.text else {
                     return
                 }
