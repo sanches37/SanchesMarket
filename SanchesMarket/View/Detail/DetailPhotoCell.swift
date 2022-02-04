@@ -26,6 +26,12 @@ class DetailPhotoCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        photoImage.frame = bounds
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         imageDataTask?.cancel()

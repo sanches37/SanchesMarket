@@ -15,6 +15,7 @@ class DetailContentView: UIView {
         
         setUpContentStackView()
         setUpContentStackViewContent()
+        setUpPhotoStckViewContent()
         setUpTitleStckViewContent()
         setUpPriceStackViewContent()
     }
@@ -41,13 +42,23 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let contentStacView: UIStackView = {
+    let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = 15
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    let photoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 5
         return stackView
     }()
     
@@ -75,9 +86,9 @@ class DetailContentView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.alignment = .firstBaseline
-        stackView.spacing = 2
+        stackView.spacing = 5
         return stackView
     }()
     
@@ -104,7 +115,7 @@ class DetailContentView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.alignment = .fill
         stackView.spacing = 0
         return stackView
@@ -135,7 +146,18 @@ class DetailContentView: UIView {
         return label
     }()
     
-    func setUpScrollView(view: UIView) {
+    func setUpPortrait(view: UIView) {
+        setUpPortraitScrollView(view: view)
+        setUpPortraitContentStackViewContent()
+    }
+    
+    func setUpLandscape(view: UIView) {
+        setUpLandscapeScrollView(view: view)
+        setUpLandscapePhotoStackView(view: view)
+        setUpLandscapeContentStackViewContent()
+    }
+    
+    private func setUpPortraitScrollView(view: UIView) {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -145,49 +167,89 @@ class DetailContentView: UIView {
         ])
     }
     
-    private func setUpContentStackView() {
-        scrollView.addSubview(contentStacView)
+    private func setUpLandscapeScrollView(view: UIView) {
+        view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            contentStacView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
-            contentStacView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 8),
-            contentStacView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentStacView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStacView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentStacView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -16)
+            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        let bottomHeight = contentStacView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
+    }
+    
+    private func setUpContentStackView() {
+        scrollView.addSubview(contentStackView)
+        NSLayoutConstraint.activate([
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 8),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -16)
+        ])
+        let bottomHeight = contentStackView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
         bottomHeight.priority = .defaultLow
         bottomHeight.isActive = true
     }
     
     private func setUpContentStackViewContent() {
-        contentStacView.addArrangedSubview(photoCollectionView)
-        contentStacView.addArrangedSubview(photoPageControl)
-        contentStacView.addArrangedSubview(titleStackView)
-        contentStacView.addArrangedSubview(priceStackView)
-        contentStacView.addArrangedSubview(descriptionLabel)
-        setUpPhotoCollectionViewConstraint()
+        if UIDevice.current.orientation.isLandscape {
+            setUpPortraitContentStackViewContent()
+        } else {
+            setUpLandscapeContentStackViewContent()
+        }
+    }
+    
+    private func setUpPortraitContentStackViewContent() {
+        contentStackView.addArrangedSubview(photoStackView)
+        contentStackView.addArrangedSubview(titleStackView)
+        contentStackView.addArrangedSubview(priceStackView)
+        contentStackView.addArrangedSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            titleStackView.heightAnchor.constraint(equalToConstant: 40)
+            titleStackView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
-    func setUpPhotoCollectionViewConstraint() {
-        if  UIDevice.current.orientation.isLandscape {
+    private func setUpLandscapeContentStackViewContent() {
+        contentStackView.addArrangedSubview(titleStackView)
+        contentStackView.addArrangedSubview(priceStackView)
+        contentStackView.addArrangedSubview(descriptionLabel)
+        NSLayoutConstraint.activate([
+            titleStackView.heightAnchor.constraint(equalToConstant: 30),
+            priceStackView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        let descriptionHeight = descriptionLabel.heightAnchor.constraint(equalToConstant: 40)
+        descriptionHeight.priority = .defaultLow
+        descriptionHeight.isActive = true
+    }
+    
+    private func setUpLandscapePhotoStackView(view: UIView) {
+        view.addSubview(photoStackView)
+        NSLayoutConstraint.activate([
+            photoStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2, constant: -16),
+            photoStackView.trailingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: -8),
+            photoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            photoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photoStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -8)
+        ])
+    }
+    
+    private func setUpPhotoStckViewContent() {
+        photoStackView.addArrangedSubview(photoCollectionView)
+        photoStackView.addArrangedSubview(photoPageControl)
+        NSLayoutConstraint.activate([
             photoCollectionView.heightAnchor.constraint(
-                equalTo: contentStacView.widthAnchor).isActive = true
-        } else {
-            photoCollectionView.heightAnchor.constraint(
-                equalTo: contentStacView.widthAnchor).isActive = true
-        }
+                equalTo: photoStackView.widthAnchor)
+        ])
     }
     
     private func setUpTitleStckViewContent() {
         titleStackView.addArrangedSubview(titleLabel)
         titleStackView.addArrangedSubview(stockLabel)
         NSLayoutConstraint.activate([
-            stockLabel.widthAnchor.constraint(equalTo: contentStacView.widthAnchor, multiplier: 1/3)
-        ])
+            stockLabel.widthAnchor.constraint(equalToConstant: 100),
+            stockLabel.heightAnchor.constraint(equalTo: titleStackView.heightAnchor),
+            titleLabel.heightAnchor.constraint(equalTo: titleStackView.heightAnchor)
+            ])
     }
     
     private func setUpPriceStackViewContent() {

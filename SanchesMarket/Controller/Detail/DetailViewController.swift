@@ -14,6 +14,9 @@ class DetailViewController: UIViewController {
     private let detailCollectionViewDataSource = DetailCollectionViewDataSource()
     private let detailCollectionViewDelegate = DetailCollectionViewDelegate()
     private var observe: NSKeyValueObservation?
+    var landscape: [NSLayoutConstraint]?
+    var portrait: [NSLayoutConstraint]?
+    var isPortrait: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +29,21 @@ class DetailViewController: UIViewController {
         setUpKVO()
     }
     
+    override func viewWillTransition(
+        to size: CGSize,with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        view.subviews.forEach { $0.removeFromSuperview() }
+        setUpContent()
+    }
+    
     private func setUpContent() {
-        content.setUpScrollView(view: view)
+        view.addSubview(content.scrollView)
+        if  UIDevice.current.orientation.isLandscape {
+            content.setUpLandscape(view: view)
+        } else {
+            content.setUpPortrait(view: view)
+        }
     }
     
     private func processCollectionView() {

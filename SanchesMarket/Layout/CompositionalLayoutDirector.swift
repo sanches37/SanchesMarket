@@ -56,9 +56,9 @@ struct CompositionalLayoutDirector {
     func createDetail() -> CompositionalLayoutProduct {
         let builder = CompositionalLayoutBuilder()
             .setPortraitHorizontalSize(.fractionalWidth(1))
-            .setLandscapeHorizontalSize(.fractionalWidth(1/8))
+            .setLandscapeHorizontalSize(.fractionalWidth(1))
             .setPortraitVerticalSize(.fractionalWidth(1))
-            .setLandscapeVerticalSize(.fractionalWidth(1/8))
+            .setLandscapeVerticalSize(.fractionalWidth(1))
             .setScrollDirection(.horizontal)
             .setScrollingBehavior(.paging)
         return builder.build()
