@@ -20,7 +20,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dhJ-JC-3HA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Gcy-dz-vcf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Gcy-dz-vcf">
+                            <connections>
+                                <action selector="actionButton:" destination="5Ox-4m-mnR" id="f2Z-M5-17C"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkv-8O-tVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

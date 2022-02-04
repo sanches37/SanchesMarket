@@ -38,7 +38,7 @@ extension UIViewController {
         let cancel = UIAlertAction(
             title: "취소", style: .cancel, handler: nil)
         let enroll = UIAlertAction(
-            title: "등록", style: .default) { ok in
+            title: "등록", style: .default) { _ in
                 guard let password = alert.textFields?.first?.text else {
                     return
                 }
@@ -57,6 +57,27 @@ extension UIViewController {
         alert.addAction(enroll)
         alert.addAction(cancel)
         present(alert, animated: true)
-        
+    }
+    
+    func showDetailAction(completion: @escaping (String) -> Void) {
+        let alert = UIAlertController()
+        let enroll = UIAlertAction(
+            title: "삭제", style: .destructive) { _ in
+                self.setUpPasswordAlert { password in
+                    completion(password)
+                }
+            }
+        let modify = UIAlertAction(
+            title: "수정", style: .default) { _ in
+                self.setUpPasswordAlert { password in
+                    completion(password)
+                }
+            }
+        let cancel = UIAlertAction(
+            title: "취소", style: .cancel, handler: nil)
+        alert.addAction(enroll)
+        alert.addAction(modify)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
 }

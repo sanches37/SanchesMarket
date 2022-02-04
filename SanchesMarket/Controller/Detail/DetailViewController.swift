@@ -14,10 +14,8 @@ class DetailViewController: UIViewController {
     private let detailCollectionViewDataSource = DetailCollectionViewDataSource()
     private let detailCollectionViewDelegate = DetailCollectionViewDelegate()
     private var observe: NSKeyValueObservation?
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = false
-    
+    private var productData: Product?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +86,14 @@ class DetailViewController: UIViewController {
     }
     
     func setUpDetail(product: Product) {
+        self.productData = product
         self.title = product.title
         detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
         requestDetail(id: product.id)
+    }
+    
+    @IBAction func actionButton(_ sender: UIBarButtonItem) {
+        self.showDetailAction { password in
+        }
     }
 }
