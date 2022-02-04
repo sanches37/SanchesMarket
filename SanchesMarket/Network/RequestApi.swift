@@ -47,7 +47,7 @@ struct PatchAPI: RequestableWithMultipartForm {
     let parameter: [String : Any]
     var image: [Media]?
     
-    init(id: Int, parameter: [String: Any], image:[Media]) {
+    init(id: Int, parameter: [String: Any], image:[Media]?) {
         self.url = .patch(id: id)
         self.parameter = parameter
         self.image = image

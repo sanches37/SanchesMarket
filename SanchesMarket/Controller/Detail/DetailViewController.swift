@@ -13,8 +13,9 @@ class DetailViewController: UIViewController {
     private let parsingManager = ParsingManager()
     private let detailCollectionViewDataSource = DetailCollectionViewDataSource()
     private let detailCollectionViewDelegate = DetailCollectionViewDelegate()
+    private var multipartFormData = MultipartFormData()
     private var observe: NSKeyValueObservation?
-    private var productData: Product?
+    private var product: Product?
     weak var delegate: IndexPathAvailable?
     
     override func viewDidLoad() {
@@ -66,7 +67,8 @@ class DetailViewController: UIViewController {
     
     private func setUpKVO() {
         observe =
-        detailCollectionViewDelegate.observe(\.currentPageNumber, options: [.new]) {  _, change in
+        detailCollectionViewDelegate.observe(
+            \.currentPageNumber, options: [.new]) {  _, change in
             if let currentPageNumber = change.newValue {
                 self.content.setUpCurrentPageNumber(number: currentPageNumber)
             }
@@ -87,14 +89,14 @@ class DetailViewController: UIViewController {
     }
     
     func setUpDetail(product: Product) {
-        self.productData = product
+        self.product = product
         self.title = product.title
         detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
         requestDetail(id: product.id)
     }
     
     private func requestDelete(password: String) {
-        guard let product = productData else {
+        guard let product = product else {
             return
         }
         networkManager.commuteWithAPI(
@@ -117,9 +119,33 @@ class DetailViewController: UIViewController {
             }
     }
     
+    private func checkModifyPassword(completion: @escaping (Bool)->Void) {
+        guard let product = product else {
+            return
+        }
+        networkManager.commuteWithAPI(api: PatchAPI(id: product.id, parameter: multipartFormData.parameter, image: nil)) { result in
+            switch result {
+            case .failure(let error):
+                print(error.errorDescription)
+                DispatchQueue.main.async {
+                    self.showAlert(message: "비밀번호가 틀렸습니다")
+                }
+                completion(false)
+            case .success:
+                completion(true)
+            }
+        }
+    }
+    
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
         self.showDetailAction { password in
             self.requestDelete(password: password)
+        } modifyCompletion: { password in
+            self.multipartFormData.password = password
+            self.checkModifyPassword { result in
+                print(result)
+            }
         }
+
     }
 }

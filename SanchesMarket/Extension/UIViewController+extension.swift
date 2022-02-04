@@ -61,18 +61,19 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
-    func showDetailAction(completion: @escaping (String) -> Void) {
+    func showDetailAction(deleteCompletion: @escaping (String) -> Void,
+                          modifyCompletion: @escaping (String) -> Void) {
         let alert = UIAlertController()
         let enroll = UIAlertAction(
             title: "삭제", style: .destructive) { _ in
                 self.setUpPasswordAlert { password in
-                    completion(password)
+                    deleteCompletion(password)
                 }
             }
         let modify = UIAlertAction(
             title: "수정", style: .default) { _ in
                 self.setUpPasswordAlert { password in
-                    completion(password)
+                    modifyCompletion(password)
                 }
             }
         let cancel = UIAlertAction(
