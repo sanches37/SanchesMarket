@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    static let segueModifyIdentifier = "presentToModify"
     private let content = DetailContentView()
     private let networkManager = NetworkManager()
     private let parsingManager = ParsingManager()
@@ -16,7 +17,6 @@ class DetailViewController: UIViewController {
     private var multipartFormData = MultipartFormData()
     private var observe: NSKeyValueObservation?
     private var product: Product?
-    static let segueModifyIdentifier = "presentToModify"
     weak var delegate: IndexPathAvailable?
     
     override func viewDidLoad() {
@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
     
     func setUpDetail(product: Product) {
         self.title = product.title
-        detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
+        detailCollectionViewDataSource.requestImage(thumnails: product.thumbnails)
         requestDetail(id: product.id)
     }
     
@@ -149,7 +149,9 @@ class DetailViewController: UIViewController {
               }
         editViewController.setUpNavigationTitle(title: EditViewController.modifyTitle)
         editViewController.receiveModifyInformation(
-            product: product, password: password, images: detailCollectionViewDataSource.convertedImages)
+            product: product,
+            password: password,
+            images: detailCollectionViewDataSource.photos)
     }
     
     @IBAction func actionButton(_ sender: UIBarButtonItem) {

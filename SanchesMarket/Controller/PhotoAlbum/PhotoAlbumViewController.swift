@@ -10,11 +10,12 @@ import Photos.PHAsset
 
 class PhotoAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    static let identifier = "PhotoAlbumVC"
     private let photoAlbumCollectionViewDataSource =
     PhotoAlbumCollectionViewDataSource()
     let photoAlbumCollectionViewDelegate =
     PhotoAlbumCollectionViewDelegate()
-    static let identifier = "PhotoAlbumVC"
+    
     private var selectedImage: (([UIImage]) -> Void)?
     
     override func viewDidLoad() {

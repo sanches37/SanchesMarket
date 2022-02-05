@@ -14,6 +14,8 @@ struct ImageManager {
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
+    
+    @discardableResult
     func fetchImage(url: String,
                     completionHandler: @escaping (Result<UIImage, NetworkError>) -> Void) -> URLSessionDataTask? {
         guard let url = URL(string: url) else {

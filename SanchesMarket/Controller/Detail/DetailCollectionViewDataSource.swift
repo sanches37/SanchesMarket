@@ -10,12 +10,7 @@ import UIKit
 class DetailCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private let imageManager = ImageManager()
-    private var photos: [String] = []
-    private(set) var convertedImages: [UIImage] = []
-    
-    func setUpPhotos(thumbnails: [String]) {
-        self.photos = thumbnails
-    }
+    private(set) var photos: [UIImage] = []
 }
 
 extension DetailCollectionViewDataSource: UICollectionViewDataSource {
@@ -28,9 +23,24 @@ extension DetailCollectionViewDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let photoForItem = photos[indexPath.item]
-        cell.photoConfigure(thumnail: photoForItem,
-                            imageManager: imageManager)
+        cell.configure(photo: photoForItem)
+        
         return cell
+    }
+    
+    func requestImage(thumnails: [String]) {
+        thumnails.forEach { thumnail in
+            imageManager.fetchImage(url: thumnail) { image in
+                DispatchQueue.main.async {
+                    switch image {
+                    case .success(let image):
+                        self.photos.append(image)
+                    case .failure(let error):
+                        print(error.errorDescription)
+                    }
+                }
+            }
+        }
     }
     
     func decidedCollectionViewLayout(_ collectionView: UICollectionView) {
