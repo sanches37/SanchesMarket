@@ -9,6 +9,8 @@ import UIKit
 
 class EditViewController: UIViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!
+    static let enrollTitle = "상품 등록"
+    static let modifyTitle = "상품 수정"
     private let PhotoLimitCount = 5
     private let editCollectionViewDataSource =
     EditCollectionViewDataSource()
@@ -21,10 +23,8 @@ class EditViewController: UIViewController {
     private var editImpormation: Editable?
     private var medias: [Media] = []
     private var observe: NSKeyValueObservation?
-    private let mainTitle = "상품"
-    var topItemTitle: String = ""
     private var id: Int = 0
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +33,6 @@ class EditViewController: UIViewController {
         registeredIdetifier()
         setUpContent()
         setUpDataSourceContent()
-        setUpTitle()
         setUpButton()
         setUpKVO()
         setUpKeyboard()
@@ -58,7 +57,7 @@ class EditViewController: UIViewController {
     }
     
     private func initializeEditImpormation() {
-        if topItemTitle == "등록" {
+        if self.title == Self.enrollTitle {
             editImpormation =
             PostImpormation(parameter: multipartFormData.parameter, image: medias)
         } else {
@@ -67,17 +66,16 @@ class EditViewController: UIViewController {
         }
     }
     
+    func setUpNavigationTitle(title: String) {
+        self.title = title
+    }
+    
     private func setUpContent() {
         content.setUpScrollView(view: view)
     }
     
     private func setUpDataSourceContent() {
         editCollectionViewDataSource.decidedCollectionViewLayout(content.photoCollectionView)
-    }
-    
-    private func setUpTitle() {
-        self.title = mainTitle + topItemTitle
-        editButton.title = topItemTitle
     }
     
     private func setUpButton() {

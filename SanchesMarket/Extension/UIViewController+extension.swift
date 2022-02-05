@@ -17,24 +17,6 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
-    func showEditAction() {
-        let alert = UIAlertController()
-        let enroll = UIAlertAction(
-            title: "등록", style: .default) { _ in
-                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: nil)
-            }
-        let modify = UIAlertAction(
-            title: "수정", style: .default) { _ in
-                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: "수정")
-            }
-        let cancel = UIAlertAction(
-            title: "취소", style: .cancel, handler: nil)
-        alert.addAction(enroll)
-        alert.addAction(modify)
-        alert.addAction(cancel)
-        present(alert, animated: true)
-    }
-    
     func setUpPasswordAlert(completion: @escaping (String) -> Void) {
         let alert = UIAlertController(title: "비밀번호를 입력해주세요", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(
@@ -61,7 +43,7 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
-    func showDetailAction(deleteCompletion: @escaping (String) -> Void,
+    func showEditAction(deleteCompletion: @escaping (String) -> Void,
                           modifyCompletion: @escaping (String) -> Void) {
         let alert = UIAlertController()
         let enroll = UIAlertAction(

@@ -56,7 +56,6 @@ extension EditCollectionViewDataSource: UICollectionViewDataSource {
     
     func addPhotoAlbumImage(images: [UIImage]) {
         photoAlbumImages += images
-        print(photoAlbumImages.count)
     }
     
     func removePhotoAlbumImage(index: Int) {

@@ -147,13 +147,13 @@ class DetailViewController: UIViewController {
               let product = product else {
                   return
               }
-        editViewController.topItemTitle = "수정"
+        editViewController.setUpNavigationTitle(title: EditViewController.modifyTitle)
         editViewController.receiveModifyInformation(
             product: product, password: password, images: detailCollectionViewDataSource.convertedImages)
     }
     
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
-        self.showDetailAction { password in
+        self.showEditAction { password in
             self.requestDelete(password: password)
         } modifyCompletion: { password in
             self.checkModifyPassword(password: password)

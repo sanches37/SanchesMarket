@@ -83,12 +83,12 @@ extension MainViewController: IndexPathAvailable {
 
 extension MainViewController {
     @IBAction func editButton(_ sender: Any) {
-        self.showEditAction()
+        performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let editViewController = segue.destination as? EditViewController {
-            editViewController.topItemTitle = "등록"
+            editViewController.setUpNavigationTitle(title: EditViewController.enrollTitle)
         } else if let detailViewController = segue.destination as? DetailViewController,
                   let product = sender as? Product {
             detailViewController.setUpDetail(product: product)
