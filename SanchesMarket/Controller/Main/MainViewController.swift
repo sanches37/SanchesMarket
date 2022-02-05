@@ -87,9 +87,8 @@ extension MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let editViewController = segue.destination as? EditViewController,
-           let labelString = sender as? String {
-            editViewController.topItemTitle = labelString
+        if let editViewController = segue.destination as? EditViewController {
+            editViewController.topItemTitle = "등록"
         } else if let detailViewController = segue.destination as? DetailViewController,
                   let product = sender as? Product {
             detailViewController.setUpDetail(product: product)

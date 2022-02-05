@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     private var multipartFormData = MultipartFormData()
     private var observe: NSKeyValueObservation?
     private var product: Product?
+    static let segueModifyIdentifier = "presentToModify"
     weak var delegate: IndexPathAvailable?
     
     override func viewDidLoad() {
@@ -82,6 +83,7 @@ class DetailViewController: UIViewController {
                     return
                 }
                 DispatchQueue.main.async {
+                    self.product = product
                     self.content.setUpLabel(product: product)
                 }
             }
@@ -89,7 +91,6 @@ class DetailViewController: UIViewController {
     }
     
     func setUpDetail(product: Product) {
-        self.product = product
         self.title = product.title
         detailCollectionViewDataSource.setUpPhotos(thumbnails: product.thumbnails)
         requestDetail(id: product.id)
@@ -119,10 +120,11 @@ class DetailViewController: UIViewController {
             }
     }
     
-    private func checkModifyPassword(completion: @escaping (Bool)->Void) {
+    private func checkModifyPassword(password: String) {
         guard let product = product else {
             return
         }
+        self.multipartFormData.password = password
         networkManager.commuteWithAPI(api: PatchAPI(id: product.id, parameter: multipartFormData.parameter, image: nil)) { result in
             switch result {
             case .failure(let error):
@@ -130,21 +132,31 @@ class DetailViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.showAlert(message: "비밀번호가 틀렸습니다")
                 }
-                completion(false)
             case .success:
-                completion(true)
+                DispatchQueue.main.async {
+                self.performSegue(withIdentifier: Self.segueModifyIdentifier,
+                                  sender: password)
+                }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let editViewController = segue.destination as? EditViewController,
+        let password = sender as? String,
+              let product = product else {
+                  return
+              }
+        editViewController.topItemTitle = "수정"
+        editViewController.receiveModifyInformation(
+            product: product, password: password, images: detailCollectionViewDataSource.convertedImages)
     }
     
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
         self.showDetailAction { password in
             self.requestDelete(password: password)
         } modifyCompletion: { password in
-            self.multipartFormData.password = password
-            self.checkModifyPassword { result in
-                print(result)
-            }
+            self.checkModifyPassword(password: password)
         }
 
     }

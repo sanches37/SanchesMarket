@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="Efg-qX-6OQ">
             <objects>
                 <viewController id="5Ox-4m-mnR" customClass="DetailViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,13 +19,16 @@
                         <viewLayoutGuide key="safeArea" id="aEj-Q7-ghI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dhJ-JC-3HA">
+                    <navigationItem key="navigationItem" title="Detail" id="dhJ-JC-3HA">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Gcy-dz-vcf">
                             <connections>
                                 <action selector="actionButton:" destination="5Ox-4m-mnR" id="f2Z-M5-17C"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Bq1-0Q-j1e" kind="show" identifier="presentToModify" id="Ac0-3Z-Db0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkv-8O-tVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="2556" y="64"/>
         </scene>
-        <!--Photo Album View Controller-->
+        <!--포토 앨범-->
         <scene sceneID="z5d-x6-kQC">
             <objects>
                 <viewController storyboardIdentifier="PhotoAlbumVC" id="NZK-IC-Zn5" customClass="PhotoAlbumViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +151,7 @@
                             <constraint firstItem="ig0-9b-Lbs" firstAttribute="bottom" secondItem="id8-GW-sTk" secondAttribute="bottom" id="hVP-ua-DjK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SOP-jL-S0e">
+                    <navigationItem key="navigationItem" title="포토 앨범" id="SOP-jL-S0e">
                         <barButtonItem key="rightBarButtonItem" title="확인" id="Miw-T4-gKl">
                             <connections>
                                 <action selector="resultPhotoButton:" destination="NZK-IC-Zn5" id="NIc-Cj-cGV"/>
@@ -182,6 +185,9 @@
             <point key="canvasLocation" x="95" y="64"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ac0-3Z-Db0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>

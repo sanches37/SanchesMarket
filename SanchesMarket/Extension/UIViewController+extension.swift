@@ -21,7 +21,7 @@ extension UIViewController {
         let alert = UIAlertController()
         let enroll = UIAlertAction(
             title: "등록", style: .default) { _ in
-                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: "등록")
+                self.performSegue(withIdentifier: MainViewController.segueEditIdentifier, sender: nil)
             }
         let modify = UIAlertAction(
             title: "수정", style: .default) { _ in

@@ -11,6 +11,7 @@ class DetailCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private let imageManager = ImageManager()
     private var photos: [String] = []
+    private(set) var convertedImages: [UIImage] = []
     
     func setUpPhotos(thumbnails: [String]) {
         self.photos = thumbnails
@@ -27,8 +28,8 @@ extension DetailCollectionViewDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let photoForItem = photos[indexPath.item]
-        cell.photoConfigure(thumnail: photoForItem, imageManager: imageManager)
-        
+        cell.photoConfigure(thumnail: photoForItem,
+                            imageManager: imageManager)
         return cell
     }
     

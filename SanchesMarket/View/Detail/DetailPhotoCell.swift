@@ -45,7 +45,8 @@ class DetailPhotoCell: UICollectionViewCell {
                                   height: contentView.frame.height)
     }
     
-    func photoConfigure(thumnail: String, imageManager: ImageManager) {
+    func photoConfigure(thumnail: String,
+                        imageManager: ImageManager) {
         imageDataTask = imageManager.fetchImage(url: thumnail) { image in
             DispatchQueue.main.async {
                 switch image {

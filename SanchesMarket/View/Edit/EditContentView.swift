@@ -30,7 +30,7 @@ class EditContentView: UIView {
         return scrollView
     }()
     
-    let verticalStacView: UIStackView = {
+    private let verticalStacView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ class EditContentView: UIView {
         return collectionView
     }()
     
-    let titleTextField: UITextField = {
+    private let titleTextField: UITextField = {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
@@ -58,7 +58,7 @@ class EditContentView: UIView {
         return textField
     }()
     
-    let horizontalStacView: UIStackView = {
+    private let horizontalStacView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +68,7 @@ class EditContentView: UIView {
         return stackView
     }()
     
-    let currencyTextField: CurrencyTextField = {
+    private let currencyTextField: CurrencyTextField = {
         let textField = CurrencyTextField()
         textField.textColor = .black
         textField.addLeftPadding()
@@ -77,7 +77,7 @@ class EditContentView: UIView {
         return textField
     }()
     
-    let priceTextField: UITextField = {
+    private let priceTextField: UITextField = {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
@@ -87,7 +87,7 @@ class EditContentView: UIView {
         return textField
     }()
     
-    let discountedPriceTextField: UITextField = {
+    private let discountedPriceTextField: UITextField = {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
@@ -97,7 +97,7 @@ class EditContentView: UIView {
         return textField
     }()
     
-    let stockTextField: UITextField = {
+    private let stockTextField: UITextField = {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
         textField.addLeftPadding()
@@ -107,7 +107,7 @@ class EditContentView: UIView {
         return textField
     }()
     
-    let descriptionTextView: UITextView = {
+    private let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.text = EditParameter.description.rawValue
@@ -202,6 +202,16 @@ class EditContentView: UIView {
             viewItem[EditParameter.description.rawValue] = ""
         }
         return viewItem
+    }
+    
+    func setUpModifyText(product: Product) {
+        titleTextField.text = product.title
+        currencyTextField.text = product.currency.description
+        priceTextField.text = product.price.description
+        discountedPriceTextField.text = product.discountedPrice?.description
+        stockTextField.text = product.stock.description
+        descriptionTextView.textColor = .black
+        descriptionTextView.text = product.descriptions
     }
 }
 

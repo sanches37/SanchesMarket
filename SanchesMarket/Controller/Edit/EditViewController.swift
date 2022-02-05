@@ -23,7 +23,7 @@ class EditViewController: UIViewController {
     private var observe: NSKeyValueObservation?
     private let mainTitle = "상품"
     var topItemTitle: String = ""
-    var id: Int = 0
+    private var id: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,6 +146,15 @@ class EditViewController: UIViewController {
             self.showAlert(message: "\(necessaryText)는 필수입력사항입니다")
             return false
         }
+    }
+    
+    func receiveModifyInformation(product: Product,
+                                  password: String,
+                                  images: [UIImage]) {
+        self.id = product.id
+        multipartFormData.password = password
+        content.setUpModifyText(product: product)
+        editCollectionViewDataSource.addPhotoAlbumImage(images: images)
     }
     
     private func setUpMultipartParameter() {
