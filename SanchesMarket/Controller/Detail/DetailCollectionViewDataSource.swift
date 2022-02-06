@@ -11,6 +11,10 @@ class DetailCollectionViewDataSource: NSObject {
     private let layoutDirector = CompositionalLayoutDirector()
     private let imageManager = ImageManager()
     private(set) var photos: [UIImage] = []
+    
+    func updatePhotos(photos: [UIImage]) {
+        self.photos = photos
+    }
 }
 
 extension DetailCollectionViewDataSource: UICollectionViewDataSource {

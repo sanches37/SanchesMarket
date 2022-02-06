@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         processCollectionView()
         registeredIdentifier()
         setUpDataSourceContent()
+        setUpNotification()
     }
     
     private func processCollectionView() {
@@ -44,6 +45,22 @@ class MainViewController: UIViewController {
     
     @IBAction func onCollectionViewTypeChanged(_ sender: UISegmentedControl) {
         mainCollectionViewDataSource.selectedView(sender, collectionView)
+    }
+    
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(operateModifyAfter(_:)),
+            name: .modifyAfter, object: nil)
+    }
+    
+    @objc func operateModifyAfter(_ notification: Notification) {
+        guard let id = notification.userInfo?["id"] as? Int,
+        let selectIndex = selectIndex else {
+            return
+        }
+        mainCollectionViewDataSource.requestModifyAfter(collectionView,
+                                                        id: id,
+                                                        index: selectIndex)
     }
 }
 

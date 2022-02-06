@@ -15,7 +15,6 @@ struct MultipartFormData {
     var stock: Int?
     var discountedPrice: Int?
     var password: String?
-    var id: Int?
     
     var parameter: [String: Any] {
         var param: [String: Any] = [:]

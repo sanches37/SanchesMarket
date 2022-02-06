@@ -43,19 +43,34 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
         loadingIndicator?.isHidden(false)
         self.networkManager.commuteWithAPI(
             api: GetItemsAPI(page: netxPage)) { result in
-            if case .success(let data) = result {
-                guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
-                    return
-                }
-                self.productList.append(contentsOf: product.items)
-                self.netxPage += 1
-                DispatchQueue.main.async {
-                    collectionView.reloadData()
-                    self.loadingIndicator?.stopAnimating()
-                    self.loadingIndicator?.isHidden(true)
+                if case .success(let data) = result {
+                    guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
+                        return
+                    }
+                    self.productList.append(contentsOf: product.items)
+                    self.netxPage += 1
+                    DispatchQueue.main.async {
+                        collectionView.reloadData()
+                        self.loadingIndicator?.stopAnimating()
+                        self.loadingIndicator?.isHidden(true)
+                    }
                 }
             }
-        }
+    }
+    
+    func requestModifyAfter(_ collectionView: UICollectionView, id: Int, index: Int) {
+        self.networkManager.commuteWithAPI(
+            api: GetItemAPI(id: id)) { result in
+                if case .success(let data) = result {
+                    guard let product = try? self.parsingManager.decodedJSONData(type: Product.self, data: data) else {
+                        return
+                    }
+                    self.productList[index] = product
+                    DispatchQueue.main.async {
+                        collectionView.reloadItems(at: [IndexPath(item: index, section: .zero)])
+                    }
+                }
+            }
     }
     
     func decidedListLayout(_ collectionView: UICollectionView) {
@@ -88,5 +103,5 @@ extension MainCollectionViewDataSource: UICollectionViewDataSourcePrefetching {
         }
     }
 }
-    
-    
+
+

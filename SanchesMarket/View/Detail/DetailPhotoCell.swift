@@ -31,12 +31,6 @@ class DetailPhotoCell: UICollectionViewCell {
         photoImage.frame = bounds
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        photoImage.image = nil
-    }
-    
     private func setUpPhotoImage() {
         contentView.addSubview(photoImage)
         photoImage.frame = CGRect(x: 0, y: 0,

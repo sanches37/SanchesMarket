@@ -62,7 +62,7 @@ class EditViewController: UIViewController {
             PostImpormation(parameter: multipartFormData.parameter, image: medias)
         } else {
             editImpormation =
-            PatchImpormation(id: id, parameter: multipartFormData.parameter, image: medias)
+            PatchImpormation(id: self.id, parameter: multipartFormData.parameter, image: medias)
         }
     }
     
@@ -93,6 +93,7 @@ class EditViewController: UIViewController {
         observe =
         editCollectionViewDataSource.observe(\.photoAlbumImages, options: [.new]) {  _, change in
             if let images = change.newValue {
+                print(images.count)
                 self.convertMedias(images: images)
             }
         }
@@ -141,7 +142,7 @@ class EditViewController: UIViewController {
         if necessaryText.isEmpty {
             return true
         } else {
-            self.showAlert(message: "\(necessaryText)는 필수입력사항입니다")
+            self.showAlert(message: "\(necessaryText) 필수입력사항입니다")
             return false
         }
     }
@@ -208,9 +209,18 @@ class EditViewController: UIViewController {
                 }
             }
         } else {
+            self.initializeEditImpormation()
             reqeustEdit { product in
                 DispatchQueue.main.async {
-                    self.showAlert(message: "\(product.id)번 글이 수정되었습니다")
+                    self.showAlert(message: "\(product.id)번 글이 수정되었습니다") {
+                        NotificationCenter.default.post(
+                            name: .modifyAfter,
+                            object: nil,
+                            userInfo: ["photo": self.editCollectionViewDataSource.photoAlbumImages,
+                                       "id": product.id
+                                      ])
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }

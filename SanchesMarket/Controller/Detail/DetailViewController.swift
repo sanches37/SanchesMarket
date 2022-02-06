@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         setUpDataSourceContent()
         setUpNavigationTitle()
         setUpKVO()
+        setUpNotification()
     }
     
     override func viewWillTransition(
@@ -70,10 +71,26 @@ class DetailViewController: UIViewController {
         observe =
         detailCollectionViewDelegate.observe(
             \.currentPageNumber, options: [.new]) {  _, change in
-            if let currentPageNumber = change.newValue {
-                self.content.setUpCurrentPageNumber(number: currentPageNumber)
+                if let currentPageNumber = change.newValue {
+                    self.content.setUpCurrentPageNumber(number: currentPageNumber)
+                }
             }
+    }
+    
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(operateModifyAfter(_:)),
+            name: .modifyAfter, object: nil)
+    }
+    
+    @objc func operateModifyAfter(_ notification: Notification) {
+        guard let photos = notification.userInfo?["photo"] as? [UIImage],
+        let product = product else {
+            return
         }
+        requestDetail(id: product.id)
+        detailCollectionViewDataSource.updatePhotos(photos: photos)
+        content.photoCollectionView.reloadData()
     }
     
     private func requestDetail(id: Int) {
@@ -134,8 +151,8 @@ class DetailViewController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async {
-                self.performSegue(withIdentifier: Self.segueModifyIdentifier,
-                                  sender: password)
+                    self.performSegue(withIdentifier: Self.segueModifyIdentifier,
+                                      sender: password)
                 }
             }
         }
@@ -143,7 +160,7 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let editViewController = segue.destination as? EditViewController,
-        let password = sender as? String,
+              let password = sender as? String,
               let product = product else {
                   return
               }
@@ -160,6 +177,6 @@ class DetailViewController: UIViewController {
         } modifyCompletion: { password in
             self.checkModifyPassword(password: password)
         }
-
+        
     }
 }

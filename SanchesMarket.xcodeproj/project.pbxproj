@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D30D44927AF9958005DD725 /* Notification.Name+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30D44827AF9957005DD725 /* Notification.Name+extension.swift */; };
 		4D4C5EFF278439540037496E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5EFE278439540037496E /* AppDelegate.swift */; };
 		4D4C5F01278439540037496E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F00278439540037496E /* SceneDelegate.swift */; };
 		4D4C5F03278439540037496E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C5F02278439540037496E /* MainViewController.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D30D44827AF9957005DD725 /* Notification.Name+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extension.swift"; sourceTree = "<group>"; };
 		4D4C5EFB278439540037496E /* SanchesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanchesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4C5EFE278439540037496E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D4C5F00278439540037496E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				4D951CC02792829F009827ED /* CALayer+extension.swift */,
 				4D7F8942279D305C00770DE2 /* UIViewController+extension.swift */,
 				4DE506B627A449220053FE77 /* UITextField+extension.swift */,
+				4D30D44827AF9957005DD725 /* Notification.Name+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				4DD88A7C2785325600EAED1D /* RequestProtocol.swift in Sources */,
 				4D4C5F1C27844C6E0037496E /* ProductCollection.swift in Sources */,
 				4DEF39DE27A5E44B00EC4695 /* CurrencyTextField.swift in Sources */,
+				4D30D44927AF9958005DD725 /* Notification.Name+extension.swift in Sources */,
 				4D951CC4279318B3009827ED /* CompositionalLayoutProduct.swift in Sources */,
 				4DD88A8D278584EC00EAED1D /* ParsingError.swift in Sources */,
 				4DD88A922785999D00EAED1D /* NetworkManager.swift in Sources */,

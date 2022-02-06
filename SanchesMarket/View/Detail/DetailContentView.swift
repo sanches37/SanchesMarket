@@ -42,7 +42,7 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let contentStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ class DetailContentView: UIView {
         return stackView
     }()
     
-    let photoStackView: UIStackView = {
+    private let photoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,7 @@ class DetailContentView: UIView {
         return collectionView
     }()
     
-    let photoPageControl: UIPageControl = {
+    private let photoPageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .systemBlue
@@ -82,7 +82,7 @@ class DetailContentView: UIView {
         return pageControl
     }()
     
-    let titleStackView: UIStackView = {
+    private let titleStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +92,7 @@ class DetailContentView: UIView {
         return stackView
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection(legibilityWeight: .bold))
         label.textColor = .black
@@ -102,7 +102,7 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let stockLabel: UILabel = {
+    private let stockLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
         label.font = .preferredFont(forTextStyle: .title2)
@@ -111,7 +111,7 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let priceStackView: UIStackView = {
+    private let priceStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +121,7 @@ class DetailContentView: UIView {
         return stackView
     }()
     
-    let priceLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
@@ -129,7 +129,7 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let discountedPriceLabel: UILabel = {
+    private let discountedPriceLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
@@ -137,7 +137,7 @@ class DetailContentView: UIView {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title3)
         label.textAlignment = .justified
@@ -227,7 +227,7 @@ class DetailContentView: UIView {
             photoStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -16),
             photoStackView.trailingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: -8),
             photoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            photoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             photoStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -8)
         ])
     }
@@ -258,6 +258,7 @@ class DetailContentView: UIView {
     
     func setUpLabel(product: Product) {
         titleLabel.text = product.title
+        navigationItemTitle.text = product.title
         photoPageControl.numberOfPages = product.thumbnails.count
         if product.stock == .zero {
             stockLabel.text = "품절"
