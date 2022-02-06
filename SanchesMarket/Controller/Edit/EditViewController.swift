@@ -204,7 +204,13 @@ class EditViewController: UIViewController {
                 self.initializeEditImpormation()
                 self.reqeustEdit { product in
                     DispatchQueue.main.async {
-                        self.showAlert(message: "\(product.id)번에 글이 등록되었습니다")
+                        self.showAlert(message: "\(product.id)번에 글이 등록되었습니다") {
+                            NotificationCenter.default.post(
+                                name: .enrollAfter,
+                                object: nil,
+                                userInfo: ["enrollId": product.id])
+                            self.navigationController?.popViewController(animated: true)
+                        }
                     }
                 }
             }
@@ -217,7 +223,7 @@ class EditViewController: UIViewController {
                             name: .modifyAfter,
                             object: nil,
                             userInfo: ["photo": self.editCollectionViewDataSource.photoAlbumImages,
-                                       "id": product.id
+                                       "modifyId": product.id
                                       ])
                         self.navigationController?.popViewController(animated: true)
                     }

@@ -39,7 +39,7 @@ class DetailPhotoCell: UICollectionViewCell {
     }
     
     func configure(photo: UIImage) {
-        photoImage.image = photo
+        self.photoImage.image = photo
     }
-
+    
 }

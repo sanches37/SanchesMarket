@@ -32,16 +32,15 @@ extension DetailCollectionViewDataSource: UICollectionViewDataSource {
         return cell
     }
     
-    func requestImage(thumnails: [String]) {
-        thumnails.forEach { thumnail in
-            imageManager.fetchImage(url: thumnail) { image in
-                DispatchQueue.main.async {
-                    switch image {
-                    case .success(let image):
-                        self.photos.append(image)
-                    case .failure(let error):
-                        print(error.errorDescription)
-                    }
+    func requestImage(thumnails: [String], completion: @escaping (Int) -> Void) {
+        for (index, url) in thumnails.enumerated() {
+            self.imageManager.fetchImage(url: url) { image in
+                switch image {
+                case .success(let image):
+                    self.photos.append(image)
+                    completion(index)
+                case .failure(let error):
+                    print(error.errorDescription)
                 }
             }
         }

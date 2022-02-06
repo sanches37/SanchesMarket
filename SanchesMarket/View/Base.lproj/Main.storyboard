@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="1727" y="-333"/>
         </scene>
-        <!--취소-->
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="dd" id="BYZ-38-t0r" customClass="MainViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dd" title="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="SanchesMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                             <constraint firstItem="Pa2-a9-ycD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k5I-sd-ZD9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="취소" id="XJG-VZ-7sl">
+                    <navigationItem key="navigationItem" title="Main" id="XJG-VZ-7sl">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gzH-5O-BCk">
                             <rect key="frame" x="148" y="5.6666666666666679" width="79" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

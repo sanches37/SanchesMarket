@@ -109,7 +109,12 @@ class DetailViewController: UIViewController {
     
     func setUpDetail(product: Product) {
         self.title = product.title
-        detailCollectionViewDataSource.requestImage(thumnails: product.thumbnails)
+        self.detailCollectionViewDataSource.requestImage(thumnails: product.thumbnails) { index in
+            DispatchQueue.main.async {
+                self.content.photoCollectionView.reloadItems(
+                    at: [(IndexPath(item: index, section: .zero))])
+            }
+        }
         requestDetail(id: product.id)
     }
     

@@ -49,18 +49,36 @@ class MainViewController: UIViewController {
     
     private func setUpNotification() {
         NotificationCenter.default.addObserver(
+            self, selector: #selector(operateEnrollAfter(_:)),
+            name: .enrollAfter, object: nil)
+        NotificationCenter.default.addObserver(
             self, selector: #selector(operateModifyAfter(_:)),
             name: .modifyAfter, object: nil)
     }
     
+    @objc func operateEnrollAfter(_ notification: Notification) {
+        guard let id = notification.userInfo?["enrollId"] as? Int else {
+            return
+        }
+        mainCollectionViewDataSource.requestEditAfter(id: id) { result in
+            self.mainCollectionViewDataSource.addProduct(product: result)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     @objc func operateModifyAfter(_ notification: Notification) {
-        guard let id = notification.userInfo?["id"] as? Int,
+        guard let id = notification.userInfo?["modifyId"] as? Int,
         let selectIndex = selectIndex else {
             return
         }
-        mainCollectionViewDataSource.requestModifyAfter(collectionView,
-                                                        id: id,
-                                                        index: selectIndex)
+        mainCollectionViewDataSource.requestEditAfter(id: id) { result in
+            self.mainCollectionViewDataSource.updateProductList(product: result, index: selectIndex)
+            DispatchQueue.main.async {
+                self.collectionView.reloadItems(at: [IndexPath(item: selectIndex, section: .zero)])
+            }
+        }
     }
 }
 

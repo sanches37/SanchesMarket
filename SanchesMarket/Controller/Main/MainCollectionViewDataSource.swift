@@ -17,6 +17,14 @@ class MainCollectionViewDataSource: NSObject {
     private var netxPage = 1
     weak var loadingIndicator: LodingIndicatable?
     
+    func addProduct(product: Product) {
+        productList.append(product)
+    }
+    
+    func updateProductList(product: Product, index: Int) {
+        productList[index] = product
+    }
+    
     func removeProductListIndex(index: Int) {
         productList.remove(at: index)
     }
@@ -58,17 +66,15 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
             }
     }
     
-    func requestModifyAfter(_ collectionView: UICollectionView, id: Int, index: Int) {
+    func requestEditAfter(id: Int, completion: @escaping (Product) -> Void) {
         self.networkManager.commuteWithAPI(
             api: GetItemAPI(id: id)) { result in
                 if case .success(let data) = result {
-                    guard let product = try? self.parsingManager.decodedJSONData(type: Product.self, data: data) else {
-                        return
-                    }
-                    self.productList[index] = product
-                    DispatchQueue.main.async {
-                        collectionView.reloadItems(at: [IndexPath(item: index, section: .zero)])
-                    }
+                    guard let product =
+                            try? self.parsingManager.decodedJSONData(type: Product.self, data: data) else {
+                                return
+                            }
+                    completion(product)
                 }
             }
     }

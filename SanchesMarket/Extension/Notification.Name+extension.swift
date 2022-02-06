@@ -8,5 +8,6 @@
 import Foundation
 
 extension Notification.Name {
+    static let enrollAfter = Notification.Name("enrollAfter")
     static let modifyAfter = Notification.Name("modifyAfter")
 }
