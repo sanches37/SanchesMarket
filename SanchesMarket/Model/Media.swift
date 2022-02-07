@@ -16,7 +16,7 @@ struct Media {
     init?(image: UIImage, mimeType: MimeType) {
         switch mimeType {
         case .jpeg:
-            guard let data = image.jpegData(compressionQuality: 0.7) else { return nil }
+            guard let data = image.jpegData(compressionQuality: 1) else { return nil }
             self.data = data
             self.filename = "\(Date()).jpeg"
         case .png:

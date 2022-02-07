@@ -41,5 +41,4 @@ class DetailPhotoCell: UICollectionViewCell {
     func configure(photo: UIImage) {
         self.photoImage.image = photo
     }
-    
 }

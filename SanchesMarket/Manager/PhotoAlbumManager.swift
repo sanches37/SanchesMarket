@@ -44,7 +44,7 @@ class PhotoAlbumManager {
     func requestImage(asset: PHAsset, completion: @escaping ((UIImage) -> Void)) {
         let options = PHImageRequestOptions()
         options.isSynchronous = true
-        PHImageManager().requestImage(for: asset, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFill, options: options) { (image, _) in
+        PHImageManager().requestImage(for: asset, targetSize: CGSize(width: 280, height: 280), contentMode: .aspectFill, options: options) { (image, _) in
             if let image = image {
                 completion(image)
             }
