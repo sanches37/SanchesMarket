@@ -99,8 +99,9 @@ class ProductCell: UICollectionViewCell {
                     switch image {
                     case .success(let image):
                         self.thumbnailImage.image = image
-                    case .failure:
+                    case .failure(let error):
                         self.thumbnailImage.image = #imageLiteral(resourceName: "LoadedImageFailed")
+                        debugPrint(error.errorDescription)
                     }
                 }
             }

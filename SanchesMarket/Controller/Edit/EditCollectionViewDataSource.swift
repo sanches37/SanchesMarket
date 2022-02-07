@@ -12,6 +12,22 @@ class EditCollectionViewDataSource: NSObject {
     private var photoSelectButton: ((UIButton) -> Void)?
     private var photoDeleteButton: ((UIButton) -> Void)?
     @objc dynamic private(set) var photoAlbumImages: [UIImage] = []
+    
+    func getPhotoSelectButton(completion: @escaping ((UIButton) -> Void)) {
+        self.photoSelectButton = completion
+    }
+    
+    func getPhotoDeleteButton(completion: @escaping ((UIButton) -> Void)) {
+        self.photoDeleteButton = completion
+    }
+    
+    func addPhotoAlbumImage(images: [UIImage]) {
+        photoAlbumImages += images
+    }
+    
+    func removePhotoAlbumImage(index: Int) {
+        photoAlbumImages.remove(at: index)
+    }
 }
 
 extension EditCollectionViewDataSource: UICollectionViewDataSource {
@@ -44,21 +60,5 @@ extension EditCollectionViewDataSource: UICollectionViewDataSource {
     
     func decidedCollectionViewLayout(_ collectionView: UICollectionView) {
         collectionView.collectionViewLayout = layoutDirector.createEdit().create()
-    }
-    
-    func getPhotoSelectButton(completion: @escaping ((UIButton) -> Void)) {
-        self.photoSelectButton = completion
-    }
-    
-    func getPhotoDeleteButton(completion: @escaping ((UIButton) -> Void)) {
-        self.photoDeleteButton = completion
-    }
-    
-    func addPhotoAlbumImage(images: [UIImage]) {
-        photoAlbumImages += images
-    }
-    
-    func removePhotoAlbumImage(index: Int) {
-        photoAlbumImages.remove(at: index)
     }
 }

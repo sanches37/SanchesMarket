@@ -93,7 +93,6 @@ class EditViewController: UIViewController {
         observe =
         editCollectionViewDataSource.observe(\.photoAlbumImages, options: [.new]) {  _, change in
             if let images = change.newValue {
-                print(images.count)
                 self.convertMedias(images: images)
             }
         }
@@ -182,7 +181,8 @@ class EditViewController: UIViewController {
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showAlert(message: "시스템문제(\(error.errorDescription))로 실패하였습니다")
+                    self.showAlert(message: "시스템문제로 실패하였습니다. 관리자에게 연락해주세요")
+                    debugPrint(error.errorDescription)
                 }
             case .success(let data):
                 guard let product = try? self.parsingManager.decodedJSONData(

@@ -51,7 +51,8 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
         loadingIndicator?.isHidden(false)
         self.networkManager.commuteWithAPI(
             api: GetItemsAPI(page: netxPage)) { result in
-                if case .success(let data) = result {
+                switch result {
+                case .success(let data):
                     guard let product = try? self.parsingManager.decodedJSONData(type: ProductCollection.self, data: data) else {
                         return
                     }
@@ -62,6 +63,8 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
                         self.loadingIndicator?.stopAnimating()
                         self.loadingIndicator?.isHidden(true)
                     }
+                case .failure(let error):
+                    debugPrint(error.errorDescription)
                 }
             }
     }
@@ -69,12 +72,15 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
     func requestEditAfter(id: Int, completion: @escaping (Product) -> Void) {
         self.networkManager.commuteWithAPI(
             api: GetItemAPI(id: id)) { result in
-                if case .success(let data) = result {
+                switch result {
+                case .success(let data):
                     guard let product =
                             try? self.parsingManager.decodedJSONData(type: Product.self, data: data) else {
                                 return
                             }
                     completion(product)
+                case .failure(let error):
+                    debugPrint(error.errorDescription)
                 }
             }
     }

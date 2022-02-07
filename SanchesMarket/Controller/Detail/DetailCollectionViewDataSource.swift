@@ -40,7 +40,7 @@ extension DetailCollectionViewDataSource: UICollectionViewDataSource {
                     self.photos.append(image)
                     completion(index)
                 case .failure(let error):
-                    print(error.errorDescription)
+                    debugPrint(error.errorDescription)
                 }
             }
         }

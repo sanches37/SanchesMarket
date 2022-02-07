@@ -126,10 +126,10 @@ class DetailViewController: UIViewController {
             api: DeleteAPI(id: product.id, password: password)) { result in
                 switch result {
                 case .failure(let error):
-                    print(error.errorDescription)
                     DispatchQueue.main.async {
                         self.showAlert(message: "비밀번호가 틀렸습니다")
                     }
+                    debugPrint(error.errorDescription)
                 case .success:
                     DispatchQueue.main.async {
                         self.showAlert(message: "삭제되었습니다") {
@@ -150,10 +150,10 @@ class DetailViewController: UIViewController {
         networkManager.commuteWithAPI(api: PatchAPI(id: product.id, parameter: multipartFormData.parameter, image: nil)) { result in
             switch result {
             case .failure(let error):
-                print(error.errorDescription)
                 DispatchQueue.main.async {
                     self.showAlert(message: "비밀번호가 틀렸습니다")
                 }
+                debugPrint(error.errorDescription)
             case .success:
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: Self.segueModifyIdentifier,
