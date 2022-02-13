@@ -70,9 +70,9 @@ class DetailViewController: UIViewController {
     private func setUpKVO() {
         observe =
         detailCollectionViewDelegate.observe(
-            \.currentPageNumber, options: [.new]) {  _, change in
+            \.currentPageNumber, options: [.new]) { [weak self] _, change in
                 if let currentPageNumber = change.newValue {
-                    self.content.setUpCurrentPageNumber(number: currentPageNumber)
+                    self?.content.setUpCurrentPageNumber(number: currentPageNumber)
                 }
             }
     }
@@ -85,9 +85,9 @@ class DetailViewController: UIViewController {
     
     @objc func operateModifyAfter(_ notification: Notification) {
         guard let photos = notification.userInfo?["photo"] as? [UIImage],
-        let product = product else {
-            return
-        }
+              let product = product else {
+                  return
+              }
         requestDetail(id: product.id)
         detailCollectionViewDataSource.updatePhotos(photos: photos)
         content.photoCollectionView.reloadData()
@@ -133,9 +133,9 @@ class DetailViewController: UIViewController {
                 case .success:
                     DispatchQueue.main.async {
                         self.showAlert(message: "삭제되었습니다") {
-                            self.delegate?.updateDeleteIndexPath {
-                                self.navigationController?.popViewController(animated: true)
-                            }
+                            self.delegate?.updateDeleteIndexPath()
+                            self.navigationController?.popViewController(animated: true)
+                            
                         }
                     }
                 }
@@ -177,9 +177,11 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
-        self.showEditAction { password in
+        self.showEditAction { [weak self] password in
+            guard let self = self else { return }
             self.requestDelete(password: password)
-        } modifyCompletion: { password in
+        } modifyCompletion: { [weak self] password in
+            guard let self = self else { return }
             self.checkModifyPassword(password: password)
         }
         

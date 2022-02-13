@@ -105,14 +105,10 @@ extension MainViewController: IndexPathAvailable {
         performSegue(withIdentifier: MainViewController.segueDetailIdentifier, sender: mainCollectionViewDataSource.productList[indexPath.item])
     }
     
-    func updateDeleteIndexPath(completion: @escaping () -> Void) {
+    func updateDeleteIndexPath() {
         guard let index = selectIndex else { return }
         mainCollectionViewDataSource.removeProductListIndex(index: index)
-        collectionView.performBatchUpdates {
-            collectionView.deleteItems(at: [IndexPath(item: index, section: .zero)])
-        } completion: { _ in
-            completion()
-        }
+        collectionView.deleteItems(at: [IndexPath(item: index, section: .zero)])
     }
 }
 

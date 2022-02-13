@@ -10,5 +10,5 @@ import Foundation
 protocol IndexPathAvailable: NSObject {
     func getCollectionViewIndexPath(indexPath: IndexPath)
     func operatePerformSegue(indexPath: IndexPath)
-    func updateDeleteIndexPath(completion: @escaping () -> Void)
+    func updateDeleteIndexPath()
 }

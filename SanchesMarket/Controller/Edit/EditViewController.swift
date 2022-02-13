@@ -79,21 +79,21 @@ class EditViewController: UIViewController {
     }
     
     private func setUpButton() {
-        editCollectionViewDataSource.getPhotoSelectButton { selectButton in
+        editCollectionViewDataSource.getPhotoSelectButton { [weak self] selectButton in
             selectButton.addTarget(
-                self, action: #selector(self.movePhotoAlbum(_:)), for: .touchUpInside)
+                self, action: #selector(self?.movePhotoAlbum(_:)), for: .touchUpInside)
         }
-        editCollectionViewDataSource.getPhotoDeleteButton { deleteButton in
+        editCollectionViewDataSource.getPhotoDeleteButton { [weak self] deleteButton in
             deleteButton.addTarget(
-                self, action: #selector(self.removeSelectPhoto(_:)), for: .touchUpInside)
+                self, action: #selector(self?.removeSelectPhoto(_:)), for: .touchUpInside)
         }
     }
     
     private func setUpKVO() {
         observe =
-        editCollectionViewDataSource.observe(\.photoAlbumImages, options: [.new]) {  _, change in
+        editCollectionViewDataSource.observe(\.photoAlbumImages, options: [.new]) { [weak self] _, change in
             if let images = change.newValue {
-                self.convertMedias(images: images)
+                self?.convertMedias(images: images)
             }
         }
     }
@@ -199,7 +199,8 @@ class EditViewController: UIViewController {
         guard checkEssentialParameter() else { return }
         setUpMultipartParameter()
         if editImpormation?.essentialElement == .post {
-            self.setUpPasswordAlert { password in
+            self.setUpPasswordAlert { [weak self] password in
+                guard let self = self else { return }
                 self.multipartFormData.password = password
                 self.initializeEditImpormation()
                 self.reqeustEdit { product in
